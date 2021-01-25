@@ -64,7 +64,7 @@ public class GameBoard : MonoBehaviour {
             if (cannotWalkMap.GetTile(cellPos) == null) {
                 continue;
             }
-            LogicTile tile = allLogicTiles.Where(t => cellPos == t.CellPos).FirstOrDefault();
+            LogicTile tile = worldTiles[walkMap.CellToWorld(cellPos)];
             tile.CanWalk = false;
         }
     }
@@ -120,10 +120,6 @@ public class GameBoard : MonoBehaviour {
 
     // 获取移动路径
     public List<LogicTile> MoveToDestination(LogicTile start, LogicTile end) {
-        if (!movementTiles.Contains(start) || !movementTiles.Contains(end)) {
-            Debug.LogError("错误的移动起始点or目标点");
-            return null;
-        }
         List<LogicTile> results = new List<LogicTile> { end };
         LogicTile currentTile = end;
         while (currentTile.NextOnPath != null) {

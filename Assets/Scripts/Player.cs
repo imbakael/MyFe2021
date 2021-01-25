@@ -40,12 +40,12 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    public void MoveTo(LogicTile tile) {
-        if (tile.PlayerOnTile != null && tile.PlayerOnTile != this) {
+    public void MoveTo(LogicTile destination) {
+        if (destination.PlayerOnTile != null && destination.PlayerOnTile != this) {
             return;
         }
 
-        List<LogicTile> tilePath = board.MoveToDestination(Tile, tile);
+        List<LogicTile> tilePath = board.MoveToDestination(Tile, destination);
         StartCoroutine(Move(tilePath));
     }
 
