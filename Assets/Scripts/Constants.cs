@@ -57,3 +57,5 @@ public enum FighterState {
     HURT, // 受伤
     DIE // 死亡
 }
+
+// 新建一个类，记录每日想法

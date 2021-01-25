@@ -131,6 +131,7 @@ public class GameBoard : MonoBehaviour {
     }
 
     public void InitPlayers(int[] tileIndexes) {
+        // 参数应该改为Vector2Int[]类型
         for (int i = 0; i < tileIndexes.Length; i++) {
             int index = tileIndexes[i];
             LogicTile tile = allLogicTiles[index];

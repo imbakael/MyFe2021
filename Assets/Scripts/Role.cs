@@ -26,7 +26,6 @@ public class Role : Unit {
         }
         // 攻击结束
         FightState = FighterState.IDLE;
-
     }
 
     public override void Die() {
