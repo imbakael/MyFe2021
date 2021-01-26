@@ -37,7 +37,7 @@ public class BattleManager : Singleton<BattleManager>
     }
 
     // 全局战斗
-    IEnumerator Battle() {
+    private IEnumerator Battle() {
         // 战前已经算出双方的总回合数（假设期间双方都没有死），能影响回合数的只有速度差值，所以战斗内一方顶多2回合
         int myTotalTurn = 1;
         int enemyTotalTurn = 1; // 假设对面无法攻击（射程不够或者没有武器），则此值为0
@@ -59,7 +59,7 @@ public class BattleManager : Singleton<BattleManager>
     /// </summary>
     /// <param name="first">主动方</param>
     /// <returns></returns>
-    IEnumerator TurnBattle(FightUnit first) {
+    private IEnumerator TurnBattle(FightUnit first) {
         int attackCount = 2; // 根据角色天赋、武器算出单回合的攻击次数
         bool isTurnStart = true;
         while (attackCount > 0) {

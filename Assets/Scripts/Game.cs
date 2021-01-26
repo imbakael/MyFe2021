@@ -22,10 +22,6 @@ public class Game : MonoBehaviour
 
     private void Update() {
         if (Input.GetMouseButtonUp(0)) {
-            if (Stage.isTouchOnUI) {
-                return;
-            }
-
             Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int worldPoint = new Vector3Int(Mathf.FloorToInt(point.x), Mathf.FloorToInt(point.y), 0);
             LogicTile tile = board.GetLogicTile(worldPoint);

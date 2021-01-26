@@ -28,12 +28,12 @@ public class UnitAttr
     public int Str; // 力量
     public int Def; // 物防
     public int Mag; // 魔力
+    public int Res; // 魔防
     public int Ski; // 技巧
     public int Spd; // 速度
-    public int Res; // 魔防
     public int Luck; // 幸运
-    public int Move; // 移动力
     public int Con; // 体格
+    public int Move; // 移动力
     #endregion
 
     #region 基础抗性
@@ -44,5 +44,20 @@ public class UnitAttr
     public float ThunderResist;
     public float WindResist;
     #endregion
+
+    #region 大地图属性
+    public Vector2Int position = new Vector2Int(3, 3);
+    public MapState mapState = MapState.IDLE;
+    public LogicTile tile;
+    #endregion
+
+    // 装备
+    public List<Item> items = new List<Item>();
+
+    // buff
+
+    public UnitAttr(Json json) {
+        // 读取Json数据
+    }
 
 }
