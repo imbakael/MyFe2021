@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Role : Unit {
+public class Role : FightUnit {
 
     // 空闲，普攻，必杀，躲避，受伤，死亡
     private Animator animator;

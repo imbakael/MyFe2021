@@ -11,7 +11,7 @@ public class LogicTile
     public int Y { get; private set; }
     public LogicTile NextOnPath { get; private set; }
     public Vector3Int CellPos { get; set; }
-    public Player PlayerOnTile { get; set; }
+    public MapUnit PlayerOnTile { get; set; }
     public bool CanWalk { get; set; } = true;
     public int LeftAttack { get; set; } // 走到此tile后剩余的攻击射程
 

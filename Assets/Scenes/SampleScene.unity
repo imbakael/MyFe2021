@@ -1710,7 +1710,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0852a38d9b2702f49ba0b5c98d2cf0c0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7b9d149ad75c88f418d086365730cacf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4460,4 +4460,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 2010655781}
   myRole: {fileID: 1200220121}
-  enemy: {fileID: 453681315}
+  enemy: {fileID: 0}

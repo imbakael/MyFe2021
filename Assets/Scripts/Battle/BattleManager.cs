@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BattleManager : Singleton<BattleManager>
 {
-    private Unit activeUnit; // 主动方
-    private Unit passiveUnit; // 被动方
+    private FightUnit activeUnit; // 主动方
+    private FightUnit passiveUnit; // 被动方
 
-    public void StartBattle(Unit active, Unit passive) {
+    public void StartBattle(FightUnit active, FightUnit passive) {
         activeUnit = active;
         passiveUnit = passive;
 
@@ -59,7 +59,7 @@ public class BattleManager : Singleton<BattleManager>
     /// </summary>
     /// <param name="first">主动方</param>
     /// <returns></returns>
-    IEnumerator TurnBattle(Unit first) {
+    IEnumerator TurnBattle(FightUnit first) {
         int attackCount = 2; // 根据角色天赋、武器算出单回合的攻击次数
         bool isTurnStart = true;
         while (attackCount > 0) {

@@ -8,12 +8,16 @@ public class Game : MonoBehaviour
     [SerializeField]
     private GameBoard board = default;
     [SerializeField]
-    private Unit myRole = default;
+    private FightUnit myRole = default;
     [SerializeField]
-    private Unit enemy = default;
+    private FightUnit enemy = default;
 
     private void Awake() {
-        board.InitPlayers(new int[] { 100 });
+        // 加载各个势力的所有角色阵容
+
+        board.InitPlayers(new Vector2Int[] {
+            new Vector2Int(10, 5)
+        });
     }
 
     private void Update() {
@@ -27,7 +31,7 @@ public class Game : MonoBehaviour
             LogicTile tile = board.GetLogicTile(worldPoint);
             if (tile != null) {
                 board.ClickOneTile(tile);
-                board.SetColor(tile);
+                //board.SetColor(tile);
             }
         }
         if (Input.GetKeyDown(KeyCode.J)) {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Unit
+public class Knight : FightUnit
 {
     [SerializeField]
     private float moveSpeed = 1f;

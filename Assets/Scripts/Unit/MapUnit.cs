@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 单个角色，包含大地图和战斗内的所有数据
-public class Player : MonoBehaviour
+public class MapUnit : MonoBehaviour
 {
     [SerializeField]
     private int playerMovePower = default;

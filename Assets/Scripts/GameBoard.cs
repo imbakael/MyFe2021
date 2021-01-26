@@ -16,7 +16,7 @@ public class GameBoard : MonoBehaviour {
     [SerializeField]
     private GameObject[] uiTilePrefabs = default;
     [SerializeField]
-    private Player[] playerPrefabs = default;
+    private MapUnit[] playerPrefabs = default;
     [SerializeField]
     private Transform tileUI = default;
 
@@ -24,8 +24,8 @@ public class GameBoard : MonoBehaviour {
     private Dictionary<Vector3, LogicTile> worldTiles = new Dictionary<Vector3, LogicTile>();
     private List<LogicTile> movementTiles = new List<LogicTile>(); // 角色移动范围
     private List<GameObject> uiTiles = new List<GameObject>();
-    private List<Player> allMyPlayers = new List<Player>();
-    private Player currentPlayer = null;
+    private List<MapUnit> allMyPlayers = new List<MapUnit>();
+    private MapUnit currentPlayer = null;
 
     private void Awake() {
         instance = this;
@@ -72,7 +72,7 @@ public class GameBoard : MonoBehaviour {
     public void ClickOneTile(LogicTile tile) {
         if (currentPlayer != null) {
             if (currentPlayer.State == MapState.READY_MOVE) {
-                Player tileUnit = tile.PlayerOnTile;
+                MapUnit tileUnit = tile.PlayerOnTile;
                 if (tileUnit != null && tileUnit != currentPlayer && tileUnit.State == MapState.IDLE) {
                     currentPlayer.Cancel();
                     currentPlayer = tileUnit;
@@ -90,7 +90,7 @@ public class GameBoard : MonoBehaviour {
             return;
         }
 
-        Player player = tile.PlayerOnTile;
+        MapUnit player = tile.PlayerOnTile;
         if (player != null && player.CanBeSelected()) {
             currentPlayer = player;
         }
@@ -130,19 +130,19 @@ public class GameBoard : MonoBehaviour {
         return results;
     }
 
-    public void InitPlayers(int[] tileIndexes) {
-        // 参数应该改为Vector2Int[]类型
-        for (int i = 0; i < tileIndexes.Length; i++) {
-            int index = tileIndexes[i];
+    public void InitPlayers(Vector2Int[] allCellPos) {
+        for (int i = 0; i < allCellPos.Length; i++) {
+            Vector2Int cellPos = allCellPos[i];
+            int index = walkMap.size.x * cellPos.y + cellPos.x;
             LogicTile tile = allLogicTiles[index];
-            Player player = Instantiate(playerPrefabs[0]);
+            MapUnit player = Instantiate(playerPrefabs[0]);
             allMyPlayers.Add(player);
             SetPlayerOnTile(tile, player);
             player.transform.position = GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
         }
     }
 
-    private void SetPlayerOnTile(LogicTile tile, Player p) {
+    private void SetPlayerOnTile(LogicTile tile, MapUnit p) {
         tile.PlayerOnTile = p;
         p.Tile = tile;
     }
