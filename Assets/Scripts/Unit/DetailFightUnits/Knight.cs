@@ -9,7 +9,11 @@ public class Knight : FightUnit
 
     private Animator animator;
     private Coroutine moveCoro;
+    // 碰撞盒应该关掉
     private BoxCollider2D box;
+    // 停止点, 对方走到这个点后会停止移动，进行普攻or必杀动画
+    private Transform stop;
+    // 控制UI掉血
 
     private void Awake() {
         animator = GetComponent<Animator>();
