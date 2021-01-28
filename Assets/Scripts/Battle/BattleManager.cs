@@ -73,4 +73,7 @@ public class BattleManager : Singleton<BattleManager>
             attackCount--;
         }
     }
+
+    // 获取对手
+    public FightUnit GetOpponent(FightUnit me) => me == activeUnit ? passiveUnit : activeUnit;
 }
