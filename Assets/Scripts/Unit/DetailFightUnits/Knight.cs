@@ -9,15 +9,12 @@ public class Knight : FightUnit
 
     private Animator animator;
     private Coroutine moveCoro;
-    // 碰撞盒应该关掉
-    private BoxCollider2D box;
     // 停止点, 对方走到这个点后会停止移动，进行普攻or必杀动画
     private Transform stop;
     // 控制UI掉血
 
     private void Awake() {
         animator = GetComponent<Animator>();
-        box = GetComponent<BoxCollider2D>();
     }
 
     public override IEnumerator AttackTo() {
@@ -51,7 +48,7 @@ public class Knight : FightUnit
     }
 
     private void StartMove() {
-        float xDistance = Target.transform.position.x - box.bounds.center.x;
+        float xDistance = Target.transform.position.x - stop.position.x;
         float time = 35f / 60f;
         if (xDistance > 0) {
             moveSpeed = xDistance / time;

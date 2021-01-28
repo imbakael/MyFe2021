@@ -11,7 +11,7 @@ public class ConversTool {
             { DamageType.SWORD, 0.5f}
         },
         new Dictionary<DamageType, float> {
-            { DamageType.SWORD, 0.5f}
+            { DamageType.SPEAR, 0.5f}
         },
         new Dictionary<DamageType, float> {
             

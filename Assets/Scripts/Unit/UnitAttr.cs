@@ -1,11 +1,12 @@
 ﻿// 只保存数据（字段），没有方法，保证数据和逻辑分离
 // 每个具体的单位类都持有一个此对象，此对象也是保存数据的重点
+using System.Collections.Generic;
+using UnityEngine;
+
 [System.Serializable]
 public class UnitAttr
 {
     public TeamType Team;
-    public int Id;
-
     public int Name;
     public int ClassId; // 职业id，如剑士、战士、刺客，通过id查表即可获得职业名
     public int Lv;
@@ -56,7 +57,7 @@ public class UnitAttr
 
     // buff
 
-    public UnitAttr(Json json) {
+    public UnitAttr() {
         // 读取Json数据
     }
 
