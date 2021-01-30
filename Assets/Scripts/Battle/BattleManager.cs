@@ -57,9 +57,9 @@ public class BattleManager : Singleton<BattleManager>
     /// <summary>
     /// 单回合战斗
     /// </summary>
-    /// <param name="first">主动方</param>
+    /// <param name="one">攻击方</param>
     /// <returns></returns>
-    private IEnumerator TurnBattle(FightUnit first) {
+    private IEnumerator TurnBattle(FightUnit one) {
         int attackCount = 2; // 根据角色天赋、武器算出单回合的攻击次数
         bool isTurnStart = true;
         while (attackCount > 0) {
@@ -67,13 +67,11 @@ public class BattleManager : Singleton<BattleManager>
                 // 计算第一次攻击时的才有可能触发天赋，产生增加攻击力、攻击次数等效果
                 isTurnStart = false;
             }
-            yield return first.AttackTo();
+            yield return one.AttackTo();
             // 每次攻击命中后会算攻击可能产生的效果，以及每次命中后己方or敌方死亡则结束战斗
             
             attackCount--;
         }
     }
 
-    // 获取对手
-    public FightUnit GetOpponent(FightUnit me) => me == activeUnit ? passiveUnit : activeUnit;
 }
