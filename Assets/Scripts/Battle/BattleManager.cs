@@ -64,11 +64,11 @@ public class BattleManager : Singleton<BattleManager>
         bool isTurnStart = true;
         while (attackCount > 0) {
             if (isTurnStart) {
-                // 计算第一次攻击时的才有可能触发天赋，产生增加攻击力、攻击次数等效果
+                // 每回合第一次攻击时的才有可能触发流星剑等天赋，产生增加攻击力、攻击次数等效果
                 isTurnStart = false;
             }
             yield return one.AttackTo();
-            // 每次攻击命中后会算攻击可能产生的效果，以及每次命中后己方or敌方死亡则结束战斗
+            // 每次攻击命中后会算攻击可能产生的效果，以及每次命中后有一方死亡则结束战斗
             
             attackCount--;
         }

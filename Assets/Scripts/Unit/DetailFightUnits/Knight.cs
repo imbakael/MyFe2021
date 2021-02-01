@@ -74,7 +74,6 @@ public class Knight : FightUnit
         animator.speed = 0f;
         yield return new WaitForSeconds(1f);
         animator.speed = 1f;
-
     }
 
 }
