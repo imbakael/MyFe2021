@@ -69,7 +69,6 @@ public class BattleManager : Singleton<BattleManager>
             }
             yield return one.AttackTo();
             // 每次攻击命中后会算攻击可能产生的效果，以及每次命中后有一方死亡则结束战斗
-            
             attackCount--;
         }
     }
