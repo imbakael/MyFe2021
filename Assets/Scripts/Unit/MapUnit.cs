@@ -18,7 +18,6 @@ public class MapUnit : MonoBehaviour
     public LogicTile Tile { get; set; }
 
     private TeamType type;
-
     private GameBoard board;
     private LogicTile destination;
 
