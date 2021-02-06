@@ -17,6 +17,9 @@ public class Knight : FightUnit
         animator = GetComponent<Animator>();
     }
 
+    // 一定是主要由游戏内在逻辑去驱动动画，而不是由动画驱动逻辑
+    // 先走到对方FightUnit前的预设点point【内在逻辑】，期间播放行走动画，然后攻击【内在逻辑】，播放攻击动画；
+    // 而不是播放整个行走->攻击动画，增加行走部分的动画关键帧来迎合整个过程，这就属于典型的动画驱动逻辑了！！
     public override IEnumerator AttackTo() {
         FightState = FighterState.ATTACK;
         animator.SetTrigger("Attack");

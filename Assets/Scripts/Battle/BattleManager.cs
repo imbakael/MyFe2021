@@ -41,7 +41,12 @@ public class BattleManager : Singleton<BattleManager>
         // 战前已经算出双方的总回合数（假设期间双方都没有死），能影响回合数的只有速度差值，所以战斗内一方顶多2回合
         int myTotalTurn = 1;
         int enemyTotalTurn = 1; // 假设对面无法攻击（射程不够或者没有武器），则此值为0
+        bool isBattleStart = true;
         while (myTotalTurn > 0 || enemyTotalTurn > 0) {
+            if (isBattleStart) {
+                isBattleStart = false;
+                // 等待主动方选择释放战斗技
+            }
             if (myTotalTurn > 0) {
                 yield return TurnBattle(activeUnit);
                 myTotalTurn--;
