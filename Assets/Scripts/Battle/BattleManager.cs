@@ -19,6 +19,7 @@ public class BattleManager : Singleton<BattleManager>
         加载战斗UI，背景图等
 
         假设我方是攻击者，敌人是防守者，战斗开始
+        
         我方小回合1
             第一次攻击时判断触发连续，攻击次数+1，判定命中、必杀、大盾
             第二次攻击判断命中、必杀、大盾
