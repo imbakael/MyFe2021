@@ -11,7 +11,6 @@ public class Role : FightUnit {
     }
 
     public override IEnumerator AttackTo() {
-        FightState = FighterState.ATTACK;
         // 计算命中，必杀，天赋，可以暂时先不考虑，直接100%命中的普攻
         animator.SetTrigger("Attack"); // 这里也有可能播放必杀动画
         GetComponent<SpriteRenderer>().sortingOrder = 1;
@@ -24,8 +23,6 @@ public class Role : FightUnit {
         while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
             yield return null;
         }
-        // 攻击结束
-        FightState = FighterState.IDLE;
     }
 
     public override void Die() {

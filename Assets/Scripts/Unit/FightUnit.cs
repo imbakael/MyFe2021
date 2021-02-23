@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class FightUnit : MonoBehaviour
 {
+    // 停止点, 对方走到这个点后会停止移动，进行普攻or必杀动画
+    public Transform collidePoint;
+
     public UnitAttr Attr { get; }
     
     public const int MAX_ITEM_NUM = 5; // 最大可持有道具数量（背包格子上限）
@@ -16,7 +19,7 @@ public abstract class FightUnit : MonoBehaviour
     public DamageType DamType { get; set; } = DamageType.SWORD; // 伤害类型
 
     #region 战斗相关
-    public FighterState FightState { get; set; } = FighterState.IDLE;
+    //public FighterState FightState { get; set; } = FighterState.IDLE;
     public FightUnit Target { get; set; } // 战斗时的对手
     public abstract IEnumerator AttackTo(); // 对目标进行攻击or治疗
     public abstract void TakeDamage(int damage);

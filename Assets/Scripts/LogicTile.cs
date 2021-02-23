@@ -11,7 +11,7 @@ public class LogicTile
     public int Y { get; private set; }
     public LogicTile NextOnPath { get; private set; }
     public Vector3Int CellPos { get; set; }
-    public MapUnit PlayerOnTile { get; set; }
+    public MapUnit UnitOnTile { get; set; }
     public bool CanWalk { get; set; } = true;
     public int LeftAttack { get; set; } // 走到此tile后剩余的攻击射程
 
@@ -37,6 +37,17 @@ public class LogicTile
         Debug.Assert(east.west == null && west.east == null, "logicTile已经被初始化！");
         east.west = west;
         west.east = east;
+    }
+
+    public static List<LogicTile> GetPath(LogicTile start, LogicTile end) {
+        var results = new List<LogicTile> { end };
+        LogicTile currentTile = end;
+        while (currentTile.NextOnPath != null) {
+            results.Add(currentTile.NextOnPath);
+            currentTile = currentTile.NextOnPath;
+        }
+        results.Reverse();
+        return results;
     }
 
     public void ClearPath() {
@@ -71,7 +82,10 @@ public class LogicTile
 
     #region 攻击范围相关
     // 获得某一范围内的所有的边缘tile
-    public static List<LogicTile> GetAllBoundTiles(List<LogicTile> tiles) => tiles.Where(t => IsTileBound(t, tiles)).ToList();
+    public static List<LogicTile> GetAllBoundTiles(List<LogicTile> tiles) => 
+        tiles
+        .Where(t => IsTileBound(t, tiles))
+        .ToList();
 
     /// <summary>
     /// 判定某个tile是否为边缘tile，依次检测东西南北的相邻格是否属于移动范围

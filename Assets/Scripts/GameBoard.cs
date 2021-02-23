@@ -25,7 +25,7 @@ public class GameBoard : MonoBehaviour {
     private List<LogicTile> movementTiles = new List<LogicTile>(); // 角色移动范围
     private List<GameObject> uiTiles = new List<GameObject>();
     private List<MapUnit> allMyPlayers = new List<MapUnit>();
-    private MapUnit currentPlayer = null;
+    private MapUnit currentMapUnit;
 
     private void Awake() {
         instance = this;
@@ -70,45 +70,43 @@ public class GameBoard : MonoBehaviour {
     }
 
     public void ClickOneTile(LogicTile tile) {
-        if (currentPlayer != null) {
-            if (currentPlayer.State == MapState.READY_MOVE) {
-                MapUnit tileUnit = tile.PlayerOnTile;
-                if (tileUnit != null && tileUnit != currentPlayer && tileUnit.State == MapState.IDLE) {
-                    currentPlayer.Cancel();
-                    currentPlayer = tileUnit;
-                    currentPlayer.CanBeSelected();
+        if (currentMapUnit != null) {
+            if (currentMapUnit.State == MapState.READY_MOVE) {
+                MapUnit tileUnit = tile.UnitOnTile;
+                if (tileUnit != null && tileUnit != currentMapUnit && tileUnit.State == MapState.IDLE) {
+                    currentMapUnit.Cancel();
+                    currentMapUnit = tileUnit;
+                    currentMapUnit.CanBeSelected();
                     return;
                 }
 
-                if (IsInMoveRange(tile)) {
-                    currentPlayer.MoveTo(tile);
+                if (movementTiles.Contains(tile)) {
+                    currentMapUnit.MoveTo(tile);
                 } else {
-                    currentPlayer.Cancel();
-                    currentPlayer = null;
+                    currentMapUnit.Cancel();
+                    currentMapUnit = null;
                 }
             }
             return;
         }
 
-        MapUnit player = tile.PlayerOnTile;
-        if (player != null && player.CanBeSelected()) {
-            currentPlayer = player;
+        MapUnit unit = tile.UnitOnTile;
+        if (unit != null && unit.CanBeSelected()) {
+            currentMapUnit = unit;
         }
     }
 
-    private bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
-
     public void Cancel() {
-        if (currentPlayer != null && currentPlayer.State == MapState.MOVE_END) {
-            currentPlayer.GoBack();
+        if (currentMapUnit != null && currentMapUnit.State == MapState.MOVE_END) {
+            currentMapUnit.GoBack();
         }
     }
 
     public void Standby() {
-        if (currentPlayer != null && currentPlayer.State == MapState.MOVE_END) {
+        if (currentMapUnit != null && currentMapUnit.State == MapState.MOVE_END) {
             ClearUITiles();
-            currentPlayer.Standby();
-            currentPlayer = null;
+            currentMapUnit.Standby();
+            currentMapUnit = null;
         }
     }
 
@@ -116,19 +114,7 @@ public class GameBoard : MonoBehaviour {
         for (int i = 0; i < allMyPlayers.Count; i++) {
             allMyPlayers[i].NextTurn();
         }
-    }
-
-    // 获取移动路径
-    public List<LogicTile> MoveToDestination(LogicTile start, LogicTile end) {
-        List<LogicTile> results = new List<LogicTile> { end };
-        LogicTile currentTile = end;
-        while (currentTile.NextOnPath != null) {
-            results.Add(currentTile.NextOnPath);
-            currentTile = currentTile.NextOnPath;
-        }
-        results.Reverse();
-        return results;
-    }
+    }    
 
     public void InitPlayers(Vector2Int[] allCellPos) {
         for (int i = 0; i < allCellPos.Length; i++) {
@@ -143,7 +129,7 @@ public class GameBoard : MonoBehaviour {
     }
 
     private void SetPlayerOnTile(LogicTile tile, MapUnit p) {
-        tile.PlayerOnTile = p;
+        tile.UnitOnTile = p;
         p.Tile = tile;
     }
 
@@ -175,7 +161,7 @@ public class GameBoard : MonoBehaviour {
             tile.ClearPath();
         }
         startTile.SetStart(movePower);
-        Queue<LogicTile> searchFrontier = new Queue<LogicTile>();
+        var searchFrontier = new Queue<LogicTile>();
         searchFrontier.Enqueue(startTile);
 
         while (searchFrontier.Count > 0) {
@@ -212,8 +198,8 @@ public class GameBoard : MonoBehaviour {
     }
 
     private List<LogicTile> FindAttackPaths(int attackRange) {
-        List<LogicTile> attackTiles = new List<LogicTile>();
-        Queue<LogicTile> searchFrontier = new Queue<LogicTile>();
+        var attackTiles = new List<LogicTile>();
+        var searchFrontier = new Queue<LogicTile>();
         List<LogicTile> marginalTiles = LogicTile.GetAllBoundTiles(movementTiles);
         for (int i = 0; i < marginalTiles.Count; i++) {
             marginalTiles[i].LeftAttack = attackRange;

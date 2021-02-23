@@ -42,7 +42,7 @@ public class BattleManager : Singleton<BattleManager>
     private IEnumerator Battle() {
         // 战前已经算出双方的总回合数（假设期间双方都没有死），能影响回合数的只有速度差值，所以战斗内一方顶多2回合
         int myTotalTurn = GetBattleTurn(activeUnit);
-        int enemyTotalTurn = GetBattleTurn(passiveUnit); 
+        int enemyTotalTurn = 1; 
         bool isBattleStart = true;
         while (myTotalTurn > 0 || enemyTotalTurn > 0) {
             if (isBattleStart) {
@@ -67,23 +67,24 @@ public class BattleManager : Singleton<BattleManager>
     }
 
     // 每次回合战斗
-    private IEnumerator TurnBattle(FightUnit one) {
-        int attackCount = GetAttackTimes(one); 
+    private IEnumerator TurnBattle(FightUnit unit) {
+        int attackCount = GetAttackTimes(unit); 
         bool isTurnStart = true;
         while (attackCount > 0) {
             if (isTurnStart) {
                 // 每回合第一次攻击时的才有可能触发流星剑等天赋，产生增加攻击力、攻击次数等效果
                 isTurnStart = false;
             }
-            yield return one.AttackTo();
+            yield return unit.AttackTo();
             // 每次攻击命中后会算攻击可能产生的效果，如果某次命中后有一方死亡则结束战斗
+
             attackCount--;
         }
     }
 
     // 根据角色天赋、武器算出单回合的攻击次数，but可能会受对方如见切等天赋的影响，所以还需要看对方的天赋
     private int GetAttackTimes(FightUnit unit) {
-        return 2;
+        return 1;
     }
 
 }

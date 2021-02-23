@@ -40,14 +40,15 @@ public class MapUnit : MonoBehaviour
     }
 
     public void MoveTo(LogicTile destination) {
-        if (destination.PlayerOnTile != null && destination.PlayerOnTile != this) {
+        if (destination.UnitOnTile != null && destination.UnitOnTile != this) {
             return;
         }
 
-        List<LogicTile> tilePath = board.MoveToDestination(Tile, destination);
+        List<LogicTile> tilePath = LogicTile.GetPath(Tile, destination);
         StartCoroutine(Move(tilePath));
     }
 
+    // 返回原处
     public void GoBack() {
         State = MapState.READY_MOVE;
         transform.position = board.GetWorldPos(Tile) + new Vector3(0.5f, 0, 0);
@@ -61,11 +62,12 @@ public class MapUnit : MonoBehaviour
         board.ClearUITiles();
     }
 
+    // 待机
     public void Standby() {
         State = MapState.GRAY;
         SetAnimation(0, 0, false);
-        Tile.PlayerOnTile = null;
-        destination.PlayerOnTile = this;
+        Tile.UnitOnTile = null;
+        destination.UnitOnTile = this;
         Tile = destination;
     }
 
