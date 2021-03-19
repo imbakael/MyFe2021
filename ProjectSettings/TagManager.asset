@@ -50,9 +50,9 @@ TagManager:
   - name: TileUI
     uniqueID: 2246489299
     locked: 0
-  - name: Unit
-    uniqueID: 30020091
-    locked: 0
   - name: Canvas
     uniqueID: 3982293943
+    locked: 0
+  - name: Unit
+    uniqueID: 30020091
     locked: 0

@@ -29,6 +29,12 @@ public class MapUnit : MonoBehaviour
         this.type = type;
     }
 
+    public bool CannotOperate() => State == MapState.MOVING;
+
+    public void Selected() {
+
+    }
+
     public bool CanBeSelected() {
         if (State == MapState.IDLE) {
             State = MapState.READY_MOVE;

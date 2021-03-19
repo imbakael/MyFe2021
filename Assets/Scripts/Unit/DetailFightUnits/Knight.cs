@@ -39,21 +39,21 @@ public class Knight : FightUnit
     }
 
     public override void Die() {
-        Debug.Log("Enemy Die");
+        Debug.Log("me Die");
     }
 
     private void Attack() { // 动画event
-        TakeDamage(1);
+        Target.TakeDamage(1);
         ShowSpear();
         StartCoroutine(Pause());
     }
-
-    private void ShowSpear() => spearRender.gameObject.SetActive(true);
 
     private void AttackOver() { // 动画event
         isAttackOver = true;
         HiddenSpear();
     }
+
+    private void ShowSpear() => spearRender.gameObject.SetActive(true);
 
     private void HiddenSpear() => spearRender.gameObject.SetActive(false);
 
