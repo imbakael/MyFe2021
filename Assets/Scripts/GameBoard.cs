@@ -25,7 +25,6 @@ public class GameBoard : MonoBehaviour {
     private List<LogicTile> movementTiles = new List<LogicTile>(); // 角色移动范围
     private List<GameObject> uiTiles = new List<GameObject>();
     private List<MapUnit> allMyPlayers = new List<MapUnit>();
-    private MapUnit currentMapUnit;
 
     private void Awake() {
         instance = this;
@@ -69,45 +68,8 @@ public class GameBoard : MonoBehaviour {
         }
     }
 
-    public void ClickOneTile(LogicTile tile) {
-        if (currentMapUnit != null) {
-            if (currentMapUnit.State == MapState.READY_MOVE) {
-                MapUnit tileUnit = tile.UnitOnTile;
-                if (tileUnit != null && tileUnit != currentMapUnit && tileUnit.State == MapState.IDLE) {
-                    currentMapUnit.Cancel();
-                    currentMapUnit = tileUnit;
-                    currentMapUnit.CanBeSelected();
-                    return;
-                }
-
-                if (movementTiles.Contains(tile)) {
-                    currentMapUnit.MoveTo(tile);
-                } else {
-                    currentMapUnit.Cancel();
-                    currentMapUnit = null;
-                }
-            }
-            return;
-        }
-
-        MapUnit unit = tile.UnitOnTile;
-        if (unit != null && unit.CanBeSelected()) {
-            currentMapUnit = unit;
-        }
-    }
-
-    public void Cancel() {
-        if (currentMapUnit != null && currentMapUnit.State == MapState.MOVE_END) {
-            currentMapUnit.GoBack();
-        }
-    }
-
-    public void Standby() {
-        if (currentMapUnit != null && currentMapUnit.State == MapState.MOVE_END) {
-            ClearUITiles();
-            currentMapUnit.Standby();
-            currentMapUnit = null;
-        }
+    public bool IsInMoveRange(LogicTile tile) {
+        return movementTiles.Contains(tile);
     }
 
     public void NextTurn() {
@@ -122,15 +84,10 @@ public class GameBoard : MonoBehaviour {
             int index = walkMap.size.x * cellPos.y + cellPos.x;
             LogicTile tile = allLogicTiles[index];
             MapUnit player = Instantiate(playerPrefabs[0]);
-            allMyPlayers.Add(player);
-            SetPlayerOnTile(tile, player);
+            player.Init(TeamType.MY_ARMY, tile);
             player.transform.position = GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
+            allMyPlayers.Add(player);
         }
-    }
-
-    private void SetPlayerOnTile(LogicTile tile, MapUnit p) {
-        tile.UnitOnTile = p;
-        p.Tile = tile;
     }
 
     public Vector3 GetWorldPos(LogicTile tile) => walkMap.CellToWorld(tile.CellPos);
@@ -153,13 +110,20 @@ public class GameBoard : MonoBehaviour {
             Destroy(uiTiles[i]);
         }
         uiTiles.Clear();
+        movementTiles.Clear();
+    }
+
+    public bool IsExistMoveRange() => uiTiles.Count > 0;
+
+    public void ClearLogicTiles() {
+        foreach (var tile in allLogicTiles) {
+            tile.ClearPath();
+        }
     }
 
     private void FindMovePaths(LogicTile startTile, int movePower) {
         movementTiles.Clear();
-        foreach (var tile in allLogicTiles) {
-            tile.ClearPath();
-        }
+        ClearLogicTiles();
         startTile.SetStart(movePower);
         var searchFrontier = new Queue<LogicTile>();
         searchFrontier.Enqueue(startTile);

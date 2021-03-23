@@ -7,7 +7,6 @@ public enum MapState {
     IDLE, // 空闲
     READY_MOVE, // 准备移动
     MOVING, // 移动中
-    MOVE_END, // 移动结束
     GRAY // 灰掉
 }
 

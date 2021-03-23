@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 30020091
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1610226414910646462, guid: 2894579a586b21842976fda57b6bc317,
     type: 3}
@@ -96,18 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df20feedf75516e4ca43624bc0bcb84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovePower: 5
+  playerMovePower: 6
   playerAttackRange: 1
   moveSpeed: 5
   animator: {fileID: 7810750759959706312}
-  attack: 1
-  defend: 2
-  magicDefend: 3
-  attackSpeed: 4
-  hit: 5
-  dodge: 6
-  cri: 7
-  criDodge: 8
+  state: 0
 --- !u!95 &7810750759959706312
 Animator:
   serializedVersion: 3

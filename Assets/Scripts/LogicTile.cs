@@ -14,11 +14,14 @@ public class LogicTile
     public MapUnit UnitOnTile { get; set; }
     public bool CanWalk { get; set; } = true;
     public int LeftAttack { get; set; } // 走到此tile后剩余的攻击射程
+    // AStar
+    public int F { get; set; }
+    public int G { get; set; }
+    public int H { get; set; }
+    public LogicTile Parent { get; set; }
 
-    private bool HasPath => distance != int.MaxValue;
-
+    public int MoveCost { get; private set; } = 1; // 经过此Tile所消耗的移动力
     private LogicTile north, east, south, west;
-    private int moveCost = 1; // 经过此Tile所消耗的移动力
     private int leftMovePower; // 走到此Tile后剩余的移动力
     private int distance;
 
@@ -39,28 +42,42 @@ public class LogicTile
         west.east = east;
     }
 
-    public static List<LogicTile> GetPath(LogicTile start, LogicTile end) {
-        var results = new List<LogicTile> { end };
-        LogicTile currentTile = end;
-        while (currentTile.NextOnPath != null) {
-            results.Add(currentTile.NextOnPath);
-            currentTile = currentTile.NextOnPath;
-        }
-        results.Reverse();
-        return results;
-    }
+    //public static List<LogicTile> GetPath(LogicTile start, LogicTile end) {
+    //    var results = new List<LogicTile> { end };
+    //    LogicTile currentTile = end;
+    //    while (currentTile.NextOnPath != null) {
+    //        results.Add(currentTile.NextOnPath);
+    //        currentTile = currentTile.NextOnPath;
+    //    }
+    //    results.Reverse();
+    //    return results;
+    //}
 
     public void ClearPath() {
         distance = int.MaxValue;
         NextOnPath = null;
         LeftAttack = 0;
         leftMovePower = 0;
+        F = 0;
+        G = 0;
+        H = 0;
+        Parent = null;
     }
 
     public void SetStart(int unitMovement) {
         leftMovePower = unitMovement;
         distance = 0;
         NextOnPath = null;
+    }
+
+    public List<LogicTile> GetNeighbors() {
+        var neighbors = new List<LogicTile> { north, east, south, west };
+        for (int i = neighbors.Count - 1; i >= 0; i--) {
+            if (neighbors[i] == null) {
+                neighbors.RemoveAt(i);
+            }
+        }
+        return neighbors;
     }
 
     #region 移动范围相关
@@ -70,14 +87,15 @@ public class LogicTile
     public LogicTile GrowWest() => GrowPathTo(west);
 
     private LogicTile GrowPathTo(LogicTile neighbor) {
-        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.moveCost) {
+        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.MoveCost) {
             return null;
         }
-        neighbor.leftMovePower = leftMovePower - neighbor.moveCost;
+        neighbor.leftMovePower = leftMovePower - neighbor.MoveCost;
         neighbor.distance = distance + 1;
         neighbor.NextOnPath = this;
         return neighbor;
     }
+    private bool HasPath => distance != int.MaxValue;
     #endregion
 
     #region 攻击范围相关
