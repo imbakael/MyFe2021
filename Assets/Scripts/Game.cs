@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FairyGUI;
 
 public class Game : MonoBehaviour
 {
@@ -14,17 +13,19 @@ public class Game : MonoBehaviour
 
     private void Awake() {
         // 加载各个势力的所有角色阵容
-
-        board.InitPlayers(new Vector2Int[] {
+        board.CreateMapUnits(new Vector2Int[] {
             new Vector2Int(10, 5),
-            new Vector2Int(1, 6)
-        });
+            new Vector2Int(1, 6),
+            new Vector2Int(12, 3)
+        }, TeamType.MY_ARMY);
+
+        board.CreateMapUnits(new Vector2Int[] {
+            new Vector2Int(9, 3)
+        }, TeamType.ENEMY);
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.L)) {
-            board.NextTurn();
-        } else if (Input.GetKeyDown(KeyCode.Z)) {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             BattleManager.Instance.StartBattle(myRole, enemy);
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PickUpController : Singleton<PickUpController>
 {
@@ -8,6 +9,9 @@ public class PickUpController : Singleton<PickUpController>
     private MapUnit curUnit;
 
     private void Update() {
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
         if (Input.GetMouseButtonUp(0)) {
             if (curUnit != null && curUnit.CannotOperate()) {
                 return;
@@ -28,6 +32,9 @@ public class PickUpController : Singleton<PickUpController>
                 curUnit = null;
             }
         }
+        if (Input.GetKeyDown(KeyCode.N)) {
+            GameBoard.instance.NextTurn();
+        }
     }
 
     private LogicTile GetTile() {
@@ -35,4 +42,13 @@ public class PickUpController : Singleton<PickUpController>
         Vector3Int worldPoint = new Vector3Int(Mathf.FloorToInt(point.x), Mathf.FloorToInt(point.y), 0);
         return GameBoard.instance.GetLogicTile(worldPoint);
     }
+
+    // 待机
+    public void Standby() {
+        if (curUnit == null || curUnit.CannotOperate()) {
+            return;
+        }
+        curUnit.Standby();
+    }
+
 }

@@ -14,6 +14,7 @@ public class LogicTile
     public MapUnit UnitOnTile { get; set; }
     public bool CanWalk { get; set; } = true;
     public int LeftAttack { get; set; } // 走到此tile后剩余的攻击射程
+    public bool IsEnemyOn { get; set; }
     // AStar
     public int F { get; set; }
     public int G { get; set; }
@@ -41,17 +42,6 @@ public class LogicTile
         east.west = west;
         west.east = east;
     }
-
-    //public static List<LogicTile> GetPath(LogicTile start, LogicTile end) {
-    //    var results = new List<LogicTile> { end };
-    //    LogicTile currentTile = end;
-    //    while (currentTile.NextOnPath != null) {
-    //        results.Add(currentTile.NextOnPath);
-    //        currentTile = currentTile.NextOnPath;
-    //    }
-    //    results.Reverse();
-    //    return results;
-    //}
 
     public void ClearPath() {
         distance = int.MaxValue;
@@ -87,7 +77,7 @@ public class LogicTile
     public LogicTile GrowWest() => GrowPathTo(west);
 
     private LogicTile GrowPathTo(LogicTile neighbor) {
-        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.MoveCost) {
+        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.MoveCost || neighbor.IsEnemyOn) {
             return null;
         }
         neighbor.leftMovePower = leftMovePower - neighbor.MoveCost;

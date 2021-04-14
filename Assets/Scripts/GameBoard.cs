@@ -24,7 +24,12 @@ public class GameBoard : MonoBehaviour {
     private Dictionary<Vector3, LogicTile> worldTiles = new Dictionary<Vector3, LogicTile>();
     private List<LogicTile> movementTiles = new List<LogicTile>(); // 角色移动范围
     private List<GameObject> uiTiles = new List<GameObject>();
-    private List<MapUnit> allMyPlayers = new List<MapUnit>();
+    private Dictionary<TeamType, List<MapUnit>> allMapUnits = new Dictionary<TeamType, List<MapUnit>> {
+        {TeamType.MY_ARMY, new List<MapUnit>() },
+        {TeamType.ALLY, new List<MapUnit>() },
+        {TeamType.ENEMY, new List<MapUnit>() },
+        {TeamType.NEUTRAL, new List<MapUnit>() }
+    };
 
     private void Awake() {
         instance = this;
@@ -68,41 +73,50 @@ public class GameBoard : MonoBehaviour {
         }
     }
 
-    public bool IsInMoveRange(LogicTile tile) {
-        return movementTiles.Contains(tile);
-    }
+    public bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
 
     public void NextTurn() {
-        for (int i = 0; i < allMyPlayers.Count; i++) {
-            allMyPlayers[i].NextTurn();
+        foreach (var item in allMapUnits) {
+            if (item.Key == TeamType.MY_ARMY) {
+                foreach (var mapUnit in item.Value) {
+                    mapUnit.NextTurn();
+                }
+                return;
+            }
         }
     }    
 
-    public void InitPlayers(Vector2Int[] allCellPos) {
+    public void CreateMapUnits(Vector2Int[] allCellPos, TeamType team) {
         for (int i = 0; i < allCellPos.Length; i++) {
             Vector2Int cellPos = allCellPos[i];
             int index = walkMap.size.x * cellPos.y + cellPos.x;
             LogicTile tile = allLogicTiles[index];
-            MapUnit player = Instantiate(playerPrefabs[0]);
-            player.Init(TeamType.MY_ARMY, tile);
-            player.transform.position = GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
-            allMyPlayers.Add(player);
+            MapUnit unit = Instantiate(playerPrefabs[(int)team]);
+            unit.Init(team, tile);
+            unit.transform.position = GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
+            allMapUnits[team].Add(unit);
         }
     }
 
     public Vector3 GetWorldPos(LogicTile tile) => walkMap.CellToWorld(tile.CellPos);
 
-    public void ShowMoveAndAttackTiles(LogicTile startTile, int movePower, int attackRange, bool showMove = true, bool showAttack = true) {
+    public void ShowMoveAndAttackTiles(LogicTile start, int movePower, int attackRange) {
         ClearUITiles();
-        FindMovePaths(startTile, movePower);
-        if (showMove) {
-            CreateUITile(movementTiles, UITileType.MOVE);
-        }
+        ShowMoveTiles(start, movePower);
+        ShowAttackTiles(start, attackRange);
+    }
 
-        if (showAttack) {
-            List<LogicTile> attackTiles = FindAttackPaths(attackRange);
-            CreateUITile(attackTiles, UITileType.ATTACK);
+    public void ShowMoveTiles(LogicTile start, int movePower) {
+        FindMovePaths(start, movePower);
+        CreateUITile(movementTiles, UITileType.MOVE);
+    }
+
+    public void ShowAttackTiles(LogicTile start, int attackRange) {
+        if (movementTiles.Count == 0) {
+            movementTiles.Add(start);
         }
+        List<LogicTile> attackTiles = FindAttackPaths(attackRange);
+        CreateUITile(attackTiles, UITileType.ATTACK);
     }
 
     public void ClearUITiles() {

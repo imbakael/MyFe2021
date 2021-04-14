@@ -9,8 +9,8 @@ public class AStar
             return new List<LogicTile> { end };
         }
         GameBoard.instance.ClearLogicTiles();
-        List<LogicTile> openList = new List<LogicTile>();
-        List<LogicTile> closeList = new List<LogicTile>();
+        var openList = new List<LogicTile>();
+        var closeList = new List<LogicTile>();
         openList.Add(start);
 
         while (openList.Count > 0) {
@@ -18,6 +18,7 @@ public class AStar
             openList.Remove(lowestF);
             closeList.Add(lowestF);
             List<LogicTile> neighbors = lowestF.GetNeighbors();
+            // 剔除不在移动范围内的邻居
             for (int i = neighbors.Count - 1; i >= 0; i--) {
                 if (!GameBoard.instance.IsInMoveRange(neighbors[i])) {
                     neighbors.RemoveAt(i);
@@ -47,12 +48,15 @@ public class AStar
             }
         }
         Debug.LogError("不可能到达！");
-        return null;
+        return new List<LogicTile>();
     }
 
-    private static int GetH(LogicTile n, LogicTile end) {
-        return Mathf.Abs(n.X - end.X) + Mathf.Abs(n.Y - end.Y);
+    private static LogicTile GetLowestF(List<LogicTile> tiles) {
+        List<LogicTile> temp = tiles.OrderBy(t => t.F).ToList();
+        return temp[0];
     }
+
+    private static bool CanMoveTo(LogicTile to) => GameBoard.instance.IsInMoveRange(to);
 
     private static List<LogicTile> GetPath(LogicTile n) {
         var path = new List<LogicTile> { n };
@@ -65,10 +69,6 @@ public class AStar
         return path;
     }
 
-    private static bool CanMoveTo(LogicTile to) => GameBoard.instance.IsInMoveRange(to);
+    private static int GetH(LogicTile n, LogicTile end) => Mathf.Abs(n.X - end.X) + Mathf.Abs(n.Y - end.Y);
 
-    private static LogicTile GetLowestF(List<LogicTile> tiles) {
-        var temp = tiles.OrderBy(t => t.F).ToList();
-        return temp[0];
-    }
 }
