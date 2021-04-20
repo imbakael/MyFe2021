@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AStar
 {
-    public static List<LogicTile> PathFind(LogicTile start, LogicTile end) {
+    public static List<LogicTile> FindPath(LogicTile start, LogicTile end) {
         if (start == end) {
             return new List<LogicTile> { end };
         }
-        GameBoard.instance.ClearLogicTiles();
+        GameBoard.instance.ClearTilePath();
         var openList = new List<LogicTile>();
         var closeList = new List<LogicTile>();
         openList.Add(start);

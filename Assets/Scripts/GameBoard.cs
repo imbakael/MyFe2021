@@ -14,25 +14,21 @@ public class GameBoard : MonoBehaviour {
     [SerializeField]
     private Tilemap cannotWalkMap = default;
     [SerializeField]
-    private GameObject[] uiTilePrefabs = default;
-    [SerializeField]
     private MapUnit[] playerPrefabs = default;
     [SerializeField]
-    private Transform tileUI = default;
+    private GameObject[] uiTilePrefabs = default;
+    [SerializeField]
+    private Transform tileUIContainer = default;
 
     private LogicTile[] allLogicTiles;
-    private Dictionary<Vector3, LogicTile> worldTiles = new Dictionary<Vector3, LogicTile>();
-    private List<LogicTile> movementTiles = new List<LogicTile>(); // 角色移动范围
+    private Dictionary<Vector3, LogicTile> worldTiles;
+    private List<LogicTile> movementTiles = new List<LogicTile>(); // 当前选中角色移动范围，此变量很重要，很多寻路方面的方法都需要此变量
     private List<GameObject> uiTiles = new List<GameObject>();
-    private Dictionary<TeamType, List<MapUnit>> allMapUnits = new Dictionary<TeamType, List<MapUnit>> {
-        {TeamType.MY_ARMY, new List<MapUnit>() },
-        {TeamType.ALLY, new List<MapUnit>() },
-        {TeamType.ENEMY, new List<MapUnit>() },
-        {TeamType.NEUTRAL, new List<MapUnit>() }
-    };
+    private MapUnitsCollection mapUnitsCollection;
 
     private void Awake() {
         instance = this;
+        mapUnitsCollection = new MapUnitsCollection();
         InitLogicTiles();
     }
 
@@ -55,6 +51,7 @@ public class GameBoard : MonoBehaviour {
     }
 
     private void InitCellPos() {
+        worldTiles = new Dictionary<Vector3, LogicTile>();
         int i = 0;
         foreach (Vector3Int cellPos in walkMap.cellBounds.allPositionsWithin) {
             allLogicTiles[i].CellPos = cellPos;
@@ -73,18 +70,9 @@ public class GameBoard : MonoBehaviour {
         }
     }
 
-    public bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
+    public void AllNextTurn() => mapUnitsCollection.AllNextTurn();
 
-    public void NextTurn() {
-        foreach (var item in allMapUnits) {
-            if (item.Key == TeamType.MY_ARMY) {
-                foreach (var mapUnit in item.Value) {
-                    mapUnit.NextTurn();
-                }
-                return;
-            }
-        }
-    }    
+    public void NextTurn(TeamType teamType) => mapUnitsCollection.NextTurn(teamType);
 
     public void CreateMapUnits(Vector2Int[] allCellPos, TeamType team) {
         for (int i = 0; i < allCellPos.Length; i++) {
@@ -94,11 +82,28 @@ public class GameBoard : MonoBehaviour {
             MapUnit unit = Instantiate(playerPrefabs[(int)team]);
             unit.Init(team, tile);
             unit.transform.position = GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
-            allMapUnits[team].Add(unit);
+            mapUnitsCollection.AddUnit(team, unit);
         }
     }
 
+    public bool IsAllEnemyDie() => mapUnitsCollection.IsAllUnitsDie(TeamType.ENEMY);
+
+    public bool IsMainRoleDie() => mapUnitsCollection.IsMainRoleDie(TeamType.MY_ARMY);
+
     public Vector3 GetWorldPos(LogicTile tile) => walkMap.CellToWorld(tile.CellPos);
+
+    public bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
+
+    public bool IsExistMoveRange() => uiTiles.Count > 0;
+
+    public LogicTile GetLogicTile(Vector3 worldPos) => worldTiles.TryGetValue(worldPos, out LogicTile tile) ? tile : null;
+
+    public void SetColor(LogicTile tile) {
+        walkMap.SetTileFlags(tile.CellPos, TileFlags.None);
+        walkMap.SetColor(tile.CellPos, Color.green);
+    }
+
+    // -------------以下为计算和显示路径-------------
 
     public void ShowMoveAndAttackTiles(LogicTile start, int movePower, int attackRange) {
         ClearUITiles();
@@ -106,124 +111,80 @@ public class GameBoard : MonoBehaviour {
         ShowAttackTiles(start, attackRange);
     }
 
-    public void ShowMoveTiles(LogicTile start, int movePower) {
-        FindMovePaths(start, movePower);
-        CreateUITile(movementTiles, UITileType.MOVE);
-    }
-
-    public void ShowAttackTiles(LogicTile start, int attackRange) {
-        if (movementTiles.Count == 0) {
-            movementTiles.Add(start);
-        }
-        List<LogicTile> attackTiles = FindAttackPaths(attackRange);
-        CreateUITile(attackTiles, UITileType.ATTACK);
-    }
-
     public void ClearUITiles() {
         for (int i = 0; i < uiTiles.Count; i++) {
             Destroy(uiTiles[i]);
         }
         uiTiles.Clear();
-        movementTiles.Clear();
     }
 
-    public bool IsExistMoveRange() => uiTiles.Count > 0;
-
-    public void ClearLogicTiles() {
-        foreach (var tile in allLogicTiles) {
-            tile.ClearPath();
-        }
+    private void ShowMoveTiles(LogicTile start, int movePower) {
+        FindMovePaths(start, movePower);
+        CreateUITile(movementTiles, UITileType.MOVE);
     }
 
-    private void FindMovePaths(LogicTile startTile, int movePower) {
+    public void FindMovePaths(LogicTile startTile, int movePower) {
         movementTiles.Clear();
-        ClearLogicTiles();
+        ClearTilePath();
         startTile.SetStart(movePower);
         var searchFrontier = new Queue<LogicTile>();
         searchFrontier.Enqueue(startTile);
 
         while (searchFrontier.Count > 0) {
             LogicTile tile = searchFrontier.Dequeue();
-            if (tile != null) {
-                movementTiles.Add(tile);
-                LogicTile north = tile.GrowNorth();
-                if (north != null) {
-                    searchFrontier.Enqueue(north);
-                }
-                LogicTile east = tile.GrowEast();
-                if (east != null) {
-                    searchFrontier.Enqueue(east);
-                }
-                LogicTile south = tile.GrowSouth();
-                if (south != null) {
-                    searchFrontier.Enqueue(south);
-                }
-                LogicTile west = tile.GrowWest();
-                if (west != null) {
-                    searchFrontier.Enqueue(west);
-                }
-            }
+            movementTiles.Add(tile);
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowNorth());
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowEast());
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowSouth());
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowWest());
+        }
+    }
+
+    public void ClearTilePath() {
+        foreach (LogicTile tile in allLogicTiles) {
+            tile.ClearPath();
         }
     }
 
     private void CreateUITile(List<LogicTile> tiles, UITileType type) {
         for (int i = 0; i < tiles.Count; i++) {
             GameObject tile = Instantiate(uiTilePrefabs[(int)type]);
-            tile.transform.SetParent(tileUI);
+            tile.transform.SetParent(tileUIContainer);
             tile.transform.position = GetWorldPos(tiles[i]);
             uiTiles.Add(tile);
         }
     }
 
+    private void ShowAttackTiles(LogicTile start, int attackRange) {
+        List<LogicTile> attackTiles = FindAttackPaths(attackRange);
+        CreateUITile(attackTiles, UITileType.ATTACK);
+    }
+
     private List<LogicTile> FindAttackPaths(int attackRange) {
         var attackTiles = new List<LogicTile>();
         var searchFrontier = new Queue<LogicTile>();
-        List<LogicTile> marginalTiles = LogicTile.GetAllBoundTiles(movementTiles);
-        for (int i = 0; i < marginalTiles.Count; i++) {
-            marginalTiles[i].LeftAttack = attackRange;
-            searchFrontier.Enqueue(marginalTiles[i]);
+        List<LogicTile> boundTiles = LogicTile.GetAllBoundTiles(movementTiles);
+        for (int i = 0; i < boundTiles.Count; i++) {
+            boundTiles[i].LeftAttack = attackRange;
+            searchFrontier.Enqueue(boundTiles[i]);
         }
 
         while (searchFrontier.Count > 0) {
             LogicTile tile = searchFrontier.Dequeue();
-            if (tile != null) {
-                attackTiles.Add(tile);
-                LogicTile north = tile.GrowNorthAttack();
-                if (north != null) {
-                    searchFrontier.Enqueue(north);
-                }
-
-                LogicTile east = tile.GrowEastAttack();
-                if (east != null) {
-                    searchFrontier.Enqueue(east);
-                }
-
-                LogicTile south = tile.GrowSouthAttack();
-                if (south != null) {
-                    searchFrontier.Enqueue(south);
-                }
-
-                LogicTile west = tile.GrowWestAttack();
-                if (west != null) {
-                    searchFrontier.Enqueue(west);
-                }
-            }
+            attackTiles.Add(tile);
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowNorthAttack());
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowEastAttack());
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowSouthAttack());
+            searchFrontier.EnqueueAfterCheckNull(tile.GrowWestAttack());
         }
 
         // 剔除属于移动范围的这些边缘点
         for (int i = attackTiles.Count - 1; i >= 0; i--) {
-            if (marginalTiles.Contains(attackTiles[i])) {
+            if (boundTiles.Contains(attackTiles[i])) {
                 attackTiles.RemoveAt(i);
             }
         }
         return attackTiles;
-    }
-
-    public LogicTile GetLogicTile(Vector3 worldPos) => worldTiles.TryGetValue(worldPos, out LogicTile tile) ? tile : null;
-
-    public void SetColor(LogicTile tile) {
-        walkMap.SetTileFlags(tile.CellPos, TileFlags.None);
-        walkMap.SetColor(tile.CellPos, Color.green);
     }
     
 }

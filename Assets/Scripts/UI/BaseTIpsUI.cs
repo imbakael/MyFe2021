@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseTIpsUI : MonoBehaviour
+public class BaseTipsUI : MonoBehaviour
 {
     [SerializeField] private Text name = default;
     [SerializeField] private Text content = default;

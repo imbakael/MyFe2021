@@ -14,7 +14,6 @@ public class LogicTile
     public MapUnit UnitOnTile { get; set; }
     public bool CanWalk { get; set; } = true;
     public int LeftAttack { get; set; } // 走到此tile后剩余的攻击射程
-    public bool IsEnemyOn { get; set; }
     // AStar
     public int F { get; set; }
     public int G { get; set; }
@@ -25,6 +24,7 @@ public class LogicTile
     private LogicTile north, east, south, west;
     private int leftMovePower; // 走到此Tile后剩余的移动力
     private int distance;
+    private bool isEnemyOn;
 
     public LogicTile(int x, int y) {
         X = x;
@@ -48,10 +48,25 @@ public class LogicTile
         NextOnPath = null;
         LeftAttack = 0;
         leftMovePower = 0;
-        F = 0;
-        G = 0;
-        H = 0;
+        isEnemyOn = IsEnemyOnByCurrentTeam();
+        F = G = H = 0;
         Parent = null;
+    }
+
+    private bool IsEnemyOnByCurrentTeam() {
+        if (UnitOnTile == null) {
+            return false;
+        }
+        TeamType curTeam = LevelManager.Instance.CurTeam;
+        TeamType unitTeam = UnitOnTile.team;
+        if (curTeam == TeamType.MY_ARMY || curTeam == TeamType.ALLY) {
+            return unitTeam == TeamType.ENEMY || unitTeam == TeamType.NEUTRAL;
+        } else if (curTeam == TeamType.ENEMY) {
+            return unitTeam != TeamType.ENEMY;
+        } else if (curTeam == TeamType.NEUTRAL) {
+            return unitTeam != TeamType.NEUTRAL;
+        }
+        return false;
     }
 
     public void SetStart(int unitMovement) {
@@ -77,7 +92,7 @@ public class LogicTile
     public LogicTile GrowWest() => GrowPathTo(west);
 
     private LogicTile GrowPathTo(LogicTile neighbor) {
-        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.MoveCost || neighbor.IsEnemyOn) {
+        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.MoveCost || neighbor.isEnemyOn) {
             return null;
         }
         neighbor.leftMovePower = leftMovePower - neighbor.MoveCost;

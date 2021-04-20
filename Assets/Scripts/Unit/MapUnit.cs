@@ -2,116 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 单个角色，包含大地图和战斗内的所有数据
-public class MapUnit : MonoBehaviour
+// 地图单位，只包含地图相关操作的数据和方法
+public abstract class MapUnit : MonoBehaviour
 {
     [SerializeField]
-    private int playerMovePower = default;
+    protected MapUnitAttr mapUnitAttr;
     [SerializeField]
-    private int playerAttackRange = default;
-    [SerializeField]
-    private float moveSpeed = default;
-    [SerializeField]
-    private Animator animator = default;
-    [SerializeField]
-    private MapState state = default;
+    protected MapState state = default; // 状态标识，非状态机
 
-    private TeamType type;
-    private LogicTile tile;
-    private LogicTile lastStandTile;
-    private GameBoard board;
+    public bool IsDead { get; set; }
 
-    private void Start() {
+    public TeamType team;
+
+    protected GameBoard board;
+    protected LogicTile tile;
+    protected LogicTile lastStandTile;
+
+    private Animator animator;
+
+    private void Awake() {
         board = GameBoard.instance;
+        animator = GetComponent<Animator>();
     }
 
-    public void Init(TeamType type, LogicTile tile) {
-        this.type = type;
+    public void Init(TeamType team, LogicTile tile) {
+        this.team = team;
         this.tile = tile;
         lastStandTile = tile;
         tile.UnitOnTile = this;
-        tile.IsEnemyOn = type == TeamType.ENEMY || type == TeamType.NEUTRAL;
     }
 
-    public bool CannotOperate() => state == MapState.MOVING;
+    // 地图单位可以被点击、移动、攻击、待机等
+    public abstract void Click(LogicTile clickTile);
 
-    public void NextTurn() {
-        state = MapState.IDLE;
-        SetAnimation(0, 0);
-    }
+    public abstract void MoveTo(LogicTile destination);
 
-    // 待机
-    public void Standby() {
-        if (state == MapState.GRAY || type != TeamType.MY_ARMY) {
-            return;
-        }
-        state = MapState.GRAY;
-        SetAnimation(0, 0, false);
-        Arrive();
-    }
-
-    private void Arrive() {
-        tile.UnitOnTile = null;
-        tile.IsEnemyOn = false;
-        lastStandTile.UnitOnTile = this;
-        tile = lastStandTile;
-        tile.IsEnemyOn = type == TeamType.ENEMY || type == TeamType.NEUTRAL;
-        board.ClearUITiles();
-    }
-
-    public void Action(LogicTile tile) {
-        if (tile.UnitOnTile == this) {
-            if (state == MapState.IDLE) {
-                if (type == TeamType.MY_ARMY) {
-                    state = MapState.READY_MOVE;
-                    SetAnimation(0, -1);
-                }
-                board.ShowMoveAndAttackTiles(this.tile, playerMovePower, playerAttackRange);
-                return;
-            }
-            if (state == MapState.GRAY) {
-                if (!board.IsExistMoveRange()) {
-                    board.ShowMoveAndAttackTiles(this.tile, playerMovePower, playerAttackRange);
-                }
-                return;
-            }
-        }
-        if (CanMove(tile)) {
-            MoveTo(tile);
-        } else {
-            Cancel();
-        }
-    }
-
-    private bool CanMove(LogicTile tile) {
-        MapUnit unit = tile.UnitOnTile;
-        return type == TeamType.MY_ARMY && state == MapState.READY_MOVE && (unit == null || unit == this) && board.IsInMoveRange(tile);
-    }
-
-    private void MoveTo(LogicTile destination) {
-        List<LogicTile> path = AStar.PathFind(lastStandTile, destination);
-        StartCoroutine(Move(path));
-    }
-
-    private void Cancel() {
-        if (type == TeamType.MY_ARMY) {
-            if (state != MapState.GRAY) {
-                state = MapState.IDLE;
-                SetAnimation(0, 0);
-            }
-            transform.position = board.GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
-            lastStandTile = tile;
-        }
-        board.ClearUITiles();
-    }
-
-    private void SetAnimation(int x, int y, bool isActive = true) {
-        animator.SetInteger("X", x);
-        animator.SetInteger("Y", y);
-        animator.SetBool("IsActive", isActive);
-    }
-
-    private IEnumerator Move(List<LogicTile> tilePath) {
+    protected IEnumerator Move(List<LogicTile> tilePath) {
         if (tilePath.Count >= 2) {
             state = MapState.MOVING;
             Vector2Int previousDirection = Vector2Int.zero;
@@ -127,15 +53,47 @@ public class MapUnit : MonoBehaviour
                 }
 
                 while (Vector3.Distance(transform.position, nextPos) > 0.01f) {
-                    transform.position = Vector3.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, nextPos, mapUnitAttr.moveSpeed * Time.deltaTime);
                     yield return null;
                 }
                 transform.position = nextPos;
             }
             lastStandTile = tilePath[tilePath.Count - 1];
         }
-        
-        //board.ShowMoveAndAttackTiles(destination, 0, playerAttackRange, false);
+
         state = MapState.READY_MOVE;
     }
+
+    public virtual void Attack() { }
+
+    // 待机
+    public void Standby() {
+        if (state == MapState.GRAY) {
+            return;
+        }
+        state = MapState.GRAY;
+        SetAnimation(0, 0, false);
+        Arrive();
+    }
+
+    protected void Arrive() {
+        tile.UnitOnTile = null;
+        tile = lastStandTile;
+        tile.UnitOnTile = this;
+        board.ClearUITiles();
+    }
+
+    public void NextTurn() {
+        state = MapState.IDLE;
+        SetAnimation(0, 0);
+    }
+
+    public bool CannotOperate() => state == MapState.MOVING; // 移动中时不可操作
+
+    protected void SetAnimation(int x, int y, bool isActive = true) {
+        animator.SetInteger("X", x);
+        animator.SetInteger("Y", y);
+        animator.SetBool("IsActive", isActive);
+    }
+
 }

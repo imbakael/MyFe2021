@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 // 长按组件 长按后可以弹出提示框or其他something
 public class BaseLongTouchUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
-    [SerializeField] private BaseTIpsUI tips = default;
+    [SerializeField] private BaseTipsUI tips = default;
 
-    private BaseTIpsUI curTips;
+    private BaseTipsUI curTips;
 
     public void OnPointerDown(PointerEventData eventData) {
         // 按下弹出

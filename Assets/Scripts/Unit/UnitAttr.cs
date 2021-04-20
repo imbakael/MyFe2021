@@ -46,12 +46,6 @@ public class UnitAttr
     public float WindResist;
     #endregion
 
-    #region 大地图属性
-    public Vector2Int position = new Vector2Int(3, 3);
-    public MapState mapState = MapState.IDLE;
-    public LogicTile tile;
-    #endregion
-
     // 装备
     public List<Item> items = new List<Item>();
 

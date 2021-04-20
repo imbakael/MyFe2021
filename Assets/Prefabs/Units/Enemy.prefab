@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7810750759959706315}
   - component: {fileID: 7810750759959706314}
-  - component: {fileID: 7810750759959706317}
   - component: {fileID: 7810750759959706312}
+  - component: {fileID: 4003471204541765903}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -84,23 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7810750759959706317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7810750759959706316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df20feedf75516e4ca43624bc0bcb84c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovePower: 5
-  playerAttackRange: 1
-  moveSpeed: 5
-  animator: {fileID: 7810750759959706312}
-  state: 0
 --- !u!95 &7810750759959706312
 Animator:
   serializedVersion: 3
@@ -120,3 +103,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4003471204541765903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810750759959706316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df353b69cc1e044583b93931a643b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapUnitAttr:
+    movePower: 5
+    attackRange: 1
+    moveSpeed: 5
+  state: 0
+  team: 1
