@@ -9,16 +9,11 @@ public partial class GameBoard : MonoBehaviour {
     
     public static GameBoard instance;
 
-    [SerializeField]
-    private Tilemap walkMap = default;
-    [SerializeField]
-    private Tilemap cannotWalkMap = default;
-    [SerializeField]
-    private MapUnit[] playerPrefabs = default;
-    [SerializeField]
-    private GameObject[] uiTilePrefabs = default;
-    [SerializeField]
-    private Transform tileUIContainer = default;
+    [SerializeField] private Tilemap walkMap = default;
+    [SerializeField] private Tilemap cannotWalkMap = default;
+    [SerializeField] private MapUnit[] playerPrefabs = default;
+    [SerializeField] private GameObject[] uiTilePrefabs = default;
+    [SerializeField] private Transform tileUIContainer = default;
 
     private LogicTile[] allLogicTiles;
     private Dictionary<Vector3, LogicTile> worldTiles;
@@ -71,9 +66,7 @@ public partial class GameBoard : MonoBehaviour {
 
     public Vector3 GetWorldPos(LogicTile tile) => walkMap.CellToWorld(tile.CellPos);
 
-    public bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
-
-    public bool IsOneNeighborInMoveRange(LogicTile tile) {
+    public bool IsExistNeighborInMoveRange(LogicTile tile) {
         List<LogicTile> neighbors = tile.GetNeighbors();
         foreach (var item in neighbors) {
             if (IsInMoveRange(item)) {
@@ -82,6 +75,8 @@ public partial class GameBoard : MonoBehaviour {
         }
         return false;
     }
+
+    public bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
 
     public bool IsExistMoveRange() => uiTiles.Count > 0;
 
@@ -166,7 +161,6 @@ public partial class GameBoard : MonoBehaviour {
             searchFrontier.EnqueueAfterCheckNull(tile.GrowWestAttack());
         }
 
-        // 剔除属于移动范围的这些边缘点
         for (int i = attackTiles.Count - 1; i >= 0; i--) {
             if (boundTiles.Contains(attackTiles[i])) {
                 attackTiles.RemoveAt(i);

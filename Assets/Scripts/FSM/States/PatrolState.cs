@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 public class PatrolState : FSMState
 {
     public override void Init() {
@@ -6,7 +8,7 @@ public class PatrolState : FSMState
     }
 
     public override void Enter(FSMData data) {
-
+        Debug.Log("Enter PatrolState");
     }
 
     public override void Exit(FSMData data) {

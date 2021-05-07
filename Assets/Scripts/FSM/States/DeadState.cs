@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 public class DeadState : FSMState
 {
     public override void Init() {
@@ -6,6 +8,7 @@ public class DeadState : FSMState
     }
 
     public override void Enter(FSMData data) {
+        Debug.Log("Enter DeadState");
         data.Dead();
     }
 

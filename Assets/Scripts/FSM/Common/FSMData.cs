@@ -23,13 +23,22 @@ public class FSMData
 
     public bool IsOutAttackRange() => !IsInAttackRange();
 
-    public void Dead() {
-        fsm.enabled = false;
-    }
-
     public void Attack() => npc.Attack();
 
     public void SetIdle() => npc.SetIdle();
 
+    public void Standby() => npc.Standby();
+
     public void Move() => npc.MoveToNearestTile();
+
+    public void MoveEnd(Action action) {
+        npc.moveEnd -= action;
+        npc.moveEnd += action;
+    }
+
+    public void Dead() {
+        fsm.enabled = false;
+    }
+
+    public void TurnUpdate() => fsm.TurnUpdate();
 }

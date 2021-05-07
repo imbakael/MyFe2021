@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class AStar
 {
-    private const int MAX_MAP_LENGTH_OR_HEIGHT = 20;
-
+    private const int MAX_Movement = 20;
+    /// <summary>
+    /// 查找两点之间的最短路径
+    /// </summary>
+    /// <param name="start">起始点</param>
+    /// <param name="end">终点</param>
+    /// <param name="isMovePowerInfinity">移动力是否为无穷大</param>
+    /// <returns></returns>
     public static List<LogicTile> FindPath(LogicTile start, LogicTile end, bool isMovePowerInfinity = false) {
         if (start == end) {
             return new List<LogicTile> { end };
         }
         if (isMovePowerInfinity) {
-            GameBoard.instance.FindMovePaths(start, MAX_MAP_LENGTH_OR_HEIGHT);
+            GameBoard.instance.FindMovePaths(start, MAX_Movement);
         }
         GameBoard.instance.ClearTilePath();
         var openList = new List<LogicTile>();
@@ -23,11 +29,6 @@ public class AStar
             openList.Remove(lowestF);
             closeList.Add(lowestF);
             List<LogicTile> neighbors = lowestF.GetNeighbors();
-            for (int i = neighbors.Count - 1; i >= 0; i--) {
-                if (!GameBoard.instance.IsInMoveRange(neighbors[i])) {
-                    neighbors.RemoveAt(i);
-                }
-            }
             for (int i = 0; i < neighbors.Count; i++) {
                 LogicTile n = neighbors[i];
                 if (closeList.Contains(n) || !CanMoveTo(n)) {
@@ -55,10 +56,10 @@ public class AStar
         return new List<LogicTile>();
     }
 
-    private static LogicTile GetLowestF(List<LogicTile> tiles) {
-        List<LogicTile> temp = tiles.OrderBy(t => t.F).ToList();
-        return temp[0];
-    }
+    private static LogicTile GetLowestF(List<LogicTile> tiles) => 
+        tiles
+        .OrderBy(t => t.F)
+        .FirstOrDefault();
 
     private static bool CanMoveTo(LogicTile to) => GameBoard.instance.IsInMoveRange(to);
 

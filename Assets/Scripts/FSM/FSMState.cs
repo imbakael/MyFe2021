@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public abstract class FSMState
 {
-    public FSMStateID StateID { get; set; }
+    public FSMStateID StateID { get; protected set; }
 
     private Dictionary<FSMTriggerID, FSMStateID> map;
     private List<FSMTrigger> triggers;
@@ -16,7 +16,6 @@ public abstract class FSMState
 
     public abstract void Init();
     public virtual void Enter(FSMData data) { }
-    public virtual void Tick(FSMData data) { }
     public virtual void Exit(FSMData data) { }
 
     public void AddMap(FSMTriggerID triggerID, FSMStateID stateID) {

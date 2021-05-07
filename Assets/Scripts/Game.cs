@@ -18,8 +18,7 @@ public class Game : MonoBehaviour
         }, TeamType.ENEMY);
 
         board.CreateMapUnits(new Vector2Int[] {
-            new Vector2Int(9, 3),
-            new Vector2Int(12, 3)
+            new Vector2Int(1, 0),
         }, TeamType.MY_ARMY);
     }
 

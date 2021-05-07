@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public abstract class MapUnit : MonoBehaviour
     public TeamType Team { get; private set; }
     public LogicTile Tile { get; private set; }
     public LogicTile LastStandTile { get; protected set; }
+
+    public Action moveEnd;
 
     protected GameBoard board;
 
@@ -60,8 +63,8 @@ public abstract class MapUnit : MonoBehaviour
             }
             LastStandTile = tilePath[tilePath.Count - 1];
         }
-
         state = MapState.READY_MOVE;
+        moveEnd?.Invoke();
     }
 
     public virtual void Attack() { }

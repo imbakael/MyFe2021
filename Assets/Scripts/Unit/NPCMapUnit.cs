@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -26,11 +27,12 @@ public class NPCMapUnit : MapUnit {
         board.FindMovePaths(Tile, viewRange);
         return
             board.GetAllOtherUnits(Team)
-            .Where(t => !t.IsDead && board.IsOneNeighborInMoveRange(t.Tile))
+            .Where(t => !t.IsDead && board.IsExistNeighborInMoveRange(t.Tile))
             .OrderBy(t => AStar.GetH(Tile, t.Tile))
             .FirstOrDefault();
     }
 
+    // 获取攻击范围内离自己最近的敌方单位
     public MapUnit GetNearestUnitInAttackRange() {
         return
             board.GetAllOtherUnits(Team)
@@ -39,29 +41,44 @@ public class NPCMapUnit : MapUnit {
             .FirstOrDefault();
     }
 
+    // 移动到视野中离自己最近的敌方单位旁
     public void MoveToNearestTile() {
-        LogicTile target = GetNearestTile();
-        Debug.Assert(target != null, "目标tile == null！");
-        MoveTo(target);
+        LogicTile targetTile = GetNearestTileOnPath();
+        Debug.Assert(targetTile != null, "targetTile == null！");
+        MoveTo(targetTile);
     }
 
-    private LogicTile GetNearestTile() {
-        MapUnit target = GetNearestUnitInView();
-        Debug.Assert(target != null, "目标mapUnit == null！");
+    private LogicTile GetNearestTileOnPath() {
+        LogicTile targetTile = GetNearestUnitInView().Tile;
         board.FindMovePaths(Tile, mapUnitAttr.movePower);
-        if (board.IsOneNeighborInMoveRange(target.Tile)) {
-            List<LogicTile> targetNeighbors = target.Tile.GetNeighbors();
-            LogicTile targetTile = targetNeighbors.Where(t => board.IsInMoveRange(t)).OrderBy(t => AStar.GetH(Tile, t)).FirstOrDefault();
-            return targetTile;
-        } else {
-            List<LogicTile> boundTiles = board.GetMoveBoundTiles();
-            List<LogicTile> path = AStar.FindPath(Tile, target.Tile, true);
-            var intersectTiles = path.Intersect(boundTiles);
-            foreach (LogicTile item in intersectTiles) {
-                return item;
-            }
-            return null;
+        if (board.IsExistNeighborInMoveRange(targetTile)) {
+            return GetNearestTileFromNeighbor(targetTile);
         }
+        List<LogicTile> boundTiles = board.GetMoveBoundTiles();
+        LogicTile neighbor = GetNearestTileFromNeighborIgnoreMove(targetTile);
+        List<LogicTile> path = AStar.FindPath(Tile, neighbor, true);
+        return 
+            path.Intersect(boundTiles)
+            .OrderByDescending(t => path.IndexOf(t))
+            .FirstOrDefault();
+    }
+
+    private LogicTile GetNearestTileFromNeighbor(LogicTile targetTile) {
+        List<LogicTile> neighbors = targetTile.GetNeighbors();
+        return 
+            neighbors
+            .Where(t => board.IsInMoveRange(t))
+            .OrderBy(t => AStar.GetH(Tile, t))
+            .FirstOrDefault();
+    }
+
+    private LogicTile GetNearestTileFromNeighborIgnoreMove(LogicTile targetTile) {
+        List<LogicTile> neighbors = targetTile.GetNeighbors();
+        return 
+            neighbors
+            .Where(t => t.CanWalk)
+            .OrderBy(t => AStar.GetH(Tile, t))
+            .FirstOrDefault();
     }
 
     public override void Attack() {

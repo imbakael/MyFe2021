@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// 只负责state的初始化和切换
 public class FSMBase : MonoBehaviour
 {
     [SerializeField] private FSMStateID defaultStateID = default;
@@ -28,18 +29,22 @@ public class FSMBase : MonoBehaviour
 
         IdleState idle = new IdleState();
         idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+        idle.AddMap(FSMTriggerID.InAttackRange, FSMStateID.Attack);
         idle.AddMap(FSMTriggerID.FindTarget, FSMStateID.Pursuit);
         states.Add(idle);
 
         PursuitState pursuit = new PursuitState();
-        pursuit.AddMap(FSMTriggerID.LoseTarget, FSMStateID.Idle);
         pursuit.AddMap(FSMTriggerID.InAttackRange, FSMStateID.Attack);
+        pursuit.AddMap(FSMTriggerID.EndAction, FSMStateID.Standby);
         states.Add(pursuit);
 
         AttackState attack = new AttackState();
         attack.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
-        attack.AddMap(FSMTriggerID.OutAttackRange, FSMStateID.Pursuit);
+        attack.AddMap(FSMTriggerID.EndAction, FSMStateID.Standby);
         states.Add(attack);
+
+        StandbyState standby = new StandbyState();
+        states.Add(standby);
 
         DeadState dead = new DeadState();
         states.Add(dead);
@@ -50,22 +55,26 @@ public class FSMBase : MonoBehaviour
         currentState = defaultState;
         currentState.Enter(fsmData);
     }
-
+    
+    // test
     private void Update() {
         if (Input.GetKeyDown(KeyCode.P)) {
             currentState.Check(this);
-            currentState.Tick(fsmData);
             test_currentStateID = currentState.StateID;
         }
-        
+        if (Input.GetKeyDown(KeyCode.L)) {
+            SetIdleState();
+            test_currentStateID = currentState.StateID;
+        }
     }
 
     // 每次回合开始调用
-    public void MyUpdate() {
+    public void TurnUpdate() {
         currentState.Check(this);
-        currentState.Tick(fsmData);
         test_currentStateID = currentState.StateID;
     }
+
+    public void SetIdleState() => ChangeState(FSMStateID.Idle);
 
     public void ChangeState(FSMStateID stateID) {
         FSMState nextState = stateID == FSMStateID.Default ? defaultState : states.Find(t => t.StateID == stateID);

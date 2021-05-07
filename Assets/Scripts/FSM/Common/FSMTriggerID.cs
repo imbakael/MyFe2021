@@ -7,4 +7,5 @@ public enum FSMTriggerID {
     LoseTarget, // 丢失目标
     InAttackRange, // 进入攻击范围
     OutAttackRange, // 离开攻击范围
+    EndAction, // 结束行动
 }

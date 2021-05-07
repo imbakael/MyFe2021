@@ -7,4 +7,5 @@ public enum FSMStateID {
     Pursuit, // 追逐
     Attack, // 攻击
     Dead, // 死亡
+    Standby // 待机
 }
