@@ -8,6 +8,8 @@ public partial class GameBoard
 
     public List<MapUnit> GetAllOtherUnits(TeamType ignoreTeam) => mapUnitsCollection.GetAllOtherUnits(ignoreTeam);
 
+    public List<MapUnit> GetTeam(TeamType team) => mapUnitsCollection.GetTeam(team);
+
     public void AllNextTurn() => mapUnitsCollection.AllNextTurn();
 
     public void NextTurn(TeamType teamType) => mapUnitsCollection.NextTurn(teamType);

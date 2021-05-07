@@ -98,4 +98,5 @@ public abstract class MapUnit : MonoBehaviour
         animator.SetBool("IsActive", isActive);
     }
 
+    public MapState GetMapState() => state;
 }

@@ -12,29 +12,31 @@ public class TurnController : MonoBehaviour
     private List<MapUnit> enemy;
     private List<MapUnit> neutral;
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.M)) {
+            Run();
+        }
+    }
+
     public void Run() {
         StartCoroutine(Handle());
     }
 
     private IEnumerator Handle() {
-        for (int i = 0; i < ally.Count; i++) {
-            MapUnit unit = ally[i];
-            unit.GetComponent<FSMBase>().TurnUpdate();
-            yield return null;
-        }
-        for (int i = 0; i < ally.Count; i++) {
-            ally[i].GetComponent<FSMBase>().SetIdleState();
-        }
-
-        yield return new WaitForSeconds(1f);
-
+        enemy = GameBoard.instance.GetTeam(TeamType.ENEMY);
+        // 敌方回合动画
         for (int i = 0; i < enemy.Count; i++) {
             MapUnit unit = enemy[i];
             unit.GetComponent<FSMBase>().TurnUpdate();
-            yield return null;
+            if (unit.GetMapState() != MapState.IDLE) {
+                while (unit.GetMapState() != MapState.GRAY) {
+                    yield return null;
+                }
+            }
         }
         for (int i = 0; i < enemy.Count; i++) {
             enemy[i].GetComponent<FSMBase>().SetIdleState();
         }
+        
     }
 }
