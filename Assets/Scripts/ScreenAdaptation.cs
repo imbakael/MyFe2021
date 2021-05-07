@@ -8,7 +8,7 @@ public class ScreenAdaptation : MonoBehaviour
     // 相机高度 = 相机size * 2
 
     public float validWith; // 有效内容宽度
-    private float designWidth = 2340f;
+    private float designWidth = 1920f;
     private float desingHeight = 1080f;
     private float designSize = 5f;
 

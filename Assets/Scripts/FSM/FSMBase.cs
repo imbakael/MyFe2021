@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class FSMBase : MonoBehaviour
 {
-    [SerializeField]
-    private FSMStateID defaultStateID = default;
+    [SerializeField] private FSMStateID defaultStateID = default;
 
     public FSMStateID test_currentStateID;
-    public Transform[] wayPoints;
     public FSMData fsmData;
 
-    public List<FSMState> states;
+    private List<FSMState> states;
     private FSMState defaultState;
     private FSMState currentState;
 
@@ -23,25 +21,28 @@ public class FSMBase : MonoBehaviour
     public virtual void ConfigFSM() {
         states = new List<FSMState>();
 
-        //DeadState dead = new DeadState();
-        //states.Add(dead);
-
         //PatrolState patrol = new PatrolState();
         //patrol.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
         //patrol.AddMap(FSMTriggerID.FindTarget, FSMStateID.Pursuit);
         //states.Add(patrol);
 
-        //PursuitState pursuit = new PursuitState();
-        //pursuit.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
-        //pursuit.AddMap(FSMTriggerID.LoseTarget, FSMStateID.Patrol);
-        //pursuit.AddMap(FSMTriggerID.InAttackRange, FSMStateID.Attack);
-        //states.Add(pursuit);
+        IdleState idle = new IdleState();
+        idle.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+        idle.AddMap(FSMTriggerID.FindTarget, FSMStateID.Pursuit);
+        states.Add(idle);
 
-        //AttackState attack = new AttackState();
-        //attack.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
-        //attack.AddMap(FSMTriggerID.TargetDead, FSMStateID.Patrol);
-        //attack.AddMap(FSMTriggerID.OutAttackRange, FSMStateID.Pursuit);
-        //states.Add(attack);
+        PursuitState pursuit = new PursuitState();
+        pursuit.AddMap(FSMTriggerID.LoseTarget, FSMStateID.Idle);
+        pursuit.AddMap(FSMTriggerID.InAttackRange, FSMStateID.Attack);
+        states.Add(pursuit);
+
+        AttackState attack = new AttackState();
+        attack.AddMap(FSMTriggerID.NoHealth, FSMStateID.Dead);
+        attack.AddMap(FSMTriggerID.OutAttackRange, FSMStateID.Pursuit);
+        states.Add(attack);
+
+        DeadState dead = new DeadState();
+        states.Add(dead);
     }
 
     private void InitDefaultState() {
@@ -51,6 +52,16 @@ public class FSMBase : MonoBehaviour
     }
 
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            currentState.Check(this);
+            currentState.Tick(fsmData);
+            test_currentStateID = currentState.StateID;
+        }
+        
+    }
+
+    // 每次回合开始调用
+    public void MyUpdate() {
         currentState.Check(this);
         currentState.Tick(fsmData);
         test_currentStateID = currentState.StateID;

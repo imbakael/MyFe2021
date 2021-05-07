@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 // 棋盘，包含tile，所有角色，移动范围等UI
-public class GameBoard : MonoBehaviour {
+public partial class GameBoard : MonoBehaviour {
     
     public static GameBoard instance;
 
@@ -24,7 +24,6 @@ public class GameBoard : MonoBehaviour {
     private Dictionary<Vector3, LogicTile> worldTiles;
     private List<LogicTile> movementTiles = new List<LogicTile>(); // 当前选中角色移动范围，此变量很重要，很多寻路方面的方法都需要此变量
     private List<GameObject> uiTiles = new List<GameObject>();
-    private MapUnitsCollection mapUnitsCollection;
 
     private void Awake() {
         instance = this;
@@ -70,29 +69,19 @@ public class GameBoard : MonoBehaviour {
         }
     }
 
-    public void AllNextTurn() => mapUnitsCollection.AllNextTurn();
-
-    public void NextTurn(TeamType teamType) => mapUnitsCollection.NextTurn(teamType);
-
-    public void CreateMapUnits(Vector2Int[] allCellPos, TeamType team) {
-        for (int i = 0; i < allCellPos.Length; i++) {
-            Vector2Int cellPos = allCellPos[i];
-            int index = walkMap.size.x * cellPos.y + cellPos.x;
-            LogicTile tile = allLogicTiles[index];
-            MapUnit unit = Instantiate(playerPrefabs[(int)team]);
-            unit.Init(team, tile);
-            unit.transform.position = GetWorldPos(tile) + new Vector3(0.5f, 0, 0);
-            mapUnitsCollection.AddUnit(team, unit);
-        }
-    }
-
-    public bool IsAllEnemyDie() => mapUnitsCollection.IsAllUnitsDie(TeamType.ENEMY);
-
-    public bool IsMainRoleDie() => mapUnitsCollection.IsMainRoleDie(TeamType.MY_ARMY);
-
     public Vector3 GetWorldPos(LogicTile tile) => walkMap.CellToWorld(tile.CellPos);
 
     public bool IsInMoveRange(LogicTile tile) => movementTiles.Contains(tile);
+
+    public bool IsOneNeighborInMoveRange(LogicTile tile) {
+        List<LogicTile> neighbors = tile.GetNeighbors();
+        foreach (var item in neighbors) {
+            if (IsInMoveRange(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public bool IsExistMoveRange() => uiTiles.Count > 0;
 
@@ -104,7 +93,6 @@ public class GameBoard : MonoBehaviour {
     }
 
     // -------------以下为计算和显示路径-------------
-
     public void ShowMoveAndAttackTiles(LogicTile start, int movePower, int attackRange) {
         ClearUITiles();
         ShowMoveTiles(start, movePower);
@@ -163,7 +151,7 @@ public class GameBoard : MonoBehaviour {
     private List<LogicTile> FindAttackPaths(int attackRange) {
         var attackTiles = new List<LogicTile>();
         var searchFrontier = new Queue<LogicTile>();
-        List<LogicTile> boundTiles = LogicTile.GetAllBoundTiles(movementTiles);
+        List<LogicTile> boundTiles = GetMoveBoundTiles();
         for (int i = 0; i < boundTiles.Count; i++) {
             boundTiles[i].LeftAttack = attackRange;
             searchFrontier.Enqueue(boundTiles[i]);
@@ -187,4 +175,5 @@ public class GameBoard : MonoBehaviour {
         return attackTiles;
     }
     
+    public List<LogicTile> GetMoveBoundTiles() => LogicTile.GetAllBoundTiles(movementTiles);
 }

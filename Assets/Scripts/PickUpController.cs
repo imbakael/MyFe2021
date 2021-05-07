@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PickUpController : Singleton<PickUpController>
 {
-    private MapUnit curMapUnit;
+    public MapUnit CurMapUnit { get; private set; }
 
     private void Update() {
         if (Input.GetMouseButtonUp(0)) {
@@ -24,8 +24,8 @@ public class PickUpController : Singleton<PickUpController>
         }
     }
 
-    private bool CannotOperate() => curMapUnit != null && curMapUnit.CannotOperate();
-    private bool CanOperate() => curMapUnit != null && !curMapUnit.CannotOperate();
+    private bool CannotOperate() => CurMapUnit != null && CurMapUnit.CannotOperate();
+    private bool CanOperate() => CurMapUnit != null && !CurMapUnit.CannotOperate();
 
     private LogicTile GetTile() {
         Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,18 +35,19 @@ public class PickUpController : Singleton<PickUpController>
 
     // 处理上一个选中的单位和当前单位逻辑
     private void HandleLastAndCurrentMapUnit(LogicTile tile) {
-        MapUnit lastUnit = curMapUnit;
+        MapUnit lastUnit = CurMapUnit;
         lastUnit?.Click(tile);
-        curMapUnit = tile.UnitOnTile ?? (!GameBoard.instance.IsExistMoveRange() ? null : curMapUnit); // 没有任何单位（无论敌我）被选中时，点空地会置空curUnit
-        if (lastUnit != curMapUnit) {
-            curMapUnit?.Click(tile);
+        CurMapUnit = tile.UnitOnTile ?? (!GameBoard.instance.IsExistMoveRange() ? null : CurMapUnit); // 没有任何单位（无论敌我）被选中时，点空地会置空curUnit
+        if (lastUnit != CurMapUnit && CurMapUnit != null) {
+            CurMapUnit.Click(tile);
+            UIManager.Instance.CreateUnitSelectedPanel(CurMapUnit);
         }
     }
 
     // 待机
     public void Standby() {
-        if (CanOperate()) {
-            curMapUnit.Standby();
+        if (CanOperate() && CurMapUnit.Team == TeamType.MY_ARMY) {
+            CurMapUnit.Standby();
         }
     }
 

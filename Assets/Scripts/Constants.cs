@@ -57,6 +57,22 @@ public enum FighterState {
     DIE // 死亡
 }
 
+public enum WinType {
+    AllDie, // 敌人全灭
+    OccupySpot, // 占领地点
+    Escape, // 全员逃离
+    Defend, // 防守一定回合
+}
+
+public enum LoseType {
+    MainRoleDie, // 主角or某一核心角色死亡
+}
+
+public enum PosType {
+    Left,
+    Right
+}
+
 // 新建一个类，记录每日想法
 
 // 2.主动技分类：地图技and职业技，职业技类似国王的恩赐里的兵种技能，有使用次数限制或cd限制，只有先手方战斗刚开始的时候可以选择释放一次；

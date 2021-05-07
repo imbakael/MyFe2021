@@ -6,7 +6,10 @@ public class DeadState : FSMState
     }
 
     public override void Enter(FSMData data) {
-        data.animation.Play("flyhurt");
         data.Dead();
+    }
+
+    public override void Exit(FSMData data) {
+
     }
 }

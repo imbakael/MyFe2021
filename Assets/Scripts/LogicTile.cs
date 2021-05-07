@@ -58,7 +58,7 @@ public class LogicTile
             return false;
         }
         TeamType curTeam = LevelManager.Instance.CurTeam;
-        TeamType unitTeam = UnitOnTile.team;
+        TeamType unitTeam = UnitOnTile.Team;
         if (curTeam == TeamType.MY_ARMY || curTeam == TeamType.ALLY) {
             return unitTeam == TeamType.ENEMY || unitTeam == TeamType.NEUTRAL;
         } else if (curTeam == TeamType.ENEMY) {

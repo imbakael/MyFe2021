@@ -14,19 +14,18 @@ public class Game : MonoBehaviour
     private void Awake() {
         // 加载各个势力的所有角色阵容
         board.CreateMapUnits(new Vector2Int[] {
-            new Vector2Int(10, 5),
-            new Vector2Int(1, 6),
-            new Vector2Int(12, 3)
-        }, TeamType.MY_ARMY);
+            new Vector2Int(11, 2),
+        }, TeamType.ENEMY);
 
         board.CreateMapUnits(new Vector2Int[] {
-            new Vector2Int(9, 3)
-        }, TeamType.ENEMY);
+            new Vector2Int(9, 3),
+            new Vector2Int(12, 3)
+        }, TeamType.MY_ARMY);
     }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Z)) {
-            BattleManager.Instance.StartBattle(myRole, enemy);
+            BattleController.Instance.StartBattle(myRole, enemy);
         }
     }
 }

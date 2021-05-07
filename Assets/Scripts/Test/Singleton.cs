@@ -14,10 +14,4 @@ public class Singleton<T> : MonoBehaviour where T: Singleton<T> {
             return instance;
         }
     }
-
-    private void Awake() {
-        if (instance = null) {
-            instance = this as T;
-        }
-    }
 }

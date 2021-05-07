@@ -31,16 +31,25 @@ public class MapUnitsCollection
     public void NextTurn(TeamType team) {
         List<MapUnit> units = collection[team];
         foreach (MapUnit item in units) {
-            item.NextTurn();
+            item.SetIdle();
         }
     }
 
     public void AllNextTurn() {
         foreach (var item in collection) {
             foreach (MapUnit mapUnit in item.Value) {
-                mapUnit.NextTurn();
+                mapUnit.SetIdle();
             }
         }
     }
 
+    public List<MapUnit> GetAllOtherUnits(TeamType ignoreTeam) {
+        List<MapUnit> result = new List<MapUnit>();
+        foreach (var item in collection) {
+            if (item.Key != ignoreTeam) {
+                result.AddRange(item.Value);
+            }
+        }
+        return result;
+    }
 }

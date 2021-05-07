@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class AStar
 {
-    public static List<LogicTile> FindPath(LogicTile start, LogicTile end) {
+    private const int MAX_MAP_LENGTH_OR_HEIGHT = 20;
+
+    public static List<LogicTile> FindPath(LogicTile start, LogicTile end, bool isMovePowerInfinity = false) {
         if (start == end) {
             return new List<LogicTile> { end };
+        }
+        if (isMovePowerInfinity) {
+            GameBoard.instance.FindMovePaths(start, MAX_MAP_LENGTH_OR_HEIGHT);
         }
         GameBoard.instance.ClearTilePath();
         var openList = new List<LogicTile>();
@@ -18,7 +23,6 @@ public class AStar
             openList.Remove(lowestF);
             closeList.Add(lowestF);
             List<LogicTile> neighbors = lowestF.GetNeighbors();
-            // 剔除不在移动范围内的邻居
             for (int i = neighbors.Count - 1; i >= 0; i--) {
                 if (!GameBoard.instance.IsInMoveRange(neighbors[i])) {
                     neighbors.RemoveAt(i);
@@ -47,7 +51,7 @@ public class AStar
                 }
             }
         }
-        Debug.LogError("不可能到达！");
+        Debug.LogError("不可能到达！" + ", startpos = (" + start.X + ", " + start.Y + ")  endpos = (" + end.X + ", " + end.Y + ")");
         return new List<LogicTile>();
     }
 
@@ -69,6 +73,6 @@ public class AStar
         return path;
     }
 
-    private static int GetH(LogicTile n, LogicTile end) => Mathf.Abs(n.X - end.X) + Mathf.Abs(n.Y - end.Y);
+    public static int GetH(LogicTile n, LogicTile end) => Mathf.Abs(n.X - end.X) + Mathf.Abs(n.Y - end.Y);
 
 }
