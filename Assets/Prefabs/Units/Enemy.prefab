@@ -121,7 +121,7 @@ MonoBehaviour:
     attackRange: 1
     moveSpeed: 5
   state: 0
-  viewRange: 44
+  viewRange: 20
 --- !u!114 &8938101162579748823
 MonoBehaviour:
   m_ObjectHideFlags: 0

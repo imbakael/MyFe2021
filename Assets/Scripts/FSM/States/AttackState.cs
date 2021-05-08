@@ -11,8 +11,4 @@ public class AttackState : FSMState
         Debug.Log("Enter AttackState");
         data.Attack();
     }
-
-    public override void Exit(FSMData data) {
-
-    }
 }

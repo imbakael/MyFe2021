@@ -56,18 +56,6 @@ public class FSMBase : MonoBehaviour
         currentState.Enter(fsmData);
     }
     
-    // test
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.P)) {
-            currentState.Check(this);
-            test_currentStateID = currentState.StateID;
-        }
-        if (Input.GetKeyDown(KeyCode.L)) {
-            SetIdleState();
-            test_currentStateID = currentState.StateID;
-        }
-    }
-
     // 每次回合开始调用
     public void TurnUpdate() {
         currentState.Check(this);

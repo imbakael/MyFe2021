@@ -11,8 +11,4 @@ public class DeadState : FSMState
         Debug.Log("Enter DeadState");
         data.Dead();
     }
-
-    public override void Exit(FSMData data) {
-
-    }
 }

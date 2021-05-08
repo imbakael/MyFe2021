@@ -4758,7 +4758,7 @@ GameObject:
   m_Layer: 5
   m_Name: UICamera
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4937,6 +4937,8 @@ MonoBehaviour:
   baseTipsUI: {fileID: 3979044056546963021, guid: 60cf19b02ee7b7544846442df0b46d71,
     type: 3}
   conversationPanel: {fileID: 1175547294643678203, guid: 90db29880766ef74e8f8a1f74b9c5406,
+    type: 3}
+  turnTransPanel: {fileID: 7471138988197492191, guid: aa2946d04129fd448a65ba8738d880b5,
     type: 3}
   uiCanvas: {fileID: 1138576795}
   uiCamera: {fileID: 1604734099}

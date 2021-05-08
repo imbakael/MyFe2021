@@ -11,8 +11,4 @@ public class IdleState : FSMState {
         // 空闲动画
         data.SetIdle();
     }
-
-    public override void Exit(FSMData data) {
-        
-    }
 }

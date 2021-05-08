@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private UnitDetailPanel unitDetailPanel = default;
     [SerializeField] private BaseTipsUI baseTipsUI = default;
     [SerializeField] private ConversationPanel conversationPanel = default;
+    [SerializeField] private TurnTransPanel turnTransPanel = default;
 
     [SerializeField] private Canvas uiCanvas = default;
     [SerializeField] private Camera uiCamera = default;
@@ -54,5 +56,10 @@ public class UIManager : Singleton<UIManager>
         panel.transform.SetParent(uiCanvas.transform, false);
     }
 
+    public void CreateTurnTransPanel(TeamType team, Action endAction) {
+        TurnTransPanel panel = Instantiate(turnTransPanel);
+        panel.PlayTurnTrans(team, endAction);
+        panel.transform.SetParent(uiCanvas.transform, false);
+    }
     
 }

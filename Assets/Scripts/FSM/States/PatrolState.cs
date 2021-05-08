@@ -11,8 +11,4 @@ public class PatrolState : FSMState
         Debug.Log("Enter PatrolState");
     }
 
-    public override void Exit(FSMData data) {
-
-    }
-
 }

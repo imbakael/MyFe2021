@@ -13,7 +13,4 @@ public class StandbyState : FSMState
         data.Standby();
     }
 
-    public override void Exit(FSMData data) {
-        base.Exit(data);
-    }
 }

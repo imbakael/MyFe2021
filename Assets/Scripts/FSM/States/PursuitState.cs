@@ -16,10 +16,6 @@ public class PursuitState : FSMState {
         data.Move();
     }
 
-    public override void Exit(FSMData data) {
-
-    }
-
     private void HandleWhenMoveEnd() {
         data.TurnUpdate();
     }
