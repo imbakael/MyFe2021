@@ -80,4 +80,6 @@ public class FSMBase : MonoBehaviour
         currentState = nextState;
         currentState.Enter(FsmData);
     }
+
+    public FSMStateID GetCurrentStateID() => currentState.StateID;
 }

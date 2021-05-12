@@ -67,7 +67,7 @@ public class NPCMapUnit : MapUnit {
         List<LogicTile> neighbors = targetTile.GetNeighbors();
         return 
             neighbors
-            .Where(t => board.IsInMoveRange(t))
+            .Where(t => board.IsInMoveRange(t) && t.UnitOnTile == null)
             .OrderBy(t => AStar.GetH(Tile, t))
             .FirstOrDefault();
     }
@@ -76,7 +76,7 @@ public class NPCMapUnit : MapUnit {
         List<LogicTile> neighbors = targetTile.GetNeighbors();
         return 
             neighbors
-            .Where(t => t.CanWalk)
+            .Where(t => t.CanWalk && t.UnitOnTile == null)
             .OrderBy(t => AStar.GetH(Tile, t))
             .FirstOrDefault();
     }
@@ -84,7 +84,6 @@ public class NPCMapUnit : MapUnit {
     public override void Attack() {
         Debug.Log("npc 开始攻击！");
         MapUnit target = GetNearestUnitInAttackRange();
-        Vector2 direction = new Vector2(target.Tile.X - Tile.X, target.Tile.Y - Tile.Y);
-        // 朝着某个方向攻击
+        MapBattleController.Instance.StartMapBattle(this, target);
     }
 }

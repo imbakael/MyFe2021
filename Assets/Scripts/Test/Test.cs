@@ -59,13 +59,13 @@ public class Test : MonoBehaviour
     }
 
     private void Start() {
-        TestBattle();
+        //TestBattle();
     }
 
     private void TestBattle() {
         MapUnit active = GameBoard.instance.GetTeam(TeamType.My)[0];
         MapUnit passive = GameBoard.instance.GetTeam(TeamType.ENEMY)[0];
-        MapBattleController.StartMapBattle(active, passive);
+        MapBattleController.Instance.StartMapBattle(active, passive);
     }
 
 }

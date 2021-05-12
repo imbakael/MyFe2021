@@ -31,8 +31,8 @@ public abstract class MapUnit : MonoBehaviour
         Team = team;
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
-        role = team == TeamType.My ? new Role(100, 10, 5, 100, 100, 40, 8) : 
-            new Role(48, 6, 2, 0, 0, 20, 5);
+        role = team == TeamType.My ? new Role(400, 10, 5, 100, 100, 40, 8) : 
+            new Role(600, 6, 2, 0, 0, 20, 7);
     }
 
     // 地图单位都可以被点击、移动、攻击、待机
@@ -69,6 +69,7 @@ public abstract class MapUnit : MonoBehaviour
         }
         state = MapState.READY_MOVE;
         moveEnd?.Invoke();
+        moveEnd = null;
     }
 
     public virtual void Attack() { }
@@ -96,7 +97,7 @@ public abstract class MapUnit : MonoBehaviour
 
     public bool CannotOperate() => state == MapState.MOVING; // 移动中不可操作
 
-    protected void SetAnimation(int x, int y, bool isActive = true) {
+    public void SetAnimation(int x, int y, bool isActive = true) {
         animator.SetInteger("X", x);
         animator.SetInteger("Y", y);
         animator.SetBool("IsActive", isActive);

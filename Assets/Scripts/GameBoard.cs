@@ -69,7 +69,7 @@ public partial class GameBoard : MonoBehaviour {
     public bool IsExistNeighborInMoveRange(LogicTile tile) {
         List<LogicTile> neighbors = tile.GetNeighbors();
         foreach (var item in neighbors) {
-            if (IsInMoveRange(item)) {
+            if (IsInMoveRange(item) && item.UnitOnTile == null) {
                 return true;
             }
         }

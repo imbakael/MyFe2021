@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 一次原子战斗行为
+// 一次原子战斗行为(动画+产生的结果)
 public class BattleAtomicBehavior {
 
     public BattleAnimationType animationType;
@@ -21,7 +21,7 @@ public class BattleAtomicBehavior {
     }
 
     public void Handle() {
-        Debug.LogError(actionStr);
+        Debug.Log(actionStr);
         actionStr = actionStr.Remove(actionStr.Length - 1);
         string[] strArray = actionStr.Split('|');
         foreach (var item in strArray) {

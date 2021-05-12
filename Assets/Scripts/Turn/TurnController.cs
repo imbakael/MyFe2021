@@ -27,12 +27,17 @@ public class TurnController : MonoBehaviour
             }
             yield return WaitTurnTrans(teams[i]);
             foreach (var item in units) {
-                item.GetComponent<FSMBase>().TurnUpdate();
-                if (item.GetMapState() != MapState.IDLE) {
-                    while (item.GetMapState() != MapState.GRAY) {
+                FSMBase fsm = item.GetComponent<FSMBase>();
+                fsm.TurnUpdate();
+                if (fsm.GetCurrentStateID() == FSMStateID.Pursuit || fsm.GetCurrentStateID() == FSMStateID.Attack) {
+                    while (fsm.GetCurrentStateID() != FSMStateID.Standby) {
                         yield return null;
                     }
                 }
+                // 如果仍为Idle状态不管
+                // 如果为移动状态，等待移动结束
+                // 如果为攻击状态，等待攻击结束
+
             }
             yield return new WaitForSeconds(1f);
             foreach (var item in units) {

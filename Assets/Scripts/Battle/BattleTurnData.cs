@@ -7,11 +7,15 @@ using UnityEngine;
 public class BattleTurnData {
 
     public bool IsOver { get; private set; }
+    public BattleUnit ActiveUnit { get; private set; }
+    public BattleUnit PassiveUnit { get; private set; }
 
     private BattleAtomicBehavior activeBehavior;
     private BattleAtomicBehavior passiveBehavior;
 
     public BattleTurnData(BattleUnit active, BattleUnit passive) {
+        ActiveUnit = active;
+        PassiveUnit = passive;
         activeBehavior = new BattleAtomicBehavior(active);
         passiveBehavior = new BattleAtomicBehavior(passive);
         CalculateOnce(active, passive);
@@ -28,7 +32,7 @@ public class BattleTurnData {
         passiveBehavior.AddActionStr("Hp", -damage);
 
         if (passive.Hp <= 0) {
-            Debug.Log("一次攻防中，localPassive被杀死");
+            Debug.Log("一次攻防中，relativePassive被杀死");
             IsOver = true;
         }
     }
@@ -37,7 +41,7 @@ public class BattleTurnData {
         // todo 判断武器类型，可能是物理or魔法攻击
         int damage = active.Atk - passive.Def;
         float factCris = active.Crit - passive.CritAvoid;
-        // todo 如果必杀则动画类型改为必杀动画
+        // todo 如果触发必杀则动画类型改为必杀动画
         bool isCris = Random.value <= factCris;
         float factDamage = damage * (isCris ? active.CritTimes : 1f);
         return MyTools.GetRound(factDamage);

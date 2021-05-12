@@ -32,8 +32,7 @@ public class FSMData
     public void Move() => npc.MoveToNearestTile();
 
     public void MoveEnd(Action action) {
-        npc.moveEnd -= action;
-        npc.moveEnd += action;
+        npc.moveEnd = action;
     }
 
     public void Dead() {

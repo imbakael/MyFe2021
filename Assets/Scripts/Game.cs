@@ -11,14 +11,18 @@ public class Game : MonoBehaviour
     private void Awake() {
         // 加载各个势力的所有角色阵容
         board.CreateMapUnits(new Vector2Int[] {
-            //new Vector2Int(10, 9),
-            new Vector2Int(11, 1),
-            //new Vector2Int(3, 6),
+            //new Vector2Int(11, 2),
+            ////new Vector2Int(11, 4),
+            //new Vector2Int(10, 3),
+            //new Vector2Int(12, 3),
+            //new Vector2Int(11, 0),
+            new Vector2Int(12, 4),
+
         }, TeamType.ENEMY);
 
         board.CreateMapUnits(new Vector2Int[] {
-            //new Vector2Int(1, 0),
-            new Vector2Int(10, 5),
+            new Vector2Int(11, 3),
+            new Vector2Int(13, 3),
         }, TeamType.My);
     }
 

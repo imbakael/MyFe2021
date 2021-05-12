@@ -66,6 +66,9 @@ public class Role {
     public float FireResist;
     public float ThunderResist;
     public float WindResist;
+
+    // 装备信息
+
     
     public Role(int hp, int str, int def, int ski, int luck, int durability, int spd) {
         Hp = hp;
