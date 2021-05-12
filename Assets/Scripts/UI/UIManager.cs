@@ -61,5 +61,12 @@ public class UIManager : Singleton<UIManager>
         panel.PlayTurnTrans(team, endAction);
         panel.transform.SetParent(uiCanvas.transform, false);
     }
+
+    public void ShowMask() {
+
+    }
+
+    public void HideMask() { 
+}
     
 }

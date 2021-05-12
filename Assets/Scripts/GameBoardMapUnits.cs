@@ -28,5 +28,5 @@ public partial class GameBoard
 
     public bool IsAllEnemyDie() => mapUnitsCollection.IsAllUnitsDie(TeamType.ENEMY);
 
-    public bool IsMainRoleDie() => mapUnitsCollection.IsMainRoleDie(TeamType.MY_ARMY);
+    public bool IsMainRoleDie() => mapUnitsCollection.IsMainRoleDie(TeamType.My);
 }

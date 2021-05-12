@@ -20,7 +20,7 @@ public class PickUpController : Singleton<PickUpController>
         }
 
         if (Input.GetKeyDown(KeyCode.N)) {
-            GameBoard.instance.NextTurn(TeamType.MY_ARMY);
+            GameBoard.instance.NextTurn(TeamType.My);
         }
     }
 
@@ -35,10 +35,10 @@ public class PickUpController : Singleton<PickUpController>
 
     // 处理上一个选中的单位和当前单位逻辑
     private void HandleLastAndCurrentMapUnit(LogicTile tile) {
-        MapUnit lastUnit = CurMapUnit;
-        lastUnit?.Click(tile);
+        MapUnit previous = CurMapUnit;
+        previous?.Click(tile);
         CurMapUnit = tile.UnitOnTile ?? (!GameBoard.instance.IsExistMoveRange() ? null : CurMapUnit); // 没有任何单位（无论敌我）被选中时，点空地会置空curUnit
-        if (lastUnit != CurMapUnit && CurMapUnit != null) {
+        if (previous != CurMapUnit && CurMapUnit != null) {
             CurMapUnit.Click(tile);
             UIManager.Instance.CreateUnitSelectedPanel(CurMapUnit);
         }
@@ -46,7 +46,7 @@ public class PickUpController : Singleton<PickUpController>
 
     // 待机
     public void Standby() {
-        if (CanOperate() && CurMapUnit.Team == TeamType.MY_ARMY) {
+        if (CanOperate() && CurMapUnit.Team == TeamType.My) {
             CurMapUnit.Standby();
         }
     }

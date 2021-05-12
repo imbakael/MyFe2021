@@ -19,16 +19,20 @@ public abstract class MapUnit : MonoBehaviour
     protected GameBoard board;
 
     private Animator animator;
+    public Role role;
 
     private void Awake() {
         board = GameBoard.instance;
         animator = GetComponent<Animator>();
     }
 
+    // todo 应该把role也初始化
     public void Init(TeamType team, LogicTile tile) {
         Team = team;
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
+        role = team == TeamType.My ? new Role(100, 10, 5, 100, 100, 40, 8) : 
+            new Role(48, 6, 2, 0, 0, 20, 5);
     }
 
     // 地图单位都可以被点击、移动、攻击、待机

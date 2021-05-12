@@ -9,8 +9,8 @@ public class MapUnitsCollection
 
     public MapUnitsCollection() {
         collection = new Dictionary<TeamType, List<MapUnit>> {
-            {TeamType.MY_ARMY, new List<MapUnit>() },
-            {TeamType.ALLY, new List<MapUnit>() },
+            {TeamType.My, new List<MapUnit>() },
+            {TeamType.ALLIANCE, new List<MapUnit>() },
             {TeamType.ENEMY, new List<MapUnit>() },
             {TeamType.NEUTRAL, new List<MapUnit>() }
         };

@@ -74,6 +74,6 @@ public class AStar
         return path;
     }
 
-    public static int GetH(LogicTile n, LogicTile end) => Mathf.Abs(n.X - end.X) + Mathf.Abs(n.Y - end.Y);
+    public static int GetH(LogicTile one, LogicTile other) => Mathf.Abs(one.X - other.X) + Mathf.Abs(one.Y - other.Y);
 
 }

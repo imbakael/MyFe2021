@@ -5,7 +5,7 @@ using UnityEngine;
 // 回合控制器, 优先行动顺序：我方 -> 友军 -> 敌人 -> 中立
 public class TurnController : MonoBehaviour
 {
-    private readonly List<TeamType> teams = new List<TeamType> { TeamType.ALLY, TeamType.ENEMY, TeamType.NEUTRAL };
+    private readonly List<TeamType> teams = new List<TeamType> { TeamType.ALLIANCE, TeamType.ENEMY, TeamType.NEUTRAL };
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.M)) {
@@ -14,18 +14,18 @@ public class TurnController : MonoBehaviour
     }
 
     public void Run() {
-        StartCoroutine(Handle());
+        StartCoroutine(StartTurn());
     }
 
-    private IEnumerator Handle() {
-        // 显示遮罩
+    private IEnumerator StartTurn() {
+        UIManager.Instance.ShowMask();
         List<List<MapUnit>> allUnits = GetAllUnits();
         for (int i = 0; i < allUnits.Count; i++) {
             List<MapUnit> units = allUnits[i];
             if (units.Count == 0) {
                 continue;
             }
-            yield return StartCoroutine(WaitTurnTrans(teams[i]));
+            yield return WaitTurnTrans(teams[i]);
             foreach (var item in units) {
                 item.GetComponent<FSMBase>().TurnUpdate();
                 if (item.GetMapState() != MapState.IDLE) {
@@ -34,17 +34,18 @@ public class TurnController : MonoBehaviour
                     }
                 }
             }
+            yield return new WaitForSeconds(1f);
             foreach (var item in units) {
                 item.GetComponent<FSMBase>().SetIdleState();
             }
         }
-        yield return StartCoroutine(WaitTurnTrans(TeamType.MY_ARMY));
-        // 隐藏遮罩
 
+        yield return WaitTurnTrans(TeamType.My);
+        UIManager.Instance.HideMask();
     }
 
     private List<List<MapUnit>> GetAllUnits() {
-        List<List<MapUnit>> result = new List<List<MapUnit>>();
+        var result = new List<List<MapUnit>>();
         for (int i = 0; i < teams.Count; i++) {
             result.Add(GameBoard.instance.GetTeam(teams[i]));
         }

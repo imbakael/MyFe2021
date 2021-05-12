@@ -1,70 +1,98 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Role : FightUnit {
+public class Role {
 
-    // 空闲，普攻，必杀，躲避，受伤，死亡
-    private Animator animator;
-    private void Awake() {
-        animator = GetComponent<Animator>();
-    }
+    // 基本信息
+    public TeamType Team;
+    public int Name;
+    public int ClassId; // 职业id，如剑士、战士、刺客，通过id查表即可获得职业名
+    public int Lv;
+    public int Exp; // 经验值取值范围0-99，到达100时升级，到达等级上限时重置为0
+    public int Hp { get; set; }
+    public int MaxHp;
+    public int Mp;
+    public int MaxMp;
+    public int Durability { get; set; }
 
-    public override IEnumerator AttackTo() {
-        // 计算命中，必杀，天赋，可以暂时先不考虑，直接100%命中的普攻
-        animator.SetTrigger("Attack"); // 这里也有可能播放必杀动画
-        GetComponent<SpriteRenderer>().sortingOrder = 1;
-        Target.GetComponent<SpriteRenderer>().sortingOrder = 0;
+    // 基础属性（可成长属性）
+    public int Str { get; set; } // 力量
+    public int Def { get; set; } // 守备
+    public int Mag { get; set; } // 魔力
+    public int Res { get; set; } // 魔防
+    public int Ski { get; set; } // 技巧
+    public int Spd { get; set; } // 速度
+    public int Luck { get; set; } // 幸运
+    public int Con { get; set; } // 体格
+    public int Move { get; set; } // 移动力
 
-        while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
-            yield return null;
-        }
-
-        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
-            yield return null;
-        }
-    }
-
-    public override void Die() {
-
-    }
-
-    public override void TakeDamage(int damage) {
-        Attr.CurHp -= damage;
-    }
-
-    private void Attack() {
-        Debug.Log("攻击帧");
-        Color temp = GetComponent<SpriteRenderer>().color;
-        temp.a = 1;
-        GetComponent<SpriteRenderer>().color = temp;
-        //Target.TakeDamage(damage);
-        StartCoroutine(Pause(1f));
-    }
-
-    private void Move() {
-        Color temp = GetComponent<SpriteRenderer>().color;
-        temp.a = 0;
-        GetComponent<SpriteRenderer>().color = temp;
-        transform.position = Target.transform.position + Vector3.right * 2f;
-        StartCoroutine(Pause(2f));
-    }
-
-    private void Dodge() {
-
-    }
-
-    private IEnumerator Pause(float time) {
-        animator.speed = 0f;
-        yield return new WaitForSeconds(time);
-        animator.speed = 1f;
-
-    }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.B)) {
-            animator.SetTrigger("Attack");
+    // 战斗属性
+    public int Attack {
+        get {
+            return Str;
         }
     }
 
+    public int Defence {
+        get {
+            return Def;
+        }
+    }
+
+    public float Crit {
+        get {
+            return Ski / 100f;
+        }
+    }
+
+    public float CritAvoid {
+        get {
+            return Luck / 100f;
+        }
+    }
+
+    public float CritTimes {
+        get {
+            return 3f;
+        }
+    }
+
+    // 基础抗性
+    public float PhysicsResist;
+    public float LightResist;
+    public float DarkResist;
+    public float FireResist;
+    public float ThunderResist;
+    public float WindResist;
+    
+    public Role(int hp, int str, int def, int ski, int luck, int durability, int spd) {
+        Hp = hp;
+        Str = str;
+        Def = def;
+        Ski = ski;
+        Luck = luck;
+        Durability = durability;
+        Spd = spd;
+    }
+
+    public void ChangeValue(string s) {
+        string[] name_value = s.Split(',');
+        ChangeValue(name_value[0], name_value[1]);
+    }
+
+    private void ChangeValue(string name, string value) {
+        switch (name) {
+            case "Hp":
+                Hp += Convert.ToInt32(value);
+                break;
+            case "Durability":
+                Durability += Convert.ToInt32(value);
+                break;
+            default:
+                Debug.LogError("没找到对应属性！ s = " + name);
+                break;
+        }
+    }
 }

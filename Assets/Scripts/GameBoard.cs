@@ -82,6 +82,8 @@ public partial class GameBoard : MonoBehaviour {
 
     public LogicTile GetLogicTile(Vector3 worldPos) => worldTiles.TryGetValue(worldPos, out LogicTile tile) ? tile : null;
 
+    public List<LogicTile> GetMoveBoundTiles() => LogicTile.GetAllBoundTiles(movementTiles);
+
     public void SetColor(LogicTile tile) {
         walkMap.SetTileFlags(tile.CellPos, TileFlags.None);
         walkMap.SetColor(tile.CellPos, Color.green);
@@ -169,5 +171,4 @@ public partial class GameBoard : MonoBehaviour {
         return attackTiles;
     }
     
-    public List<LogicTile> GetMoveBoundTiles() => LogicTile.GetAllBoundTiles(movementTiles);
 }

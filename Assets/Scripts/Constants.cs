@@ -35,9 +35,9 @@ public enum CanWearType {
 }
 
 public enum TeamType {
-    MY_ARMY, // 我方
+    My, // 我方
     ENEMY, // 敌方
-    ALLY, // 友军
+    ALLIANCE, // 友军
     NEUTRAL // 中立
 }
 
@@ -71,6 +71,15 @@ public enum LoseType {
 public enum PosType {
     Left,
     Right
+}
+
+public enum BattleAnimationType {
+    Common, // 普攻
+    Cris, // 必杀
+    Heal, //治疗
+    Dodge, // 躲闪
+    Damage, // 受到攻击
+    Dead // 死亡
 }
 
 // 新建一个类，记录每日想法

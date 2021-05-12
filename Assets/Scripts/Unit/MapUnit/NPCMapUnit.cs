@@ -83,5 +83,8 @@ public class NPCMapUnit : MapUnit {
 
     public override void Attack() {
         Debug.Log("npc 开始攻击！");
+        MapUnit target = GetNearestUnitInAttackRange();
+        Vector2 direction = new Vector2(target.Tile.X - Tile.X, target.Tile.Y - Tile.Y);
+        // 朝着某个方向攻击
     }
 }

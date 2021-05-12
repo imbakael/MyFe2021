@@ -56,18 +56,16 @@ public class Test : MonoBehaviour
         c.Register<Talent>((temp) => { return new Talent(); });
         Talent t = c.Create<Talent>();
         //Debug.LogError("t.count = " + t.count);
-
-        //TestInsersect();
     }
 
-    private void TestInsersect() {
-        List<int> a = new List<int> { 99, -1, 2, -45 };
-        List<int> b = new List<int> { 0, 44, -23, -1, 99, 4, 2 };
-        var insersect = a.Intersect(b);
-        foreach (var item in insersect) {
-            Debug.Log("inter = " + item);
-        }
+    private void Start() {
+        TestBattle();
     }
 
-    
+    private void TestBattle() {
+        MapUnit active = GameBoard.instance.GetTeam(TeamType.My)[0];
+        MapUnit passive = GameBoard.instance.GetTeam(TeamType.ENEMY)[0];
+        MapBattleController.StartMapBattle(active, passive);
+    }
+
 }

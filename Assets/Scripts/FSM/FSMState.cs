@@ -31,8 +31,9 @@ public abstract class FSMState
 
     public void Check(FSMBase fsm) {
         for (int i = 0; i < triggers.Count; i++) {
-            if (triggers[i].IsTrigger(fsm.fsmData)) {
-                FSMStateID stateID = map[triggers[i].TriggerID];
+            FSMTrigger trigger = triggers[i];
+            if (trigger.IsTrigger(fsm.FsmData)) {
+                FSMStateID stateID = map[trigger.TriggerID];
                 fsm.ChangeState(stateID);
                 return;
             }

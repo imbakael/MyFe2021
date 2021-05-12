@@ -6,8 +6,6 @@ public abstract class FightUnit : MonoBehaviour
 {
     // 停止点, 对方走到这个点后会停止移动，进行普攻or必杀动画
     public Transform collidePoint;
-
-    public UnitAttr Attr { get; }
     
     public const int MAX_ITEM_NUM = 5; // 最大可持有道具数量（背包格子上限）
     public List<Item> Items { get; set; } // 身上的所有道具
