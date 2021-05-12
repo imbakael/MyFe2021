@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AStar
 {
-    private const int MAX_Movement = 50;
+    public const int MAX_Movement = 50;
     /// <summary>
     /// 查找两点之间的最短路径
     /// </summary>

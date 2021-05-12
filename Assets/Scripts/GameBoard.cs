@@ -84,6 +84,8 @@ public partial class GameBoard : MonoBehaviour {
 
     public List<LogicTile> GetMoveBoundTiles() => LogicTile.GetAllBoundTiles(movementTiles);
 
+    public List<LogicTile> GetMovementTiles() => MyTools.Clone(movementTiles);
+
     public void SetColor(LogicTile tile) {
         walkMap.SetTileFlags(tile.CellPos, TileFlags.None);
         walkMap.SetColor(tile.CellPos, Color.green);

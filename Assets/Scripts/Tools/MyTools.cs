@@ -15,4 +15,10 @@ public static class MyTools
         float v = (value + 0.5f) * 10;
         return Mathf.FloorToInt(v) / 10;
     }
+
+    public static List<T> Clone<T>(List<T> target) {
+        List<T> temp = new List<T>();
+        temp.AddRange(target);
+        return temp;
+    }
 }

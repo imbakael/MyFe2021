@@ -54,11 +54,13 @@ public class NPCMapUnit : MapUnit {
         if (board.IsExistNeighborInMoveRange(targetTile)) {
             return GetNearestTileFromNeighbor(targetTile);
         }
-        List<LogicTile> boundTiles = board.GetMoveBoundTiles();
+        List<LogicTile> movementTiles = board.GetMovementTiles();
         LogicTile neighbor = GetNearestTileFromNeighborIgnoreMove(targetTile);
         List<LogicTile> path = AStar.FindPath(Tile, neighbor, true);
+
         return 
-            path.Intersect(boundTiles)
+            path.Intersect(movementTiles)
+            .Where(t => t.UnitOnTile == null)
             .OrderByDescending(t => path.IndexOf(t))
             .FirstOrDefault();
     }
@@ -74,6 +76,12 @@ public class NPCMapUnit : MapUnit {
 
     private LogicTile GetNearestTileFromNeighborIgnoreMove(LogicTile targetTile) {
         List<LogicTile> neighbors = targetTile.GetNeighbors();
+        GameBoard.instance.FindMovePaths(Tile, AStar.MAX_Movement);
+        for (int i = neighbors.Count - 1; i >= 0; i--) {
+            if (!board.IsInMoveRange(neighbors[i])) {
+                neighbors.RemoveAt(i);
+            }
+        }
         return 
             neighbors
             .Where(t => t.CanWalk && t.UnitOnTile == null)
