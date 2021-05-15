@@ -27,6 +27,7 @@ public class TurnController : MonoBehaviour
             if (!units.Any(t => !t.IsDead)) {
                 continue;
             }
+            LevelManager.Instance.CurTeam = units[0].Team;
             yield return WaitTurnTrans(teams[i]);
             foreach (MapUnit item in units) {
                 if (item.IsDead) {
@@ -55,7 +56,7 @@ public class TurnController : MonoBehaviour
                 }
             }
         }
-
+        LevelManager.Instance.CurTeam = TeamType.My;
         yield return WaitTurnTrans(TeamType.My);
         UIManager.Instance.HideMask();
         isMyTurn = true;

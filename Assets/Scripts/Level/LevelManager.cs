@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : Singleton<LevelManager>
 {
     // 当前行动阵营
-    public TeamType CurTeam { get; private set; } = TeamType.ENEMY;
+    public TeamType CurTeam { get; set; } = TeamType.My;
     // 关卡回合数
     private int roundCount = 0;
     // 胜利条件

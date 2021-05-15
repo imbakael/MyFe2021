@@ -35,7 +35,8 @@ public abstract class MapUnit : MonoBehaviour
         Team = team;
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
-        Role = team == TeamType.My ? new Role(40, 10, 2, 100, 100, 40, 8) : 
+        Role = 
+            team == TeamType.My ? new Role(40, 10, 2, 100, 100, 40, 8) : 
             new Role(40, 6, 2, 0, 0, 20, 7);
     }
 
@@ -106,8 +107,6 @@ public abstract class MapUnit : MonoBehaviour
         animator.SetInteger("Y", y);
         animator.SetBool("IsActive", isActive);
     }
-
-    public MapState GetMapState() => state;
 
     public void Dead() {
         Tile.UnitOnTile = null;
