@@ -10,7 +10,7 @@ public class LevelManager : Singleton<LevelManager>
     private int roundCount = 0;
     // 胜利条件
     private LevelCondition condition;
-    // 关卡剧本(剧情or一些aoe触发，如第20回合火山喷发)
+    // 关卡剧本
 
     private void Start() {
         condition = new LevelCondition(WinType.AllDie, LoseType.MainRoleDie);

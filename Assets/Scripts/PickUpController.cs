@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,6 +7,8 @@ using UnityEngine.EventSystems;
 public class PickUpController : Singleton<PickUpController>
 {
     public MapUnit CurMapUnit { get; private set; }
+
+    public event Action<bool> click;
 
     private void Update() {
         if (Input.GetMouseButtonUp(0)) {
@@ -38,17 +41,20 @@ public class PickUpController : Singleton<PickUpController>
         MapUnit previous = CurMapUnit;
         previous?.Click(tile);
         CurMapUnit = tile.UnitOnTile ?? (!GameBoard.instance.IsExistMoveRange() ? null : CurMapUnit); // 没有任何单位（无论敌我）被选中时，点空地会置空curUnit
-        if (previous != CurMapUnit && CurMapUnit != null) {
+        if (previous != CurMapUnit && CurMapUnit != null && MapBattleController.Instance.attackEnd == null) {
             CurMapUnit.Click(tile);
             //UIManager.Instance.CreateUnitSelectedPanel(CurMapUnit);
         }
+        click?.Invoke(CurMapUnit != null && CurMapUnit.Team == TeamType.My);
     }
 
     // 待机
-    public void Standby() {
+    public bool Standby() {
         if (CanOperate() && CurMapUnit.Team == TeamType.My) {
             CurMapUnit.Standby();
+            return true;
         }
+        return false;
     }
 
 }

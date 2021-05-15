@@ -63,14 +63,14 @@ public class UIManager : Singleton<UIManager>
     }
 
     public void ShowMask() {
-        Transform myMask = MyTools.Find(uiCanvas.transform, "Mask");
-        myMask.gameObject.SetActive(true);
-        myMask.SetAsLastSibling();
+        Transform mask = MyTools.Find(uiCanvas.transform, "Mask");
+        mask.gameObject.SetActive(true);
+        mask.SetAsLastSibling();
     }
 
     public void HideMask() {
-        Transform myMask = MyTools.Find(uiCanvas.transform, "Mask");
-        myMask.gameObject.SetActive(false);
+        Transform mask = MyTools.Find(uiCanvas.transform, "Mask");
+        mask.gameObject.SetActive(false);
     }
 
 }

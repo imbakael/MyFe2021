@@ -30,7 +30,6 @@ public abstract class MapUnit : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // todo 应该把role也初始化
     public void Init(TeamType team, LogicTile tile) {
         Team = team;
         Tile = LastStandTile = tile;
@@ -79,7 +78,7 @@ public abstract class MapUnit : MonoBehaviour
 
     public virtual void Attack() { }
 
-    public void Standby() {
+    public virtual void Standby() {
         if (state == MapState.GRAY) {
             return;
         }
@@ -101,6 +100,7 @@ public abstract class MapUnit : MonoBehaviour
     }
 
     public bool CannotOperate() => state == MapState.MOVING; // 移动中不可操作
+    public bool IsActionOver() => state == MapState.GRAY; // 本单位行动结束
 
     public void SetAnimation(int x, int y, bool isActive = true) {
         animator.SetInteger("X", x);
@@ -113,4 +113,5 @@ public abstract class MapUnit : MonoBehaviour
         LastStandTile.UnitOnTile = null;
         gameObject.SetActive(false);
     }
+
 }

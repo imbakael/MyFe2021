@@ -29,32 +29,7 @@ public class TurnController : MonoBehaviour
             }
             LevelManager.Instance.CurTeam = units[0].Team;
             yield return WaitTurnTrans(teams[i]);
-            foreach (MapUnit item in units) {
-                if (item.IsDead) {
-                    continue;
-                }
-                FSMBase fsm = item.GetComponent<FSMBase>();
-                fsm.TurnUpdate();
-                // 如果仍为Idle状态不管
-                // 如果为移动状态，等待移动结束
-                // 如果为攻击状态，等待攻击结束
-                if (fsm.GetCurrentStateID() == FSMStateID.Pursuit || fsm.GetCurrentStateID() == FSMStateID.Attack) {
-                    while (fsm.GetCurrentStateID() != FSMStateID.Standby) {
-                        if (fsm.GetCurrentStateID() == FSMStateID.Dead) {
-                            break;
-                        }
-                        yield return null;
-                    }
-                    yield return new WaitForSeconds(0.5f);
-                }
-            }
-            yield return new WaitForSeconds(1f);
-            foreach (MapUnit item in units) {
-                FSMBase fsm = item.GetComponent<FSMBase>();
-                if (fsm.GetCurrentStateID() != FSMStateID.Dead) {
-                    fsm.SetIdleState();
-                }
-            }
+            yield return WaitByOneKindOfTeam(units);
         }
         LevelManager.Instance.CurTeam = TeamType.My;
         yield return WaitTurnTrans(TeamType.My);
@@ -75,6 +50,35 @@ public class TurnController : MonoBehaviour
         UIManager.Instance.CreateTurnTransPanel(team, () => isTurnTransOver = true);
         while (!isTurnTransOver) {
             yield return null;
+        }
+    }
+
+    private IEnumerator WaitByOneKindOfTeam(List<MapUnit> units) {
+        foreach (MapUnit item in units) {
+            if (item.IsDead) {
+                continue;
+            }
+            FSMBase fsm = item.GetComponent<FSMBase>();
+            fsm.TurnUpdate();
+            // 如果仍为空闲状态不管
+            // 如果为移动状态，等待移动结束
+            // 如果为攻击状态，等待攻击结束
+            if (fsm.GetCurrentStateID() == FSMStateID.Pursuit || fsm.GetCurrentStateID() == FSMStateID.Attack) {
+                while (fsm.GetCurrentStateID() != FSMStateID.Standby) {
+                    if (fsm.GetCurrentStateID() == FSMStateID.Dead) {
+                        break;
+                    }
+                    yield return null;
+                }
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+        yield return new WaitForSeconds(1f);
+        foreach (MapUnit item in units) {
+            FSMBase fsm = item.GetComponent<FSMBase>();
+            if (fsm.GetCurrentStateID() != FSMStateID.Dead) {
+                fsm.SetIdleState();
+            }
         }
     }
 

@@ -76,8 +76,12 @@ public class MapBattleController : Singleton<MapBattleController>
             yield return MoveTo(currentActiveMapUnit.transform, originalPos);
         }
         yield return new WaitForSeconds(0.5f);
-        passive.SetAnimation(0, 0);
-        Debug.LogError("npc 攻击结束");
+        if (passive.IsDead) {
+            passive.Dead();
+        } else {
+            passive.SetAnimation(0, 0);
+        }
+        Debug.LogError(active.Team + " 攻击结束");
         attackEnd?.Invoke();
         attackEnd = null;
     }

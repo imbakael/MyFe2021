@@ -12,7 +12,7 @@ public class NPCMapUnit : MapUnit {
         if (clickTile.UnitOnTile == this) {
             board.ShowMoveAndAttackTiles(Tile, mapUnitAttr.movePower, mapUnitAttr.attackRange);
         } else {
-            UIManager.Instance.DestroyPanel<UnitSelectedPanel>();
+            //UIManager.Instance.DestroyPanel<UnitSelectedPanel>();
             board.ClearUITiles();
         }
     }

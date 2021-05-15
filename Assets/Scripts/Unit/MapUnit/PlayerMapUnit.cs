@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 // 玩家控制的地图单位
 public class PlayerMapUnit : MapUnit {
@@ -19,7 +21,13 @@ public class PlayerMapUnit : MapUnit {
         if (CanMove(clickTile)) {
             MoveTo(clickTile);
         } else {
-            UIManager.Instance.DestroyPanel<UnitSelectedPanel>();
+            MapUnit target = clickTile.UnitOnTile;
+            if (CanAttack(target)) {
+                Attack(target);
+                board.ClearUITiles();
+                return;
+            }
+            //UIManager.Instance.DestroyPanel<UnitSelectedPanel>();
             Cancel();
         }
     }
@@ -27,6 +35,32 @@ public class PlayerMapUnit : MapUnit {
     private bool CanMove(LogicTile tile) {
         MapUnit unit = tile.UnitOnTile;
         return state == MapState.READY_MOVE && (unit == null || unit == this) && board.IsInMoveRange(tile);
+    }
+
+    private bool CanAttack(MapUnit target) {
+        return 
+            target != null
+            && (target.Team == TeamType.ENEMY || target.Team == TeamType.NEUTRAL)
+            && AStar.GetH(target.Tile, LastStandTile) <= mapUnitAttr.attackRange;
+    }
+
+    private void Attack(MapUnit target) {
+        MapBattleController.Instance.StartMapBattle(this, target);
+        MapBattleController.Instance.attackEnd = () => {
+            if (IsDead) {
+                Dead();
+            } else {
+                Standby();
+            }
+        };
+    }
+
+    public override void Standby() {
+        base.Standby();
+        List<MapUnit> myUnits = GameBoard.instance.GetTeam(Team);
+        if (myUnits.Where(t => !t.IsDead).All(t => t.IsActionOver())) {
+            TurnController.isMyTurn = false;
+        }
     }
 
     private void Cancel() {
