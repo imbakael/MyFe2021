@@ -1,52 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // 回合控制器, 优先行动顺序：我方 -> 友军 -> 敌人 -> 中立
 public class TurnController : MonoBehaviour
 {
+    public static bool isMyTurn = true;
     private readonly List<TeamType> teams = new List<TeamType> { TeamType.ALLIANCE, TeamType.ENEMY, TeamType.NEUTRAL };
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.M)) {
-            Run();
+    private IEnumerator Start() {
+        while (true) {
+            while (isMyTurn) {
+                yield return null;
+            }
+            yield return OtherTurn();
         }
     }
 
-    public void Run() {
-        StartCoroutine(StartTurn());
-    }
-
-    private IEnumerator StartTurn() {
+    private IEnumerator OtherTurn() {
         UIManager.Instance.ShowMask();
+        GameBoard.instance.NextTurn(TeamType.My);
         List<List<MapUnit>> allUnits = GetAllUnits();
         for (int i = 0; i < allUnits.Count; i++) {
             List<MapUnit> units = allUnits[i];
-            if (units.Count == 0) {
+            if (!units.Any(t => !t.IsDead)) {
                 continue;
             }
             yield return WaitTurnTrans(teams[i]);
-            foreach (var item in units) {
+            foreach (MapUnit item in units) {
+                if (item.IsDead) {
+                    continue;
+                }
                 FSMBase fsm = item.GetComponent<FSMBase>();
                 fsm.TurnUpdate();
-                if (fsm.GetCurrentStateID() == FSMStateID.Pursuit || fsm.GetCurrentStateID() == FSMStateID.Attack) {
-                    while (fsm.GetCurrentStateID() != FSMStateID.Standby) {
-                        yield return null;
-                    }
-                }
                 // 如果仍为Idle状态不管
                 // 如果为移动状态，等待移动结束
                 // 如果为攻击状态，等待攻击结束
-
+                if (fsm.GetCurrentStateID() == FSMStateID.Pursuit || fsm.GetCurrentStateID() == FSMStateID.Attack) {
+                    while (fsm.GetCurrentStateID() != FSMStateID.Standby) {
+                        if (fsm.GetCurrentStateID() == FSMStateID.Dead) {
+                            break;
+                        }
+                        yield return null;
+                    }
+                    yield return new WaitForSeconds(0.5f);
+                }
             }
             yield return new WaitForSeconds(1f);
-            foreach (var item in units) {
-                item.GetComponent<FSMBase>().SetIdleState();
+            foreach (MapUnit item in units) {
+                FSMBase fsm = item.GetComponent<FSMBase>();
+                if (fsm.GetCurrentStateID() != FSMStateID.Dead) {
+                    fsm.SetIdleState();
+                }
             }
         }
 
         yield return WaitTurnTrans(TeamType.My);
         UIManager.Instance.HideMask();
+        isMyTurn = true;
     }
 
     private List<List<MapUnit>> GetAllUnits() {

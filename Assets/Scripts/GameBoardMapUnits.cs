@@ -26,6 +26,8 @@ public partial class GameBoard
         }
     }
 
+    public void RemoveMapUnit(MapUnit unit) => mapUnitsCollection.RemoveUnit(unit);
+
     public bool IsAllEnemyDie() => mapUnitsCollection.IsAllUnitsDie(TeamType.ENEMY);
 
     public bool IsMainRoleDie() => mapUnitsCollection.IsMainRoleDie(TeamType.My);

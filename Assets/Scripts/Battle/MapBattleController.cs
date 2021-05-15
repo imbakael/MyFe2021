@@ -15,18 +15,16 @@ public class MapBattleController : Singleton<MapBattleController>
         this.passive = passive;
 
         BattleUnit activeBattleUnit = new BattleUnit();
-        activeBattleUnit.Load(active.role);
+        activeBattleUnit.Load(active.Role);
         BattleUnit passiveBattleUnit = new BattleUnit();
-        passiveBattleUnit.Load(passive.role);
+        passiveBattleUnit.Load(passive.Role);
 
         List<BattleTurnData> data = GetTurnData(activeBattleUnit, passiveBattleUnit);
+        PlayBattleAnimation(data);
         //Debug.Log("a : hp = " + a.Hp + ", dur = " + a.Durability);
         //Debug.Log("p : hp = " + p.Hp + ", dur = " + p.Durability);
         //Debug.Log("a.role : hp = " + active.role.Hp + ", dur = " + active.role.Durability);
         //Debug.Log("p.role : hp = " + passive.role.Hp + ", dur = " + passive.role.Durability);
-
-        // 朝着某个方向攻击
-        PlayBattleAnimation(data);
     }
 
     // 计算战斗结果
@@ -73,18 +71,9 @@ public class MapBattleController : Singleton<MapBattleController>
             Vector3 originalPos = currentActiveMapUnit.transform.position;
             Vector3 deltaPos = currentPassiveMapUnit.transform.position - originalPos;
             Vector3 nextPos = originalPos + 0.3f * deltaPos;
-            while (Vector3.Distance(currentActiveMapUnit.transform.position, nextPos) > 0.01f) {
-                currentActiveMapUnit.transform.position = Vector3.MoveTowards(currentActiveMapUnit.transform.position, nextPos, 5 * Time.deltaTime);
-                yield return null;
-            }
-            currentActiveMapUnit.transform.position = nextPos;
-            // 处理结果
+            yield return MoveTo(currentActiveMapUnit.transform, nextPos);
             turnData.HandleResult();
-            while (Vector3.Distance(currentActiveMapUnit.transform.position, originalPos) > 0.01f) {
-                currentActiveMapUnit.transform.position = Vector3.MoveTowards(currentActiveMapUnit.transform.position, originalPos, 5 * Time.deltaTime);
-                yield return null;
-            }
-            currentActiveMapUnit.transform.position = originalPos;
+            yield return MoveTo(currentActiveMapUnit.transform, originalPos);
         }
         yield return new WaitForSeconds(0.5f);
         passive.SetAnimation(0, 0);
@@ -94,7 +83,15 @@ public class MapBattleController : Singleton<MapBattleController>
     }
 
     private MapUnit GetMapUnit(BattleUnit unit) {
-        return unit.Role == active.role ? active : passive;
+        return unit.Role == active.Role ? active : passive;
+    }
+
+    private IEnumerator MoveTo(Transform transform, Vector3 target) {
+        while (Vector3.Distance(transform.position, target) > 0.01f) {
+            transform.position = Vector3.MoveTowards(transform.position, target, 5 * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = target;
     }
 
 }

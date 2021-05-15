@@ -16,8 +16,8 @@ public class BattleTurnData {
     public BattleTurnData(BattleUnit active, BattleUnit passive) {
         ActiveUnit = active;
         PassiveUnit = passive;
-        activeBehavior = new BattleAtomicBehavior(active);
-        passiveBehavior = new BattleAtomicBehavior(passive);
+        activeBehavior = new BattleAtomicBehavior(active.Role);
+        passiveBehavior = new BattleAtomicBehavior(passive.Role);
         CalculateOnce(active, passive);
     }
 

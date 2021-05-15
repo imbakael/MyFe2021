@@ -21,4 +21,21 @@ public static class MyTools
         temp.AddRange(target);
         return temp;
     }
+
+    public static Transform Find(Transform parent, string name) {
+        var queue = new Queue<Transform>();
+        queue.Enqueue(parent);
+        while (queue.Count != 0) {
+            Transform item = queue.Dequeue();
+            for (int i = 0; i < item.childCount; i++) {
+                Transform child = item.GetChild(i);
+                if (child.name == name) {
+                    return child;
+                } else {
+                    queue.Enqueue(child);
+                }
+            }
+        }
+        return null;
+    }
 }

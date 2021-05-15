@@ -31,12 +31,11 @@ public class FSMData
 
     public void Move() => npc.MoveToNearestTile();
 
-    public void MoveEnd(Action action) {
-        npc.moveEnd = action;
-    }
+    public void MoveEnd(Action action) => npc.moveEnd = action;
 
     public void Dead() {
         fsm.enabled = false;
+        npc.Dead();
     }
 
     public void TurnUpdate() => fsm.TurnUpdate();

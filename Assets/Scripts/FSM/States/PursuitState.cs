@@ -12,11 +12,7 @@ public class PursuitState : FSMState {
         Debug.Log("Enter PursuitState");
         // 进行移动操作，移动到目标点附近
         this.data = data;
-        data.MoveEnd(HandleWhenMoveEnd);
+        data.MoveEnd(() => data.TurnUpdate());
         data.Move();
-    }
-
-    private void HandleWhenMoveEnd() {
-        data.TurnUpdate();
     }
 }

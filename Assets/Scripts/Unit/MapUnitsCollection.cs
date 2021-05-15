@@ -18,6 +18,8 @@ public class MapUnitsCollection
 
     public void AddUnit(TeamType team, MapUnit unit) => collection[team].Add(unit);
 
+    public void RemoveUnit(MapUnit unit) => collection[unit.Team].Remove(unit);
+
     public List<MapUnit> GetTeam(TeamType team) => collection[team];
 
     public bool IsAllUnitsDie(TeamType team) {

@@ -9,17 +9,21 @@ public abstract class MapUnit : MonoBehaviour
     [SerializeField] protected MapUnitAttr mapUnitAttr = default;
     [SerializeField] protected MapState state = default;
 
-    public bool IsDead { get; private set; }
+    public bool IsDead {
+        get {
+            return Role.Hp <= 0;
+        }
+    }
     public TeamType Team { get; private set; }
     public LogicTile Tile { get; private set; }
     public LogicTile LastStandTile { get; protected set; }
+    public Role Role { get; private set; }
 
     public Action moveEnd;
 
     protected GameBoard board;
 
     private Animator animator;
-    public Role role;
 
     private void Awake() {
         board = GameBoard.instance;
@@ -31,8 +35,8 @@ public abstract class MapUnit : MonoBehaviour
         Team = team;
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
-        role = team == TeamType.My ? new Role(400, 10, 5, 100, 100, 40, 8) : 
-            new Role(600, 6, 2, 0, 0, 20, 7);
+        Role = team == TeamType.My ? new Role(40, 10, 2, 100, 100, 40, 8) : 
+            new Role(40, 6, 2, 0, 0, 20, 7);
     }
 
     // 地图单位都可以被点击、移动、攻击、待机
@@ -104,4 +108,10 @@ public abstract class MapUnit : MonoBehaviour
     }
 
     public MapState GetMapState() => state;
+
+    public void Dead() {
+        Tile.UnitOnTile = null;
+        LastStandTile.UnitOnTile = null;
+        gameObject.SetActive(false);
+    }
 }

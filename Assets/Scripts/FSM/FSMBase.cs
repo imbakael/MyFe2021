@@ -66,10 +66,11 @@ public class FSMBase : MonoBehaviour
     
     public void TurnUpdate() {
         currentState.Check(this);
-        test_currentStateID = currentState.StateID;
     }
 
-    public void SetIdleState() => ChangeState(FSMStateID.Idle);
+    public void SetIdleState() {
+        ChangeState(FSMStateID.Idle);
+    }
 
     public void ChangeState(FSMStateID stateID) {
         FSMState nextState = stateID == FSMStateID.Default ? defaultState : states.Find(t => t.StateID == stateID);
@@ -79,7 +80,10 @@ public class FSMBase : MonoBehaviour
         currentState.Exit(FsmData);
         currentState = nextState;
         currentState.Enter(FsmData);
+        test_currentStateID = currentState.StateID;
     }
 
-    public FSMStateID GetCurrentStateID() => currentState.StateID;
+    public FSMStateID GetCurrentStateID() {
+        return currentState.StateID;
+    }
 }

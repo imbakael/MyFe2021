@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Role {
 
+    public Action<float> onHpChange;
+
     // 基本信息
     public TeamType Team;
     public int Name;
@@ -71,7 +73,7 @@ public class Role {
 
     
     public Role(int hp, int str, int def, int ski, int luck, int durability, int spd) {
-        Hp = hp;
+        Hp = MaxHp = hp;
         Str = str;
         Def = def;
         Ski = ski;
@@ -83,6 +85,7 @@ public class Role {
     public void ChangeValue(string s) {
         string[] name_value = s.Split(',');
         ChangeValue(name_value[0], name_value[1]);
+        onHpChange?.Invoke(Hp * 1f / MaxHp);
     }
 
     private void ChangeValue(string name, string value) {
@@ -98,4 +101,5 @@ public class Role {
                 break;
         }
     }
+
 }
