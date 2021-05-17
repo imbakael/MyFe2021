@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Role {
 
     public Action<float> onHpChange;
@@ -11,6 +12,7 @@ public class Role {
     public TeamType Team;
     public int Name;
     public int ClassId; // 职业id，如剑士、战士、刺客，通过id查表即可获得职业名
+    public string ClassName = "刺客";
     public int Lv;
     public int Exp; // 经验值取值范围0-99，到达100时升级，到达等级上限时重置为0
     public int Hp { get; set; }
@@ -100,6 +102,16 @@ public class Role {
                 Debug.LogError("没找到对应属性！ s = " + name);
                 break;
         }
+    }
+
+    public bool AddExp(int delta) {
+        Exp += delta;
+        if (Exp >= 100) {
+            Exp = Exp - 100;
+            // 升级
+            return true;
+        }
+        return false;
     }
 
 }

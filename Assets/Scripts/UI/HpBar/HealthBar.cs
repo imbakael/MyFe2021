@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     private Role role;
 
     private void Start() {
-        healthPoint = MyTools.Find(transform, "HealthPoint").GetComponent<Image>();
+        healthPoint = transform.FindChildByName("HealthPoint").GetComponent<Image>();
         role = GetComponent<MapUnit>().Role;
         role.onHpChange = ChangeHp;
     }

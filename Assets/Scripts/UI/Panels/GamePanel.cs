@@ -10,13 +10,23 @@ public class GamePanel : MonoBehaviour
     [SerializeField] private Text curTurns = default;
     [SerializeField] private Button standbyBtn = default;
 
+    private int turnCount = 0;
+
     private void Start() {
         PickUpController.Instance.click -= OnClick;
         PickUpController.Instance.click += OnClick;
+        TurnController.turnUp -= ChangeTurns;
+        TurnController.turnUp += ChangeTurns;
+        ChangeTurns();
     }
 
     private void OnClick(bool isClickMyUnit) {
         standbyBtn.gameObject.SetActive(isClickMyUnit);
+    }
+
+    private void ChangeTurns() {
+        turnCount++;
+        curTurns.text = "回合数:" + turnCount;
     }
 
     public void OnStandbyButtonClicked() {

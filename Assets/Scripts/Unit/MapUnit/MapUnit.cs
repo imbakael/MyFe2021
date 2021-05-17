@@ -17,7 +17,7 @@ public abstract class MapUnit : MonoBehaviour
     public TeamType Team { get; private set; }
     public LogicTile Tile { get; private set; }
     public LogicTile LastStandTile { get; protected set; }
-    public Role Role { get; private set; }
+    public Role Role { get; private set; } // 角色数据，包括属性、道具、天赋等
 
     public Action moveEnd;
 
@@ -35,8 +35,8 @@ public abstract class MapUnit : MonoBehaviour
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
         Role = 
-            team == TeamType.My ? new Role(40, 10, 2, 100, 100, 40, 8) : 
-            new Role(40, 6, 2, 0, 0, 20, 7);
+            team == TeamType.My ? new Role(40, 10, 2, 8, 5, 40, 8) : 
+            new Role(40, 8, 3, 3, 2, 20, 5);
     }
 
     // 地图单位都可以被点击、移动、攻击、待机

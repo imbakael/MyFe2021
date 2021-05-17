@@ -75,15 +75,18 @@ public class MapBattleController : Singleton<MapBattleController>
             turnData.HandleResult();
             yield return MoveTo(currentActiveMapUnit.transform, originalPos);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         if (passive.IsDead) {
             passive.Dead();
         } else {
             passive.SetAnimation(0, 0);
         }
         Debug.LogError(active.Team + " 攻击结束");
+        // 如果有一方是玩家阵营，且升级，则等待升级界面消失后再结束
+        yield return Exp.Calculate(active, passive);
         attackEnd?.Invoke();
-        attackEnd = null;
+        active = null;
+        passive = null;
     }
 
     private MapUnit GetMapUnit(BattleUnit unit) {
@@ -98,4 +101,7 @@ public class MapBattleController : Singleton<MapBattleController>
         transform.position = target;
     }
 
+    public bool IsPassive(MapUnit unit) {
+        return passive != null && passive == unit;
+    }
 }

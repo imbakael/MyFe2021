@@ -41,7 +41,7 @@ public class PickUpController : Singleton<PickUpController>
         MapUnit previous = CurMapUnit;
         previous?.Click(tile);
         CurMapUnit = tile.UnitOnTile ?? (!GameBoard.instance.IsExistMoveRange() ? null : CurMapUnit); // 没有任何单位（无论敌我）被选中时，点空地会置空curUnit
-        if (previous != CurMapUnit && CurMapUnit != null && MapBattleController.Instance.attackEnd == null) {
+        if (previous != CurMapUnit && CurMapUnit != null && !MapBattleController.Instance.IsPassive(CurMapUnit)) {
             CurMapUnit.Click(tile);
             //UIManager.Instance.CreateUnitSelectedPanel(CurMapUnit);
         }

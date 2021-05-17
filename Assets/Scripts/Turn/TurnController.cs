@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,7 +7,9 @@ using UnityEngine;
 // 回合控制器, 优先行动顺序：我方 -> 友军 -> 敌人 -> 中立
 public class TurnController : MonoBehaviour
 {
+    public static event Action turnUp;
     public static bool isMyTurn = true;
+
     private readonly List<TeamType> teams = new List<TeamType> { TeamType.ALLIANCE, TeamType.ENEMY, TeamType.NEUTRAL };
 
     private IEnumerator Start() {
@@ -15,6 +18,7 @@ public class TurnController : MonoBehaviour
                 yield return null;
             }
             yield return OtherTurn();
+            turnUp?.Invoke();
         }
     }
 
@@ -24,7 +28,7 @@ public class TurnController : MonoBehaviour
         List<List<MapUnit>> allUnits = GetAllUnits();
         for (int i = 0; i < allUnits.Count; i++) {
             List<MapUnit> units = allUnits[i];
-            if (!units.Any(t => !t.IsDead)) {
+            if (units.All(t => t.IsDead)) {
                 continue;
             }
             LevelManager.Instance.CurTeam = units[0].Team;

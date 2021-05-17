@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class BattleController : Singleton<BattleController>
 {
-    private FightUnit activeUnit; // 主动方
-    private FightUnit passiveUnit; // 被动方
+    private RealBattleUnit activeUnit; // 主动方
+    private RealBattleUnit passiveUnit; // 被动方
 
-    public void StartBattle(FightUnit active, FightUnit passive) {
+    public void StartBattle(RealBattleUnit active, RealBattleUnit passive) {
         activeUnit = active;
         passiveUnit = passive;
 
@@ -62,12 +62,12 @@ public class BattleController : Singleton<BattleController>
     }
 
     // 假设对面无法攻击（射程不够或者没有武器），则此值为0
-    private int GetBattleTurn(FightUnit unit) {
+    private int GetBattleTurn(RealBattleUnit unit) {
         return 1;
     }
 
     // 每次回合战斗
-    private IEnumerator TurnBattle(FightUnit unit) {
+    private IEnumerator TurnBattle(RealBattleUnit unit) {
         int attackCount = GetAttackTimes(unit); 
         bool isTurnStart = true;
         while (attackCount > 0) {
@@ -83,7 +83,7 @@ public class BattleController : Singleton<BattleController>
     }
 
     // 根据角色天赋、武器算出单回合的攻击次数，but可能会受对方如见切等天赋的影响，所以还需要看对方的天赋
-    private int GetAttackTimes(FightUnit unit) {
+    private int GetAttackTimes(RealBattleUnit unit) {
         return 1;
     }
 

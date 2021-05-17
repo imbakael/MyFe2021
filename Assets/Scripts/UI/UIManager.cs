@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private BaseTipsUI baseTipsUI = default;
     [SerializeField] private ConversationPanel conversationPanel = default;
     [SerializeField] private TurnTransPanel turnTransPanel = default;
+    [SerializeField] private LevelUpPanel levelUpPanel = default;
 
     [SerializeField] private Canvas uiCanvas = default;
     [SerializeField] private Camera uiCamera = default;
@@ -63,14 +64,21 @@ public class UIManager : Singleton<UIManager>
     }
 
     public void ShowMask() {
-        Transform mask = MyTools.Find(uiCanvas.transform, "Mask");
+        Transform mask = uiCanvas.transform.FindChildByName("Mask");
         mask.gameObject.SetActive(true);
         mask.SetAsLastSibling();
     }
 
     public void HideMask() {
-        Transform mask = MyTools.Find(uiCanvas.transform, "Mask");
+        Transform mask = uiCanvas.transform.FindChildByName("Mask");
         mask.gameObject.SetActive(false);
     }
 
+    public LevelUpPanel CreateLevelUpPanel(Role role, string value) {
+        LevelUpPanel panel = Instantiate(levelUpPanel);
+        panel.Init(role);
+        panel.LevelUp(value);
+        panel.transform.SetParent(uiCanvas.transform, false);
+        return panel;
+    }
 }

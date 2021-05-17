@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7766453160468774115}
   - component: {fileID: 7766453160468774114}
   - component: {fileID: 7766453160468774113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 30020091
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -5711848221618334454, guid: 2e7b96085ecc05349b82bf5c901854b1,
     type: 3}
@@ -117,8 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f423b4bfe3197e48876aeb27ccbdb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collidePoint: {fileID: 7766453161341944077}
-  moveSpeed: 3
   spearRender: {fileID: 527153433767555875}
 --- !u!1 &7766453161341944076
 GameObject:
@@ -129,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7766453161341944077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColliderPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -160,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3099326257207418092}
   - component: {fileID: 527153433767555875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +216,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 30020091
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: 7827260208125532704, guid: 2e7b96085ecc05349b82bf5c901854b1,
     type: 3}

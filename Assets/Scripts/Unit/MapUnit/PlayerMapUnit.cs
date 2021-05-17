@@ -46,13 +46,16 @@ public class PlayerMapUnit : MapUnit {
 
     private void Attack(MapUnit target) {
         MapBattleController.Instance.StartMapBattle(this, target);
-        MapBattleController.Instance.attackEnd = () => {
-            if (IsDead) {
-                Dead();
-            } else {
-                Standby();
-            }
-        };
+        MapBattleController.Instance.attackEnd += AttackEnd;
+    }
+
+    private void AttackEnd() {
+        MapBattleController.Instance.attackEnd -= AttackEnd;
+        if (IsDead) {
+            Dead();
+        } else {
+            Standby();
+        }
     }
 
     public override void Standby() {
