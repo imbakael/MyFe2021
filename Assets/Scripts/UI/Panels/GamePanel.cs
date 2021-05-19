@@ -7,8 +7,12 @@ using UnityEngine.UI;
 
 public class GamePanel : MonoBehaviour
 {
+    public static bool isMapBattleOpen = false;
+
     [SerializeField] private Text curTurns = default;
     [SerializeField] private Button standbyBtn = default;
+    [SerializeField] private Button switchBattleBtn = default;
+    [SerializeField] private Text switchText = default;
 
     private int turnCount = 0;
 
@@ -18,6 +22,12 @@ public class GamePanel : MonoBehaviour
         TurnController.turnUp -= ChangeTurns;
         TurnController.turnUp += ChangeTurns;
         ChangeTurns();
+        switchBattleBtn.onClick.AddListener(OnSwitchClick);
+    }
+
+    private void OnSwitchClick() {
+        isMapBattleOpen = !isMapBattleOpen;
+        switchText.text = isMapBattleOpen ? "当前：地图战斗" : "当前：实际战斗";
     }
 
     private void OnClick(bool isClickMyUnit) {
@@ -33,6 +43,10 @@ public class GamePanel : MonoBehaviour
         if (PickUpController.Instance.Standby()) {
             standbyBtn.gameObject.SetActive(false);
         }
+    }
+
+    private void OnDestroy() {
+        switchBattleBtn.onClick.RemoveAllListeners();
     }
 
 }

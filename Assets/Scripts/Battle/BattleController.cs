@@ -60,6 +60,10 @@ public class BattleController : Singleton<BattleController>
         Destroy(left.GetChild(0).gameObject);
         UIManager.Instance.DestroyPanel<FightPanel>();
         attackEnd?.Invoke();
+        if (passiveRole.Hp <= 0) {
+            MapUnit passiveMapUnit = GameBoard.instance.GetMapUnitByRole(passiveRole);
+            passiveMapUnit.Dead();
+        }
     }
 
     private RealBattleUnit GetRelativeActive(BattleUnit battleUnit) {

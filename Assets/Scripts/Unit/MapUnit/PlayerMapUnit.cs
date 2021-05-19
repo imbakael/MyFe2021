@@ -45,11 +45,13 @@ public class PlayerMapUnit : MapUnit {
     }
 
     private void Attack(MapUnit target) {
-        //MapBattleController.Instance.StartMapBattle(this, target);
-        //MapBattleController.Instance.attackEnd += AttackEnd;
-
-        BattleController.Instance.StartBattle(Role, target.Role);
-        BattleController.Instance.attackEnd += AttackEnd;
+        if (GamePanel.isMapBattleOpen) {
+            MapBattleController.Instance.StartMapBattle(this, target);
+            MapBattleController.Instance.attackEnd += AttackEnd;
+        } else {
+            BattleController.Instance.attackEnd += AttackEnd;
+            BattleController.Instance.StartBattle(Role, target.Role);
+        }
     }
 
     private void AttackEnd() {

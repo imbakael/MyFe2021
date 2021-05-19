@@ -78,6 +78,7 @@ public class Role {
     public Role(TeamType team, int classId, int hp, int str, int def, int ski, int luck, int durability, int spd) {
         Team = team;
         ClassId = classId;
+        ClassName = GetNameByClassId(classId);
         Hp = MaxHp = hp;
         Str = str;
         Def = def;
@@ -85,6 +86,17 @@ public class Role {
         Luck = luck;
         Durability = durability;
         Spd = spd;
+    }
+
+    private string GetNameByClassId(int classId) {
+        Dictionary<int, string> names = new Dictionary<int, string> {
+            { 0, "剑圣" },
+            { 1, "盗贼" },
+            { 10, "山贼" },
+            { 11, "重甲" },
+            { 12, "枪兵" },
+        };
+        return names[classId];
     }
 
     public void ChangeValue(string s) {

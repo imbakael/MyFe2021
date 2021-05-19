@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +15,11 @@ public class MapUnitsCollection
             {TeamType.ENEMY, new List<MapUnit>() },
             {TeamType.NEUTRAL, new List<MapUnit>() }
         };
+    }
+
+    internal MapUnit GetMapUnitByRole(Role role) {
+        List<MapUnit> units = GetTeam(role.Team);
+        return units.Where(t => t.Role == role).FirstOrDefault();
     }
 
     public void AddUnit(TeamType team, MapUnit unit) => collection[team].Add(unit);

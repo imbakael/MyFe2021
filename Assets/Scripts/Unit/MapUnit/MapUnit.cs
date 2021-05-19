@@ -36,8 +36,8 @@ public abstract class MapUnit : MonoBehaviour
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
         Role = 
-            team == TeamType.My ? new Role(TeamType.My, classId, 10, 10, 2, 8, 5, 40, 8) : 
-            new Role(TeamType.ENEMY, classId, 30, 8, 3, 3, 2, 20, 4);
+            team == TeamType.My ? new Role(TeamType.My, classId, 40, 10, 2, 8, 5, 40, 8) : 
+            new Role(TeamType.ENEMY, classId, 40, 8, 3, 3, 2, 20, 4);
     }
 
     // 地图单位都可以被点击、移动、攻击、待机

@@ -7,6 +7,8 @@ public partial class GameBoard
 {
     private MapUnitsCollection mapUnitsCollection;
 
+    public MapUnit GetMapUnitByRole(Role role) => mapUnitsCollection.GetMapUnitByRole(role);
+
     public List<MapUnit> GetAllOtherUnits(TeamType ignoreTeam) => mapUnitsCollection.GetAllOtherUnits(ignoreTeam);
 
     public List<MapUnit> GetTeam(TeamType team) => mapUnitsCollection.GetTeam(team);

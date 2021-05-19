@@ -8,6 +8,10 @@ public class NPCMapUnit : MapUnit {
 
     [SerializeField] private int viewRange = 10; // 视野范围，npc只会对视野范围内的敌人进行追击
 
+    public void SetViewRange(int newRange) {
+        viewRange = newRange;
+    }
+
     public override void Click(LogicTile clickTile) {
         if (clickTile.UnitOnTile == this) {
             board.ShowMoveAndAttackTiles(Tile, mapUnitAttr.movePower, mapUnitAttr.attackRange);
@@ -92,7 +96,10 @@ public class NPCMapUnit : MapUnit {
     public override void Attack() {
         Debug.Log("npc 开始攻击！");
         MapUnit target = GetNearestUnitInAttackRange();
-        //MapBattleController.Instance.StartMapBattle(this, target);
-        BattleController.Instance.StartBattle(Role, target.Role);
+        if (GamePanel.isMapBattleOpen) {
+            MapBattleController.Instance.StartMapBattle(this, target);
+        } else {
+            BattleController.Instance.StartBattle(Role, target.Role);
+        }
     }
 }
