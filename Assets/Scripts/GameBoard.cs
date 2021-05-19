@@ -11,7 +11,8 @@ public partial class GameBoard : MonoBehaviour {
 
     [SerializeField] private Tilemap walkMap = default;
     [SerializeField] private Tilemap cannotWalkMap = default;
-    [SerializeField] private MapUnit[] playerPrefabs = default;
+    [SerializeField] private MapUnit[] myMapUnitPrefabs = default;
+    [SerializeField] private MapUnit[] enemyMapUnitPrefabs = default;
     [SerializeField] private GameObject[] uiTilePrefabs = default;
     [SerializeField] private Transform tileUIContainer = default;
 

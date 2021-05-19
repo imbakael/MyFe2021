@@ -92,6 +92,7 @@ public class NPCMapUnit : MapUnit {
     public override void Attack() {
         Debug.Log("npc 开始攻击！");
         MapUnit target = GetNearestUnitInAttackRange();
-        MapBattleController.Instance.StartMapBattle(this, target);
+        //MapBattleController.Instance.StartMapBattle(this, target);
+        BattleController.Instance.StartBattle(Role, target.Role);
     }
 }

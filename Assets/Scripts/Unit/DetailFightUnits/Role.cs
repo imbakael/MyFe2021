@@ -6,12 +6,13 @@ using UnityEngine;
 [Serializable]
 public class Role {
 
-    public Action<float> onHpChange;
+    public Action<float> onHpChange; // 大地图血条进度
+    public Action<int> onDamge; // 实际战斗血条变化
 
     // 基本信息
     public TeamType Team;
-    public int Name;
-    public int ClassId; // 职业id，如剑士、战士、刺客，通过id查表即可获得职业名
+    public string Name;
+    public int ClassId; // 职业id，我方 - 0：剑圣，1：盗贼，敌人 - 10：山贼，11：重甲，12：枪兵
     public string ClassName = "刺客";
     public int Lv;
     public int Exp; // 经验值取值范围0-99，到达100时升级，到达等级上限时重置为0
@@ -74,7 +75,9 @@ public class Role {
     // 装备信息
 
     
-    public Role(int hp, int str, int def, int ski, int luck, int durability, int spd) {
+    public Role(TeamType team, int classId, int hp, int str, int def, int ski, int luck, int durability, int spd) {
+        Team = team;
+        ClassId = classId;
         Hp = MaxHp = hp;
         Str = str;
         Def = def;
@@ -86,8 +89,13 @@ public class Role {
 
     public void ChangeValue(string s) {
         string[] name_value = s.Split(',');
+        int previousHp = Hp;
         ChangeValue(name_value[0], name_value[1]);
-        onHpChange?.Invoke(Hp * 1f / MaxHp);
+        int lastHp = Hp;
+        if (lastHp != previousHp) {
+            onHpChange?.Invoke(Hp * 1f / MaxHp);
+            onDamge?.Invoke(lastHp - previousHp);
+        }
     }
 
     private void ChangeValue(string name, string value) {

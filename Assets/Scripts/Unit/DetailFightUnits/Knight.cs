@@ -6,15 +6,7 @@ using UnityEngine;
 // 只做具体战斗相关的事情
 public class Knight : RealBattleUnit
 {
-    [SerializeField]
-    private SpriteRenderer spearRender = default;
-
-    private Animator animator;
-    private bool isAttackOver = true;
-
-    private void Awake() {
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private SpriteRenderer spearRender = default;
 
     public override IEnumerator AttackTo() {
         isAttackOver = false;
@@ -26,26 +18,22 @@ public class Knight : RealBattleUnit
         }
     }
 
-    public override void TakeDamage(int damage) {
-        // 更新血条UI
-    }
-
     public override void Die() {
         Debug.Log(GetType() + " Die");
     }
 
-    private void Attack() { // 动画event
-        Target.TakeDamage(1);
+    protected override void Attack() {
+        CurData.HandleResult();
         spearRender.gameObject.SetActive(true);
         StartCoroutine(Pause());
     }
 
-    private void HideSpear() { // 动画event
-        spearRender.gameObject.SetActive(false);
+    protected override void AttackOver() {
+        isAttackOver = true;
     }
 
-    private void AttackOver() { // 动画event
-        isAttackOver = true;
+    private void HideSpear() { // 动画event
+        spearRender.gameObject.SetActive(false);
     }
 
     private IEnumerator Pause() {

@@ -20,6 +20,7 @@ public abstract class MapUnit : MonoBehaviour
     public Role Role { get; private set; } // 角色数据，包括属性、道具、天赋等
 
     public Action moveEnd;
+    public int classId;
 
     protected GameBoard board;
 
@@ -35,8 +36,8 @@ public abstract class MapUnit : MonoBehaviour
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
         Role = 
-            team == TeamType.My ? new Role(40, 10, 2, 8, 5, 40, 8) : 
-            new Role(40, 8, 3, 3, 2, 20, 5);
+            team == TeamType.My ? new Role(TeamType.My, classId, 10, 10, 2, 8, 5, 40, 8) : 
+            new Role(TeamType.ENEMY, classId, 30, 8, 3, 3, 2, 20, 4);
     }
 
     // 地图单位都可以被点击、移动、攻击、待机

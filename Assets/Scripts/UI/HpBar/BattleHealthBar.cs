@@ -16,18 +16,6 @@ public class BattleHealthBar : MonoBehaviour
     private int maxHp;
     private int index;
 
-    private void Start() {
-        Init(30, 30);
-    }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            ChangeHp(-31);
-        } else if (Input.GetKeyDown(KeyCode.W)) {
-            ChangeHp(40);
-        }
-    }
-
     public void Init(int curHp, int maxHp) {
         this.curHp = curHp;
         this.maxHp = maxHp;
@@ -57,6 +45,7 @@ public class BattleHealthBar : MonoBehaviour
     /// </summary>
     /// <param name="value">正值增加，负值降低</param>
     public void ChangeHp(int value) {
+        Debug.LogError("value = " + value);
         int previousHp = curHp;
         curHp += value;
         curHp = Mathf.Clamp(curHp, 0, maxHp);

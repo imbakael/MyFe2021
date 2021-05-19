@@ -1,24 +1,74 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleController : Singleton<BattleController>
 {
-    private RealBattleUnit activeUnit; // 主动方
-    private RealBattleUnit passiveUnit; // 被动方
+    [SerializeField] private Transform right = default;
+    [SerializeField] private Transform left = default;
+    [SerializeField] private RealBattleUnit[] allRealUnits = default;
 
-    public void StartBattle(RealBattleUnit active, RealBattleUnit passive) {
-        activeUnit = active;
-        passiveUnit = passive;
+    public Action attackEnd;
 
-        activeUnit.Target = passive;
-        passiveUnit.Target = active;
+    private RealBattleUnit activeUnit;
+    private RealBattleUnit passiveUnit;
 
-        /* 
-        加载战斗UI，背景图等
+    public void StartBattle(Role activeRole, Role passiveRole) {
+        InitRealBattleUnits(activeRole, passiveRole);
+        UIManager.Instance.CreateFightPanel(activeRole, passiveRole);
 
-        假设我方是攻击者，敌人是防守者，战斗开始
+        activeUnit = GetUnit(activeRole);
+        activeUnit.Init(activeRole);
+        passiveUnit = GetUnit(passiveRole);
+        passiveUnit.Init(passiveRole);
+
+        activeUnit.Target = passiveUnit;
+        passiveUnit.Target = activeUnit;
+
+        StartCoroutine(Battle(activeRole, passiveRole));
+    }
+
+    private void InitRealBattleUnits(Role activeRole, Role passiveRole) {
+        int rightClassId = activeRole.Team == TeamType.My ? activeRole.ClassId : passiveRole.ClassId;
+        int leftClassId = activeRole.Team != TeamType.My ? activeRole.ClassId : passiveRole.ClassId;
+        RealBattleUnit rightUnit = Instantiate(GetPrefab(rightClassId));
+        rightUnit.transform.SetParent(right, false);
+        RealBattleUnit leftUnit = Instantiate(GetPrefab(leftClassId));
+        leftUnit.transform.SetParent(left, false);
+    }
+
+    private RealBattleUnit GetPrefab(int classId) {
+        return allRealUnits.Where(t => t.classId == classId).FirstOrDefault();
+    }
+
+    private RealBattleUnit GetUnit(Role role) {
+        return role.Team == TeamType.My ? right.GetComponentInChildren<RealBattleUnit>() : left.GetComponentInChildren<RealBattleUnit>();
+    }
+
+    private IEnumerator Battle(Role activeRole, Role passiveRole) {
+        List<BattleTurnData> data = BattleCalculate.GetTurnData(activeRole, passiveRole);
+        for (int i = 0; i < data.Count; i++) {
+            BattleTurnData item = data[i];
+            RealBattleUnit relativeActive = GetRelativeActive(item.ActiveUnit);
+            relativeActive.SetData(item);
+            yield return relativeActive.AttackTo();
+        }
+        // 结束战斗，退出战斗界面
+        Destroy(right.GetChild(0).gameObject);
+        Destroy(left.GetChild(0).gameObject);
+        UIManager.Instance.DestroyPanel<FightPanel>();
+        attackEnd?.Invoke();
+    }
+
+    private RealBattleUnit GetRelativeActive(BattleUnit battleUnit) {
+        return battleUnit.Role == activeUnit.Role ? activeUnit : passiveUnit;
+    }
+
+    /* 
+        假设我方是攻击者，敌人是防守者
+        战斗开始:
         
         我方小回合1
             第一次攻击时判断触发连续，攻击次数+1，判定命中、必杀、大盾
@@ -33,11 +83,9 @@ public class BattleController : Singleton<BattleController>
             判定连续，攻击次数+1
             第一次攻击
             第二次攻击
-        */
+    */
 
-        StartCoroutine(Battle());
-    }
-
+    /*
     // 总战斗
     private IEnumerator Battle() {
         // 战前已经算出双方的总回合数（假设期间双方都没有死），能影响回合数的只有速度差值，所以战斗内一方顶多2回合
@@ -86,5 +134,5 @@ public class BattleController : Singleton<BattleController>
     private int GetAttackTimes(RealBattleUnit unit) {
         return 1;
     }
-
+    */
 }

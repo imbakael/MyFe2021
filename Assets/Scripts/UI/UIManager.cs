@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private ConversationPanel conversationPanel = default;
     [SerializeField] private TurnTransPanel turnTransPanel = default;
     [SerializeField] private LevelUpPanel levelUpPanel = default;
+    [SerializeField] private FightPanel fightPanel = default;
 
     [SerializeField] private Canvas uiCanvas = default;
     [SerializeField] private Camera uiCamera = default;
@@ -81,4 +82,11 @@ public class UIManager : Singleton<UIManager>
         panel.transform.SetParent(uiCanvas.transform, false);
         return panel;
     }
+
+    public void CreateFightPanel(Role active, Role passive) {
+        FightPanel panel = Instantiate(fightPanel);
+        panel.Init(active, passive);
+        panel.transform.SetParent(uiCanvas.transform, false);
+    }
+
 }

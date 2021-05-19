@@ -13,7 +13,8 @@ public class AttackState : FSMState
         this.data = data;
         Debug.Log("Enter AttackState");
         data.Attack();
-        MapBattleController.Instance.attackEnd += AttackEnd; 
+        MapBattleController.Instance.attackEnd += AttackEnd;
+        BattleController.Instance.attackEnd += AttackEnd;
     }
 
     private void AttackEnd() {
@@ -23,5 +24,6 @@ public class AttackState : FSMState
 
     public override void Exit(FSMData data) {
         MapBattleController.Instance.attackEnd -= AttackEnd;
+        BattleController.Instance.attackEnd -= AttackEnd;
     }
 }

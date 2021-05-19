@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class MapBattleController : Singleton<MapBattleController>
 {
+    public Role ActiveRole {
+        get {
+            return active.Role;
+        }
+    }
+
+    public Role PassiveRole {
+        get {
+            return passive.Role;
+        }
+    }
+
     public Action attackEnd;
 
     private MapUnit active;
@@ -13,46 +25,8 @@ public class MapBattleController : Singleton<MapBattleController>
     public void StartMapBattle(MapUnit active, MapUnit passive) {
         this.active = active;
         this.passive = passive;
-
-        BattleUnit activeBattleUnit = new BattleUnit();
-        activeBattleUnit.Load(active.Role);
-        BattleUnit passiveBattleUnit = new BattleUnit();
-        passiveBattleUnit.Load(passive.Role);
-
-        List<BattleTurnData> data = GetTurnData(activeBattleUnit, passiveBattleUnit);
+        List<BattleTurnData> data = BattleCalculate.GetTurnData(ActiveRole, PassiveRole);
         PlayBattleAnimation(data);
-        //Debug.Log("a : hp = " + a.Hp + ", dur = " + a.Durability);
-        //Debug.Log("p : hp = " + p.Hp + ", dur = " + p.Durability);
-        //Debug.Log("a.role : hp = " + active.role.Hp + ", dur = " + active.role.Durability);
-        //Debug.Log("p.role : hp = " + passive.role.Hp + ", dur = " + passive.role.Durability);
-    }
-
-    // 计算战斗结果
-    private List<BattleTurnData> GetTurnData(BattleUnit active, BattleUnit passive) {
-        var result = new List<BattleTurnData>();
-        // 攻击
-        BattleTurnData oneTurnData = new BattleTurnData(active, passive);
-        result.Add(oneTurnData);
-        if (oneTurnData.IsOver) {
-            return result;
-        }
-        // 反击
-        oneTurnData = new BattleTurnData(passive, active);
-        result.Add(oneTurnData);
-        if (oneTurnData.IsOver) {
-            return result;
-        }
-        // 追击
-        BattleUnit relativeActive =
-            active.Speed - passive.Speed >= 4 ? active :
-            passive.Speed - active.Speed >= 4 ? passive :
-            null;
-        if (relativeActive != null) {
-            BattleUnit relativePassive = relativeActive == active ? passive : active;
-            oneTurnData = new BattleTurnData(relativeActive, relativePassive);
-            result.Add(oneTurnData);
-        }
-        return result;
     }
 
     private void PlayBattleAnimation(List<BattleTurnData> data) {

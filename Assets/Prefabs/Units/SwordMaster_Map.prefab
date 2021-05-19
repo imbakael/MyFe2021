@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4550687979323292564}
   - component: {fileID: 5261328407911627146}
   m_Layer: 0
-  m_Name: Player
+  m_Name: SwordMaster_Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,10 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapUnitAttr:
-    movePower: 6
+    movePower: 5
     attackRange: 1
     moveSpeed: 7
   state: 0
+  classId: 0
 --- !u!114 &5261328407911627146
 MonoBehaviour:
   m_ObjectHideFlags: 0

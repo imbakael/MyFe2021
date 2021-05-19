@@ -21,9 +21,38 @@ public class FightPanel : MonoBehaviour
     [SerializeField] private Image leftWeapon = default;
     [SerializeField] private Text rleftWeaponName = default;
 
-    public void Init() {
-        rightHealthBar.Init(20, 20);
-        leftHealthBar.Init(20, 20);
+    private Role rightRole;
+    private Role leftRole;
+
+    // 右侧为我方or友军，左侧为敌人or中立，当同时出现敌人vs中立时，主动方在右侧，被动方在左侧
+    public void Init(Role active, Role passive) {
+        rightRole = active.Team == TeamType.My ? active : passive;
+        leftRole = active == rightRole ? passive : active;
+
+        rightRole.onDamge += rightHealthBar.ChangeHp;
+        leftRole.onDamge += leftHealthBar.ChangeHp;
+        rightHealthBar.Init(rightRole.Hp, rightRole.MaxHp);
+        leftHealthBar.Init(leftRole.Hp, leftRole.MaxHp);
+        rightName.text = rightRole.ClassName;
+        rightHit.text = "100";
+        rightDmg.text = (rightRole.Attack - leftRole.Defence).ToString();
+        rightCrit.text = GetCrit(rightRole.Crit - leftRole.CritAvoid).ToString();
+
+        leftName.text = leftRole.ClassName;
+        leftHit.text = "100";
+        leftDmg.text = (leftRole.Attack - rightRole.Defence).ToString();
+        leftCrit.text = GetCrit(leftRole.Crit - rightRole.CritAvoid).ToString();
+    }
+
+    private int GetCrit(float factCrit) {
+        float showCrit = factCrit * 100;
+        showCrit = Mathf.Clamp(showCrit, 0f, 100f);
+        return MyTools.GetRound(showCrit);
+    }
+
+    private void OnDestroy() {
+        rightRole.onDamge -= rightHealthBar.ChangeHp;
+        leftRole.onDamge -= leftHealthBar.ChangeHp;
     }
 
 }

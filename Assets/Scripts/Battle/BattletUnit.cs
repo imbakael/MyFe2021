@@ -23,8 +23,8 @@ public class BattleUnit {
 
     public Role Role { get; private set; }
     // 一些其他参数，比如抗性等
-
-    public void Load(Role role) {
+    
+    public BattleUnit(Role role) {
         Role = role;
         Hp = role.Hp;
         Atk = role.Attack;
@@ -35,5 +35,4 @@ public class BattleUnit {
         Durability = role.Durability;
         Speed = role.Spd;
     }
-
 }

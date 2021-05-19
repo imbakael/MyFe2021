@@ -3,143 +3,95 @@ guid: e3c06a6880a5cec4da9a1da9ecaaa822
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1454089003749331395
-    second: Swordmaster_attack_0
+      213: -4131928556818509780
+    second: Swordmaster_Attack_0
   - first:
-      213: -8241659268497032440
-    second: Swordmaster_attack_1
+      213: -9079854677894753410
+    second: Swordmaster_Attack_1
   - first:
-      213: 1385818356771547325
-    second: Swordmaster_attack_2
+      213: 8416913318119128218
+    second: Swordmaster_Attack_2
   - first:
-      213: 8270367237301191545
-    second: Swordmaster_attack_3
+      213: -8604014324102353901
+    second: Swordmaster_Attack_3
   - first:
-      213: 5572663791783586630
-    second: Swordmaster_attack_4
+      213: 5732609718278533000
+    second: Swordmaster_Attack_4
   - first:
-      213: 3364274061145035523
-    second: Swordmaster_11
+      213: 8047789019000305041
+    second: Swordmaster_Attack_5
   - first:
-      213: 1167725126530555485
-    second: Swordmaster_attack_6
+      213: 108880347445164212
+    second: Swordmaster_Attack_6
   - first:
-      213: 3479282103767725592
-    second: Swordmaster_12
+      213: 216753305935181192
+    second: Swordmaster_Attack_7
   - first:
-      213: -6472071656775831144
-    second: Swordmaster_attack_8
+      213: 6181145445977744309
+    second: Swordmaster_Attack_8
   - first:
-      213: 6298125859880625396
-    second: Swordmaster_attack_9
+      213: -2331925168520038710
+    second: Swordmaster_Attack_9
   - first:
-      213: 4002534467165654006
-    second: Swordmaster_attack_10
+      213: 4173943372844123769
+    second: Swordmaster_Attack_10
   - first:
-      213: 8490682971596138894
-    second: Swordmaster_attack_11
+      213: -7997918393214372345
+    second: Swordmaster_Attack_11
   - first:
-      213: 5937191865551852084
-    second: Swordmaster_0
+      213: -8134459931112663860
+    second: Swordmaster_Attack_12
   - first:
-      213: 1994909714021302473
-    second: Swordmaster_1
+      213: 433554012595135084
+    second: Swordmaster_Attack_13
   - first:
-      213: 7867427709102053942
-    second: Swordmaster_2
+      213: 2840415878477704103
+    second: Swordmaster_Attack_14
   - first:
-      213: -5581402772074660689
-    second: Swordmaster_3
+      213: 5730026203120081330
+    second: Swordmaster_Attack_15
   - first:
-      213: -6393970519056767903
-    second: Swordmaster_4
+      213: -4328696797096426142
+    second: Swordmaster_Attack_16
   - first:
-      213: 8928874419341756134
-    second: Swordmaster_5
+      213: -4054449546503335520
+    second: Swordmaster_Attack_17
   - first:
-      213: 7513127225411556836
-    second: Swordmaster_6
+      213: 2791148469739879587
+    second: Swordmaster_Attack_18
   - first:
-      213: -2340225493115962223
-    second: Swordmaster_7
+      213: -5100961222051711372
+    second: Swordmaster_Attack_19
   - first:
-      213: 4210949062182689298
-    second: Swordmaster_8
+      213: -4951502884820806212
+    second: Swordmaster_Attack_20
   - first:
-      213: -3550840993645358364
-    second: Swordmaster_attack_21
+      213: 8440261295240785627
+    second: Swordmaster_Attack_21
   - first:
-      213: -6546997949215469759
-    second: Swordmaster_attack_22
+      213: 1530993156879602081
+    second: Swordmaster_Attack_22
   - first:
-      213: 7283476722414292263
-    second: Swordmaster_attack_23
+      213: 3009467433273935592
+    second: Swordmaster_Attack_23
   - first:
-      213: -1231410335172917556
-    second: Swordmaster_9
+      213: -4242620158269825118
+    second: Swordmaster_Attack_24
   - first:
-      213: -3602308197911010297
-    second: Swordmaster_10
+      213: 3669104648187109511
+    second: Swordmaster_Attack_25
   - first:
-      213: 1464368897199207255
-    second: Swordmaster_attack_26
+      213: -7899142080436793497
+    second: Swordmaster_Attack_26
   - first:
-      213: 328568972022013740
-    second: Swordmaster_attack_27
+      213: 7483035130332188924
+    second: Swordmaster_Attack_27
   - first:
-      213: 170319693942261650
-    second: Swordmaster_attack_28
+      213: 1857871485835871454
+    second: Swordmaster_Attack_28
   - first:
-      213: -2084271727551543972
-    second: Swordmaster_attack_29
-  - first:
-      213: -3669451601150975018
-    second: Swordmaster_attack_30
-  - first:
-      213: -6011307014457552361
-    second: Swordmaster_attack_31
-  - first:
-      213: -8673069726646293795
-    second: Swordmaster_attack_32
-  - first:
-      213: -848442652657850730
-    second: Swordmaster_attack_33
-  - first:
-      213: 3270165272165568888
-    second: Swordmaster_attack_34
-  - first:
-      213: 8649233741197738720
-    second: Swordmaster_attack_35
-  - first:
-      213: 2962201162733891946
-    second: Swordmaster_attack_36
-  - first:
-      213: -1491353374347989923
-    second: Swordmaster_attack_37
-  - first:
-      213: -3832051835026746005
-    second: Swordmaster_attack_38
-  - first:
-      213: 4395924559297405594
-    second: Swordmaster_attack_39
-  - first:
-      213: 8176550674014256081
-    second: Swordmaster_attack_40
-  - first:
-      213: 7445199278662965589
-    second: Swordmaster_attack_41
-  - first:
-      213: -3773642127506386921
-    second: Swordmaster_attack_42
-  - first:
-      213: 5117704293497117562
-    second: Swordmaster_attack_43
-  - first:
-      213: 5562282984890295527
-    second: Swordmaster_attack_44
-  - first:
-      213: -7693080000949226457
-    second: Swordmaster_attack_4
+      213: 1332098516965526317
+    second: Swordmaster_Attack_29
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -236,217 +188,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Swordmaster_attack_0
-      rect:
-        serializedVersion: 2
-        x: 582
-        y: 97
-        width: 28
-        height: 7
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3e28b351c902dbe0800000000000000
-      internalID: -1454089003749331395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_1
-      rect:
-        serializedVersion: 2
-        x: 611
-        y: 87
-        width: 51
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80bbd6dbf8ebf9d80800000000000000
-      internalID: -8241659268497032440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_2
-      rect:
-        serializedVersion: 2
-        x: 666
-        y: 66
-        width: 56
-        height: 38
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db8659ef37a6b3310800000000000000
-      internalID: 1385818356771547325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_3
-      rect:
-        serializedVersion: 2
-        x: 722
-        y: 59
-        width: 29
-        height: 44
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 973cd5d1f2f36c270800000000000000
-      internalID: 8270367237301191545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_11
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 0
-        width: 39
-        height: 84
-      alignment: 9
-      pivot: {x: 0.71, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3035c951f6d40be20800000000000000
-      internalID: 3364274061145035523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_12
-      rect:
-        serializedVersion: 2
-        x: 507
-        y: 0
-        width: 52
-        height: 88
-      alignment: 9
-      pivot: {x: 0.63, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 816f27ca3a4e84030800000000000000
-      internalID: 3479282103767725592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_8
-      rect:
-        serializedVersion: 2
-        x: 751
-        y: 50
-        width: 29
-        height: 44
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 891b0016e159e26a0800000000000000
-      internalID: -6472071656775831144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_9
-      rect:
-        serializedVersion: 2
-        x: 780
-        y: 41
-        width: 29
-        height: 44
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f4e2e4c910776750800000000000000
-      internalID: 6298125859880625396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_10
-      rect:
-        serializedVersion: 2
-        x: 809
-        y: 33
-        width: 29
-        height: 44
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fb8aac34ebdb8730800000000000000
-      internalID: 4002534467165654006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_11
-      rect:
-        serializedVersion: 2
-        x: 838
-        y: 0
-        width: 117
-        height: 69
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8922765d27f4d570800000000000000
-      internalID: 8490682971596138894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_0
+      name: Swordmaster_Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -454,20 +196,20 @@ TextureImporter:
         width: 26
         height: 33
       alignment: 9
-      pivot: {x: 0.35, y: 0}
+      pivot: {x: 0.36, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4329e8d8b84256250800000000000000
-      internalID: 5937191865551852084
+      spriteID: c205a859ed078a6c0800000000000000
+      internalID: -4131928556818509780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_1
+      name: Swordmaster_Attack_1
       rect:
         serializedVersion: 2
         x: 26
@@ -475,20 +217,20 @@ TextureImporter:
         width: 25
         height: 33
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.53, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c0473fb0d75fab10800000000000000
-      internalID: 1994909714021302473
+      spriteID: e731aef0740edf180800000000000000
+      internalID: -9079854677894753410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_2
+      name: Swordmaster_Attack_2
       rect:
         serializedVersion: 2
         x: 51
@@ -496,20 +238,20 @@ TextureImporter:
         width: 30
         height: 31
       alignment: 9
-      pivot: {x: 0.61, y: 0}
+      pivot: {x: 0.64, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63ad71961d7be2d60800000000000000
-      internalID: 7867427709102053942
+      spriteID: a9cbebf6112eec470800000000000000
+      internalID: 8416913318119128218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_3
+      name: Swordmaster_Attack_3
       rect:
         serializedVersion: 2
         x: 81
@@ -517,20 +259,20 @@ TextureImporter:
         width: 34
         height: 29
       alignment: 9
-      pivot: {x: 0.56, y: 0}
+      pivot: {x: 0.54, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: facfb1610cfda82b0800000000000000
-      internalID: -5581402772074660689
+      spriteID: 31ca189ee86689880800000000000000
+      internalID: -8604014324102353901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_4
+      name: Swordmaster_Attack_4
       rect:
         serializedVersion: 2
         x: 115
@@ -538,20 +280,20 @@ TextureImporter:
         width: 35
         height: 29
       alignment: 9
-      pivot: {x: 0.59, y: 0}
+      pivot: {x: 0.54, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1642d4b80bd0447a0800000000000000
-      internalID: -6393970519056767903
+      spriteID: 88fa1f58a225e8f40800000000000000
+      internalID: 5732609718278533000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_5
+      name: Swordmaster_Attack_5
       rect:
         serializedVersion: 2
         x: 150
@@ -559,20 +301,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.62, y: 0}
+      pivot: {x: 0.6, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e600f82afbb9eb70800000000000000
-      internalID: 8928874419341756134
+      spriteID: 1957dc8497d7faf60800000000000000
+      internalID: 8047789019000305041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_6
+      name: Swordmaster_Attack_6
       rect:
         serializedVersion: 2
         x: 182
@@ -580,20 +322,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.62, y: 0}
+      pivot: {x: 0.6, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e5d8feb76df34860800000000000000
-      internalID: 7513127225411556836
+      spriteID: 4b87d706912d28100800000000000000
+      internalID: 108880347445164212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_7
+      name: Swordmaster_Attack_7
       rect:
         serializedVersion: 2
         x: 214
@@ -601,20 +343,20 @@ TextureImporter:
         width: 32
         height: 29
       alignment: 9
-      pivot: {x: 0.62, y: 0}
+      pivot: {x: 0.6, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19c72842059d58fd0800000000000000
-      internalID: -2340225493115962223
+      spriteID: 885782cbbff020300800000000000000
+      internalID: 216753305935181192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_8
+      name: Swordmaster_Attack_8
       rect:
         serializedVersion: 2
         x: 246
@@ -622,88 +364,25 @@ TextureImporter:
         width: 32
         height: 28
       alignment: 9
-      pivot: {x: 0.42, y: 0}
+      pivot: {x: 0.43, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21ad9aa8cdb407a30800000000000000
-      internalID: 4210949062182689298
+      spriteID: 5b3e684b807d7c550800000000000000
+      internalID: 6181145445977744309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_21
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 0
-        width: 47
-        height: 6
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e29fdfede0e8bec0800000000000000
-      internalID: -3550840993645358364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_22
-      rect:
-        serializedVersion: 2
-        x: 325
-        y: 0
-        width: 28
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14f0dcb7d046425a0800000000000000
-      internalID: -6546997949215469759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_23
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 0
-        width: 24
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72d84515d7b141560800000000000000
-      internalID: 7283476722414292263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_9
+      name: Swordmaster_Attack_9
       rect:
         serializedVersion: 2
         x: 377
         y: 0
-        width: 47
+        width: 48
         height: 27
       alignment: 9
       pivot: {x: 0.74, y: 0}
@@ -712,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc6064f03d629eee0800000000000000
-      internalID: -1231410335172917556
+      spriteID: ac6f19f0a6653afd0800000000000000
+      internalID: -2331925168520038710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_10
+      name: Swordmaster_Attack_10
       rect:
         serializedVersion: 2
         x: 425
@@ -727,329 +406,413 @@ TextureImporter:
         width: 41
         height: 27
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.79, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7046904a7c7020ec0800000000000000
-      internalID: -3602308197911010297
+      spriteID: 97648f21263dce930800000000000000
+      internalID: 4173943372844123769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_30
+      name: Swordmaster_Attack_11
       rect:
         serializedVersion: 2
-        x: 570
+        x: 468
         y: 0
-        width: 20
-        height: 16
-      alignment: 7
+        width: 39
+        height: 104
+      alignment: 9
+      pivot: {x: 0.7, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706f4ed989fa10190800000000000000
+      internalID: -7997918393214372345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordmaster_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 0
+        width: 52
+        height: 101
+      alignment: 9
+      pivot: {x: 0.65, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc491667ac79c1f80800000000000000
+      internalID: -8134459931112663860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordmaster_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 0
+        width: 21
+        height: 104
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d368e8d53d731dc0800000000000000
-      internalID: -3669451601150975018
+      spriteID: c62adafc31b440600800000000000000
+      internalID: 433554012595135084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_31
+      name: Swordmaster_Attack_14
       rect:
         serializedVersion: 2
-        x: 593
+        x: 611
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
+        width: 27
+        height: 104
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712917f9e1c839ca0800000000000000
-      internalID: -6011307014457552361
+      spriteID: 7abea0b313f2b6720800000000000000
+      internalID: 2840415878477704103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_32
+      name: Swordmaster_Attack_15
       rect:
         serializedVersion: 2
-        x: 618
+        x: 638
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
+        width: 28
+        height: 104
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddaad07190113a780800000000000000
-      internalID: -8673069726646293795
+      spriteID: 2b917a60974258f40800000000000000
+      internalID: 5730026203120081330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_33
+      name: Swordmaster_Attack_16
       rect:
         serializedVersion: 2
-        x: 648
+        x: 666
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
+        width: 27
+        height: 104
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 696e90417e9b934f0800000000000000
-      internalID: -848442652657850730
+      spriteID: 26542bc82316de3c0800000000000000
+      internalID: -4328696797096426142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_34
-      rect:
-        serializedVersion: 2
-        x: 674
-        y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8715f3c2df5f16d20800000000000000
-      internalID: 3270165272165568888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordmaster_attack_35
+      name: Swordmaster_Attack_17
       rect:
         serializedVersion: 2
         x: 693
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 29
+        height: 104
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e20a631340480870800000000000000
-      internalID: 8649233741197738720
+      spriteID: 0a1dcec6e93bbb7c0800000000000000
+      internalID: -4054449546503335520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_36
+      name: Swordmaster_Attack_18
       rect:
         serializedVersion: 2
         x: 722
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 29
+        height: 104
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a61b00a534adb1920800000000000000
-      internalID: 2962201162733891946
+      spriteID: 3ac783ebeb62cb620800000000000000
+      internalID: 2791148469739879587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_37
+      name: Swordmaster_Attack_19
       rect:
         serializedVersion: 2
         x: 751
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 29
+        height: 104
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5c686fe106ad4be0800000000000000
-      internalID: -1491353374347989923
+      spriteID: 476b09a6bceb539b0800000000000000
+      internalID: -5100961222051711372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_38
+      name: Swordmaster_Attack_20
       rect:
         serializedVersion: 2
         x: 780
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 29
+        height: 104
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b65d85cb821d1dac0800000000000000
-      internalID: -3832051835026746005
+      spriteID: cb51fe54c5ab84bb0800000000000000
+      internalID: -4951502884820806212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_39
+      name: Swordmaster_Attack_21
       rect:
         serializedVersion: 2
         x: 809
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 29
+        height: 104
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9266589816710d30800000000000000
-      internalID: 4395924559297405594
+      spriteID: bde2e4afde4d12570800000000000000
+      internalID: 8440261295240785627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_40
+      name: Swordmaster_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 0
+        width: 29
+        height: 95
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1dc552a2e2f3510800000000000000
+      internalID: 1530993156879602081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordmaster_Attack_23
       rect:
         serializedVersion: 2
         x: 867
         y: 0
-        width: 18
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 29
+        height: 90
+      alignment: 9
+      pivot: {x: 0.18, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dbb99c4481f87170800000000000000
-      internalID: 8176550674014256081
+      spriteID: 8e6466b8fa6c3c920800000000000000
+      internalID: 3009467433273935592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_41
+      name: Swordmaster_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 32
+        height: 44
+      alignment: 9
+      pivot: {x: 0.38, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af5a65c17f2f15c0800000000000000
+      internalID: -4242620158269825118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordmaster_Attack_25
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 27
+        height: 40
+      alignment: 9
+      pivot: {x: 0.36, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7806deedc374be230800000000000000
+      internalID: 3669104648187109511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordmaster_Attack_26
       rect:
         serializedVersion: 2
         x: 955
         y: 0
         width: 26
         height: 38
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.36, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55953be2c49a25760800000000000000
-      internalID: 7445199278662965589
+      spriteID: 76f8939112c906290800000000000000
+      internalID: -7899142080436793497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_42
+      name: Swordmaster_Attack_27
       rect:
         serializedVersion: 2
         x: 981
         y: 0
         width: 26
         height: 36
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.36, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71058888a7451abc0800000000000000
-      internalID: -3773642127506386921
+      spriteID: cf01831edc419d760800000000000000
+      internalID: 7483035130332188924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_43
+      name: Swordmaster_Attack_28
       rect:
         serializedVersion: 2
         x: 1007
         y: 0
         width: 26
         height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.36, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b136fa0fcb50740800000000000000
-      internalID: 5117704293497117562
+      spriteID: ed4039fd54c78c910800000000000000
+      internalID: 1857871485835871454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordmaster_attack_44
+      name: Swordmaster_Attack_29
       rect:
         serializedVersion: 2
         x: 1033
         y: 0
         width: 26
         height: 33
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.36, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e4e59e87e2313d40800000000000000
-      internalID: 5562282984890295527
+      spriteID: d2b0e8d1b809c7210800000000000000
+      internalID: 1332098516965526317
       vertices: []
       indices: 
       edges: []
