@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordMaster : RealBattleUnit
+public class Paladin : RealBattleUnit
 {
     public override IEnumerator AttackTo() {
         isAttackOver = false;
@@ -29,7 +29,7 @@ public class SwordMaster : RealBattleUnit
 
     private IEnumerator Pause() {
         animator.speed = 0f;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
         animator.speed = 1f;
     }
 }

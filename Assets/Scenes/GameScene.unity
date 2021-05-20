@@ -2521,11 +2521,11 @@ MonoBehaviour:
   - {fileID: 5787626729107333491, guid: ce978627e30915640b61e19e0e49c0c6, type: 3}
   - {fileID: 7766453160468774113, guid: 6f34c2c73cf372843aa92a457af397d9, type: 3}
   - {fileID: 2728342687561149739, guid: 39fed077f2dffc1488683a9923ff151f, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4494579652240042991, guid: 675e6ed3218fe0c4988f75df9ccd2c2a, type: 3}
+  - {fileID: 6095040466595435168, guid: c412480da8c881647b5149fa1d4ca37c, type: 3}
+  - {fileID: 7162145441313124256, guid: 04eb8ab7cd7be764c8838f48502118e1, type: 3}
+  - {fileID: 2232902259266870718, guid: ad00f916bb9415e48a3a995a61ca7af2, type: 3}
+  - {fileID: 3449990723444333789, guid: c1248ee3f9c727342b31c0d890e21c53, type: 3}
   - {fileID: 0}
 --- !u!4 &1134890865
 Transform:
@@ -5559,11 +5559,14 @@ MonoBehaviour:
   myMapUnitPrefabs:
   - {fileID: 4550687979323292564, guid: cfa35de767d3d914aab672d18c7222ed, type: 3}
   - {fileID: 5579069867964902264, guid: 52e1e549ed088bc4797d5f0a620e5416, type: 3}
+  - {fileID: 1108509499685718936, guid: 323c9003a7cf9f144801b75b2c503612, type: 3}
+  - {fileID: 2826441351123017683, guid: 90add58836241a94b99b9586a0398988, type: 3}
+  - {fileID: 6156362573265698032, guid: dee5d4a0b4d1cb4408687c37ad294dfd, type: 3}
   enemyMapUnitPrefabs:
   - {fileID: 4003471204541765903, guid: 6141e564fe1f2344695e611c9f55ae43, type: 3}
   - {fileID: 8881778355834079643, guid: ca2eaffe2d2a8544e96883bfab2f7d4a, type: 3}
   - {fileID: 116418771874448502, guid: dbd9b7478de0dc347bde70cc95aea4bd, type: 3}
-  - {fileID: 0}
+  - {fileID: 9018858734609165077, guid: 506b85028ce29a443b525b4eee98f9ce, type: 3}
   - {fileID: 0}
   uiTilePrefabs:
   - {fileID: 1935045476360071929, guid: 159b77af7d587a443ad956ea0556bd2d, type: 3}

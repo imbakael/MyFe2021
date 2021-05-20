@@ -1,0 +1,790 @@
+fileFormatVersion: 2
+guid: fc83ebca4676a3b459b19cffa1432996
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5168475903675757673
+    second: Paladin0-Lance-GenericBlue_0
+  - first:
+      213: -8962780074589256631
+    second: Paladin0-Lance-GenericBlue_1
+  - first:
+      213: 3801777157762611092
+    second: Paladin0-Lance-GenericBlue_2
+  - first:
+      213: -928842345012056211
+    second: Paladin0-Lance-GenericBlue_3
+  - first:
+      213: -3958283340045006585
+    second: Paladin0-Lance-GenericBlue_4
+  - first:
+      213: 4920000572498276095
+    second: Paladin0-Lance-GenericBlue_5
+  - first:
+      213: 3697770726262917362
+    second: Paladin0-Lance-GenericBlue_6
+  - first:
+      213: 5727974122624327293
+    second: Paladin0-Lance-GenericBlue_7
+  - first:
+      213: 3441813110027466667
+    second: Paladin0-Lance-GenericBlue_8
+  - first:
+      213: 5585731828199816550
+    second: Paladin0-Lance-GenericBlue_9
+  - first:
+      213: -5841861600333524611
+    second: Paladin0-Lance-GenericBlue_10
+  - first:
+      213: 6786976090077753385
+    second: Paladin0-Lance-GenericBlue_11
+  - first:
+      213: -2690384977978495592
+    second: Paladin0-Lance-GenericBlue_12
+  - first:
+      213: -6754368772606363591
+    second: Paladin0-Lance-GenericBlue_13
+  - first:
+      213: 6303932263314058461
+    second: Paladin0-Lance-GenericBlue_14
+  - first:
+      213: 385854881635153476
+    second: Paladin0-Lance-GenericBlue_15
+  - first:
+      213: 7151564044178785067
+    second: Paladin0-Lance-GenericBlue_16
+  - first:
+      213: 3969809648797962008
+    second: Paladin0-Lance-GenericBlue_17
+  - first:
+      213: 3062062713721646572
+    second: Paladin0-Lance-GenericBlue_18
+  - first:
+      213: 7378495180879620475
+    second: Paladin0-Lance-GenericBlue_19
+  - first:
+      213: -8034430864369881093
+    second: Paladin0-Lance-GenericBlue_20
+  - first:
+      213: 3954991071910428876
+    second: Paladin0-Lance-GenericBlue_21
+  - first:
+      213: 6701990899598047280
+    second: Paladin0-Lance-GenericBlue_22
+  - first:
+      213: -1924034594292996741
+    second: Paladin0-Lance-GenericBlue_23
+  - first:
+      213: 4980386069298601039
+    second: Paladin0-Lance-GenericBlue_24
+  - first:
+      213: 2714400992940357074
+    second: Paladin0-Lance-GenericBlue_25
+  - first:
+      213: -1131490652705102558
+    second: Paladin0-Lance-GenericBlue_26
+  - first:
+      213: 2525524023759193722
+    second: Spear
+  - first:
+      213: -6462704565655016653
+    second: Paladin0-Lance-GenericBlue_28
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 135
+        width: 47
+        height: 93
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b8d33ac82e548b0800000000000000
+      internalID: -5168475903675757673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 136
+        width: 54
+        height: 93
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944882e420fcd9380800000000000000
+      internalID: -8962780074589256631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 136
+        width: 53
+        height: 93
+      alignment: 9
+      pivot: {x: 0.51, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49772abae20a2c430800000000000000
+      internalID: 3801777157762611092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 136
+        width: 61
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f2735fec61c13f0800000000000000
+      internalID: -928842345012056211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 136
+        width: 67
+        height: 93
+      alignment: 9
+      pivot: {x: 0.63, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 709454c264a5119c0800000000000000
+      internalID: -3958283340045006585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_5
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 136
+        width: 67
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe6a72147a574440800000000000000
+      internalID: 4920000572498276095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_6
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 136
+        width: 76
+        height: 93
+      alignment: 9
+      pivot: {x: 0.58, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f84db742ee115330800000000000000
+      internalID: 3697770726262917362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_7
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 136
+        width: 58
+        height: 93
+      alignment: 9
+      pivot: {x: 0.57, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e17adcd1add7f40800000000000000
+      internalID: 5727974122624327293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_8
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 136
+        width: 38
+        height: 93
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7387eb9c6c3cf20800000000000000
+      internalID: 3441813110027466667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_9
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 136
+        width: 60
+        height: 93
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66d7176d081848d40800000000000000
+      internalID: 5585731828199816550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_10
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 136
+        width: 60
+        height: 93
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71102573d98deea0800000000000000
+      internalID: -5841861600333524611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_11
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 136
+        width: 56
+        height: 93
+      alignment: 9
+      pivot: {x: 0.41, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92077248bce203e50800000000000000
+      internalID: 6786976090077753385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_12
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 136
+        width: 47
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d6b86ed15d9aad0800000000000000
+      internalID: -2690384977978495592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_13
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 136
+        width: 75
+        height: 93
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9387ec23369a342a0800000000000000
+      internalID: -6754368772606363591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_14
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 136
+        width: 75
+        height: 93
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc65fa6ef01c7750800000000000000
+      internalID: 6303932263314058461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_15
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 136
+        width: 75
+        height: 93
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446b6b278f4da5500800000000000000
+      internalID: 385854881635153476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_16
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 136
+        width: 76
+        height: 93
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b238bb98b957f3360800000000000000
+      internalID: 7151564044178785067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_17
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 136
+        width: 80
+        height: 93
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f4586b7d8971730800000000000000
+      internalID: 3969809648797962008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 72
+        height: 67
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cede85b80d1ae7a20800000000000000
+      internalID: 3062062713721646572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_19
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 69
+        width: 72
+        height: 67
+      alignment: 9
+      pivot: {x: 0.44, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79e249264ea56660800000000000000
+      internalID: 7378495180879620475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 69
+        width: 62
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff6cc472b7ff7090800000000000000
+      internalID: -8034430864369881093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_21
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 69
+        width: 40
+        height: 67
+      alignment: 9
+      pivot: {x: 0.58, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0001bec63f2e630800000000000000
+      internalID: 3954991071910428876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_22
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 70
+        width: 33
+        height: 66
+      alignment: 9
+      pivot: {x: 0.57, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038317ae631420d50800000000000000
+      internalID: 6701990899598047280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_23
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 69
+        width: 40
+        height: 66
+      alignment: 9
+      pivot: {x: 0.42, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b756a9ffab47c45e0800000000000000
+      internalID: -1924034594292996741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_24
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 69
+        width: 50
+        height: 66
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4cd8d82eb2ed1540800000000000000
+      internalID: 4980386069298601039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_25
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 69
+        width: 54
+        height: 66
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d57d22525d7ba520800000000000000
+      internalID: 2714400992940357074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paladin0-Lance-GenericBlue_26
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 69
+        width: 49
+        height: 66
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22566da0f332c40f0800000000000000
+      internalID: -1131490652705102558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 136
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76c1e308b67c0320800000000000000
+      internalID: 2525524023759193722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

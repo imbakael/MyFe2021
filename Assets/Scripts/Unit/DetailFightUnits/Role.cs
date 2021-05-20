@@ -12,7 +12,9 @@ public class Role {
     // 基本信息
     public TeamType Team;
     public string Name;
-    public int ClassId; // 职业id，我方 - 0：剑圣，1：盗贼，敌人 - 10：山贼，11：重甲，12：枪兵
+    // 职业id，我方 - 0：剑圣，1：盗贼，2：战士，3：枪兵（我方），4：圣骑士
+    // 敌人 - 10：山贼，11：重甲，12：枪兵，13：将军
+    public int ClassId; 
     public string ClassName = "刺客";
     public int Lv;
     public int Exp; // 经验值取值范围0-99，到达100时升级，到达等级上限时重置为0
@@ -92,9 +94,14 @@ public class Role {
         Dictionary<int, string> names = new Dictionary<int, string> {
             { 0, "剑圣" },
             { 1, "盗贼" },
+            { 2, "战士" },
+            { 3, "枪兵" },
+            { 4, "圣骑士" },
+
             { 10, "山贼" },
             { 11, "重甲" },
             { 12, "枪兵" },
+            { 13, "将军" },
         };
         return names[classId];
     }

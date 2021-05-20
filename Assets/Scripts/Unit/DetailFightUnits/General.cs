@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordMaster : RealBattleUnit
+public class General : RealBattleUnit
 {
+    [SerializeField] private SpriteRenderer spearRender = default;
+
     public override IEnumerator AttackTo() {
         isAttackOver = false;
         animator.SetTrigger("Attack_");
@@ -20,7 +22,12 @@ public class SwordMaster : RealBattleUnit
 
     protected override void Attack() {
         CurData.HandleResult();
+        //spearRender.gameObject.SetActive(true);
         StartCoroutine(Pause());
+    }
+
+    private void HideSpear() {
+        spearRender.gameObject.SetActive(false);
     }
 
     protected override void AttackOver() {
@@ -29,7 +36,7 @@ public class SwordMaster : RealBattleUnit
 
     private IEnumerator Pause() {
         animator.speed = 0f;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.2f);
         animator.speed = 1f;
     }
 }

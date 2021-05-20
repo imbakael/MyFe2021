@@ -1,0 +1,859 @@
+fileFormatVersion: 2
+guid: 2687f659f3cb9054995caf71639e67ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8120806666476215995
+    second: General0-Lance-GenericRed_0
+  - first:
+      213: 54623338760453143
+    second: General0-Lance-GenericRed_1
+  - first:
+      213: -2566774546573867579
+    second: General0-Lance-GenericRed_2
+  - first:
+      213: -3437804946322007948
+    second: General0-Lance-GenericRed_3
+  - first:
+      213: -1069617639138271567
+    second: General0-Lance-GenericRed_4
+  - first:
+      213: 2291897947392462217
+    second: General0-Lance-GenericRed_5
+  - first:
+      213: -8752131132967104159
+    second: General0-Lance-GenericRed_6
+  - first:
+      213: 7347365964135997115
+    second: General0-Lance-GenericRed_7
+  - first:
+      213: 8862770063469316947
+    second: General0-Lance-GenericRed_8
+  - first:
+      213: -3943082548927818480
+    second: General0-Lance-GenericRed_9
+  - first:
+      213: 4663580067388149969
+    second: General0-Lance-GenericRed_10
+  - first:
+      213: 9212328237851269938
+    second: General0-Lance-GenericRed_11
+  - first:
+      213: 2766987788376242225
+    second: General0-Lance-GenericRed_12
+  - first:
+      213: -2816332434000563862
+    second: General0-Lance-GenericRed_13
+  - first:
+      213: 4310947561493713595
+    second: General0-Lance-GenericRed_14
+  - first:
+      213: 7121739107820539598
+    second: General0-Lance-GenericRed_15
+  - first:
+      213: 4689248419569831875
+    second: General0-Lance-GenericRed_16
+  - first:
+      213: -7976762732444616121
+    second: General0-Lance-GenericRed_17
+  - first:
+      213: -303056043090100515
+    second: General0-Lance-GenericRed_18
+  - first:
+      213: 80048015730684396
+    second: General0-Lance-GenericRed_19
+  - first:
+      213: 7269799023273404385
+    second: General0-Lance-GenericRed_20
+  - first:
+      213: 1815966291743868299
+    second: General0-Lance-GenericRed_21
+  - first:
+      213: 3064122873699437166
+    second: General0-Lance-GenericRed_22
+  - first:
+      213: -646315704756407451
+    second: General0-Lance-GenericRed_23
+  - first:
+      213: -4456449957093325066
+    second: General0-Lance-GenericRed_24
+  - first:
+      213: -8910121470023331985
+    second: General0-Lance-GenericRed_25
+  - first:
+      213: 8231294825821114294
+    second: General0-Lance-GenericRed_26
+  - first:
+      213: -3342881140496210275
+    second: General0-Lance-GenericRed_27
+  - first:
+      213: 1203036774820264899
+    second: General0-Lance-GenericRed_28
+  - first:
+      213: 2186895405700718839
+    second: General0-Lance-GenericRed_29
+  - first:
+      213: 6323003639529239725
+    second: Spear
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 281
+        width: 70
+        height: 56
+      alignment: 9
+      pivot: {x: 0.56, y: 0.02}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe50f423a6e2b070800000000000000
+      internalID: 8120806666476215995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 281
+        width: 73
+        height: 56
+      alignment: 9
+      pivot: {x: 0.54, y: 0.02}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c334f13af02c000800000000000000
+      internalID: 54623338760453143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 281
+        width: 72
+        height: 56
+      alignment: 9
+      pivot: {x: 0.42, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c543f4362cf06cd0800000000000000
+      internalID: -2566774546573867579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 281
+        width: 80
+        height: 56
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47855679d967a40d0800000000000000
+      internalID: -3437804946322007948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_4
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 281
+        width: 84
+        height: 56
+      alignment: 9
+      pivot: {x: 0.27, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bedbad9c64f721f0800000000000000
+      internalID: -1069617639138271567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_5
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 281
+        width: 84
+        height: 56
+      alignment: 9
+      pivot: {x: 0.32, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98d46c74a057ecf10800000000000000
+      internalID: 2291897947392462217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_6
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 281
+        width: 84
+        height: 56
+      alignment: 9
+      pivot: {x: 0.33, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161dbd7fa1f2a8680800000000000000
+      internalID: -8752131132967104159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_7
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 281
+        width: 84
+        height: 56
+      alignment: 9
+      pivot: {x: 0.33, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe1f179a6617f560800000000000000
+      internalID: 7347365964135997115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_8
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 281
+        width: 85
+        height: 56
+      alignment: 9
+      pivot: {x: 0.35, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b0e0f6a62eefa70800000000000000
+      internalID: 8862770063469316947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_9
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 281
+        width: 99
+        height: 56
+      alignment: 9
+      pivot: {x: 0.75, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0159d17205b5749c0800000000000000
+      internalID: -3943082548927818480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_10
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 281
+        width: 101
+        height: 56
+      alignment: 9
+      pivot: {x: 0.78, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d05342dc5d58b040800000000000000
+      internalID: 4663580067388149969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_11
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 281
+        width: 101
+        height: 56
+      alignment: 9
+      pivot: {x: 0.79, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23bdc6b29b3c8df70800000000000000
+      internalID: 9212328237851269938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_12
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 281
+        width: 101
+        height: 56
+      alignment: 9
+      pivot: {x: 0.8, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1387200cbb0566620800000000000000
+      internalID: 2766987788376242225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 236
+        width: 100
+        height: 45
+      alignment: 9
+      pivot: {x: 0.78, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a613cf5a2906ae8d0800000000000000
+      internalID: -2816332434000563862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_14
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb25b2087ff83db30800000000000000
+      internalID: 4310947561493713595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_15
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.8, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece86a86cff75d260800000000000000
+      internalID: 7121739107820539598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_16
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf8508c79e831140800000000000000
+      internalID: 4689248419569831875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_17
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a701bbe88dc4190800000000000000
+      internalID: -7976762732444616121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_18
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde349c62245bcbf0800000000000000
+      internalID: -303056043090100515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_19
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce13a960f336c1100800000000000000
+      internalID: 80048015730684396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_20
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e761b2d1b383e460800000000000000
+      internalID: 7269799023273404385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_21
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 236
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b850a7f88bb933910800000000000000
+      internalID: 1815966291743868299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 139
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: 0.79, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a010be483f58a20800000000000000
+      internalID: 3064122873699437166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_23
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 139
+        width: 80
+        height: 45
+      alignment: 9
+      pivot: {x: 0.68, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563fc357a43d707f0800000000000000
+      internalID: -646315704756407451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_24
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 139
+        width: 80
+        height: 45
+      alignment: 9
+      pivot: {x: 0.66, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6c52410628722c0800000000000000
+      internalID: -4456449957093325066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_25
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 139
+        width: 79
+        height: 46
+      alignment: 9
+      pivot: {x: 0.62, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f8da91bb3e85480800000000000000
+      internalID: -8910121470023331985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_26
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 139
+        width: 79
+        height: 46
+      alignment: 9
+      pivot: {x: 0.6, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf0496680f6b3270800000000000000
+      internalID: 8231294825821114294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_27
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 139
+        width: 73
+        height: 46
+      alignment: 9
+      pivot: {x: 0.51, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d96ee566053bb91d0800000000000000
+      internalID: -3342881140496210275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_28
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 139
+        width: 71
+        height: 45
+      alignment: 9
+      pivot: {x: 0.57, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbb4ee929b02b010800000000000000
+      internalID: 1203036774820264899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: General0-Lance-GenericRed_29
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 139
+        width: 71
+        height: 44
+      alignment: 9
+      pivot: {x: 0.58, y: 0.02}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0a9b9e8c9695e10800000000000000
+      internalID: 2186895405700718839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 237
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da474a73f42dfb750800000000000000
+      internalID: 6323003639529239725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
