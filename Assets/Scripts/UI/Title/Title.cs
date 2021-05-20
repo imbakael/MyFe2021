@@ -7,6 +7,7 @@ public class Title : MonoBehaviour
 {
     [SerializeField] private Button startBtn = default;
     [SerializeField] private Button continueBtn = default;
+    [SerializeField] private Button deleteBtn = default;
 
     private void Start() {
         startBtn.onClick.AddListener(() => {
@@ -15,9 +16,19 @@ public class Title : MonoBehaviour
             Loader.LoadScene(Loader.Scene.GameScene);
         });
         continueBtn.onClick.AddListener(() => Loader.LoadScene(Loader.Scene.GameScene));
+        SetBtnGray(continueBtn);
+        SetBtnGray(deleteBtn);
+        deleteBtn.onClick.AddListener(() => {
+            GameDataManager.DeleteFile();
+            SetBtnGray(continueBtn);
+            SetBtnGray(deleteBtn);
+        });
+    }
+
+    private void SetBtnGray(Button button) {
         if (!GameDataManager.ExistFile()) {
-            continueBtn.enabled = false;
-            continueBtn.GetComponentInChildren<Text>().color = new Color(190f / 255f, 190f / 255f, 190f / 255f);
+            button.enabled = false;
+            button.GetComponentInChildren<Text>().color = new Color(190f / 255f, 190f / 255f, 190f / 255f);
         }
     }
 }

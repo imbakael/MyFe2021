@@ -23,7 +23,6 @@ public partial class GameBoard : MonoBehaviour {
 
     private void Awake() {
         instance = this;
-        mapUnitsCollection = new MapUnitsCollection();
         InitLogicTiles();
     }
 

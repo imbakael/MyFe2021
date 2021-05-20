@@ -12,6 +12,7 @@ public class HealthBar : MonoBehaviour
         healthPoint = transform.FindChildByName("HealthPoint").GetComponent<Image>();
         role = GetComponent<MapUnit>().Role;
         role.onHpChange = ChangeHp;
+        ChangeHp(role.Hp * 1f / role.MaxHp);
     }
 
     public void ChangeHp(float curHpRate) {

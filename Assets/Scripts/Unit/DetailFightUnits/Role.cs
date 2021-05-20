@@ -15,25 +15,25 @@ public class Role {
     // 职业id，我方 - 0：剑圣，1：盗贼，2：战士，3：枪兵（我方），4：圣骑士
     // 敌人 - 10：山贼，11：重甲，12：枪兵，13：将军
     public int ClassId; 
-    public string ClassName = "刺客";
+    public string ClassName;
     public int Lv;
     public int Exp; // 经验值取值范围0-99，到达100时升级，到达等级上限时重置为0
-    public int Hp { get; set; }
+    public int Hp;
     public int MaxHp;
     public int Mp;
     public int MaxMp;
     public int Durability { get; set; }
 
     // 基础属性（可成长属性）
-    public int Str { get; set; } // 力量
-    public int Def { get; set; } // 守备
-    public int Mag { get; set; } // 魔力
-    public int Res { get; set; } // 魔防
-    public int Ski { get; set; } // 技巧
-    public int Spd { get; set; } // 速度
-    public int Luck { get; set; } // 幸运
-    public int Con { get; set; } // 体格
-    public int Move { get; set; } // 移动力
+    public int Str; // 力量
+    public int Def; // 守备
+    public int Mag; // 魔力
+    public int Res; // 魔防
+    public int Ski; // 技巧
+    public int Spd; // 速度
+    public int Luck; // 幸运
+    public int Con; // 体格
+    public int Move; // 移动力
 
     // 战斗属性
     public int Attack {

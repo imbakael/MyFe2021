@@ -37,7 +37,7 @@ public class GameDataManager : Singleton<GameDataManager>
                 new MapUnitData(TeamType.My, 4, 0, 6, 0, new Role(TeamType.My, 4, 40, 10, 2, 8, 5, 40, 8)),
             };
             CreateMapUnits(mapUnitData);
-            SaveAll(new AllSaveData(mapUnitData));
+            //SaveAll(new AllSaveData(mapUnitData));
         }
     }
 
@@ -64,6 +64,9 @@ public class GameDataManager : Singleton<GameDataManager>
                 continue;
             }
             result.Add(new MapUnitData(item.Team, item.classId, item.Tile.X, item.Tile.Y, item.GetMapState(), item.Role));
+            if (item.Team == TeamType.My) {
+                Debug.LogError("item.classId = " + item.classId + ", hp = " + item.Role.Hp + ", maxhp = " + item.Role.MaxHp);
+            }
         }
         return result;
     }
