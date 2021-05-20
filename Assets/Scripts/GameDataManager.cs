@@ -48,7 +48,7 @@ public class GameDataManager : Singleton<GameDataManager>
     }
 
     public void SaveAll() {
-        List<MapUnitData> mapUnitData = new List<MapUnitData>();
+        var mapUnitData = new List<MapUnitData>();
         List<MapUnit> my = GameBoard.instance.GetTeam(TeamType.My);
         List<MapUnit> enemy = GameBoard.instance.GetTeam(TeamType.ENEMY);
         mapUnitData.AddRange(GetOneTeamData(my));
@@ -58,7 +58,7 @@ public class GameDataManager : Singleton<GameDataManager>
     }
 
     private List<MapUnitData> GetOneTeamData(List<MapUnit> mapUnits) {
-        List<MapUnitData> result = new List<MapUnitData>();
+        var result = new List<MapUnitData>();
         foreach (MapUnit item in mapUnits) {
             if (item.IsDead) {
                 continue;

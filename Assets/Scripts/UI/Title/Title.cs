@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class Title : MonoBehaviour
 {
-    [SerializeField] private Button startBtn = default;
+    [SerializeField] private Button newBtn = default;
     [SerializeField] private Button continueBtn = default;
     [SerializeField] private Button deleteBtn = default;
 
     private void Start() {
-        startBtn.onClick.AddListener(() => {
+        newBtn.onClick.AddListener(() => {
             // 删除存档
             GameDataManager.DeleteFile();
             Loader.LoadScene(Loader.Scene.GameScene);
