@@ -8,6 +8,7 @@ public class UnitSelectedPanel : MonoBehaviour
     [SerializeField] private Button detailBtn = default;
     [SerializeField] private Text attackText = default;
     [SerializeField] private Text defendText = default;
+    [SerializeField] private Text classNameText = default;
 
     private void Awake() {
         detailBtn.onClick.AddListener(OnDetailBtnClick);
@@ -19,7 +20,8 @@ public class UnitSelectedPanel : MonoBehaviour
 
     public void Init(MapUnit unit) {
         // 初始化头像、攻击力、防御力等
-        attackText.text = unit.GetHashCode().ToString();
+        //attackText.text = unit.GetHashCode().ToString();
+        classNameText.text = "职业：" + unit.Role.ClassName;
     }
 
     private void OnDestroy() {

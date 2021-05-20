@@ -14,6 +14,8 @@ public abstract class MapUnit : MonoBehaviour
             return Role.Hp <= 0;
         }
     }
+
+    public int GetMovePower { get { return mapUnitAttr.movePower; } }
     public TeamType Team { get; private set; }
     public LogicTile Tile { get; private set; }
     public LogicTile LastStandTile { get; protected set; }

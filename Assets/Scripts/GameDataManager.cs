@@ -38,6 +38,7 @@ public class GameDataManager : Singleton<GameDataManager>
             };
             CreateMapUnits(mapUnitData);
             //SaveAll(new AllSaveData(mapUnitData));
+            LevelScriptController.Instance.StartScript();
         }
     }
 

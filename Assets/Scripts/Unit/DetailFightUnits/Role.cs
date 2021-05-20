@@ -16,7 +16,7 @@ public class Role {
     // 敌人 - 10：山贼，11：重甲，12：枪兵，13：将军
     public int ClassId; 
     public string ClassName;
-    public int Lv;
+    public int Lv = 1;
     public int Exp; // 经验值取值范围0-99，到达100时升级，到达等级上限时重置为0
     public int Hp;
     public int MaxHp;
