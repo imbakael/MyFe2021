@@ -50,6 +50,7 @@ public class TurnController : MonoBehaviour
     }
 
     private IEnumerator WaitTurnTrans(TeamType team) {
+        AudioController.Instance.Play("NextTurn");
         bool isTurnTransOver = false;
         UIManager.Instance.CreateTurnTransPanel(team, () => isTurnTransOver = true);
         while (!isTurnTransOver) {
