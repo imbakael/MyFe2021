@@ -16,6 +16,15 @@ public class TurnController : MonoBehaviour
 
     private IEnumerator Start() {
         while (true) {
+            if (GameBoard.instance.GetTeam(TeamType.ENEMY).All(t => t.IsDead)) {
+                TwoLevelPanel panel = UIManager.Instance.ShowTwoLevel();
+                LevelScriptController.Instance.StartScript();
+                yield return null;
+                while (ConversationPanel.Instance != null) {
+                    yield return null;
+                }
+                panel.ShowMaster();
+            }
             // 显示存档按钮
             showSaveBtn?.Invoke();
             while (isMyTurn) {

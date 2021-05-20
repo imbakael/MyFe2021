@@ -89,4 +89,10 @@ public class UIManager : Singleton<UIManager>
         panel.transform.SetParent(uiCanvas.transform, false);
     }
 
+    public TwoLevelPanel ShowTwoLevel() {
+        Transform twoLevel = uiCanvas.transform.FindChildByName("TwoLevelPanel");
+        twoLevel.gameObject.SetActive(true);
+        return twoLevel.GetComponent<TwoLevelPanel>();
+    }
+
 }
