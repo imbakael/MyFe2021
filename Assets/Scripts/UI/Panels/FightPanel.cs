@@ -52,7 +52,6 @@ public class FightPanel : MonoBehaviour
     }
 
     private void OnDestroy() {
-        AudioController.Instance.PlayBgm();
         rightRole.onDamge -= rightHealthBar.ChangeHp;
         leftRole.onDamge -= leftHealthBar.ChangeHp;
     }

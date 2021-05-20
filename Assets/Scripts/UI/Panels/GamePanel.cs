@@ -13,6 +13,7 @@ public class GamePanel : MonoBehaviour
     [SerializeField] private Button standbyBtn = default;
     [SerializeField] private Button switchBattleBtn = default;
     [SerializeField] private Text switchText = default;
+    [SerializeField] private Button saveBtn = default;
 
     private int turnCount = 0;
 
@@ -23,11 +24,16 @@ public class GamePanel : MonoBehaviour
         TurnController.turnUp += ChangeTurns;
         ChangeTurns();
         switchBattleBtn.onClick.AddListener(OnSwitchClick);
+        saveBtn.onClick.AddListener(OnSave);
     }
 
     private void OnSwitchClick() {
         isMapBattleOpen = !isMapBattleOpen;
         switchText.text = isMapBattleOpen ? "当前：地图战斗" : "当前：实际战斗";
+    }
+
+    private void OnSave() {
+        GameDataManager.Instance.SaveAll();
     }
 
     private void OnClick(bool isClickMyUnit) {
@@ -47,6 +53,7 @@ public class GamePanel : MonoBehaviour
 
     private void OnDestroy() {
         switchBattleBtn.onClick.RemoveAllListeners();
+        saveBtn.onClick.RemoveAllListeners();
     }
 
 }

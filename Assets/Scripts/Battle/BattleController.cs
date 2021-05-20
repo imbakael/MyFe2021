@@ -55,6 +55,7 @@ public class BattleController : Singleton<BattleController>
             relativeActive.SetData(item);
             yield return relativeActive.AttackTo();
         }
+        AudioController.Instance.PlayBgm();
         // 结束战斗，退出战斗界面
         Destroy(right.GetChild(0).gameObject);
         Destroy(left.GetChild(0).gameObject);

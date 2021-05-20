@@ -923,6 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBtn: {fileID: 14063687}
+  continueBtn: {fileID: 2049765709}
 --- !u!222 &653184534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1271,7 +1272,7 @@ GameObject:
   - component: {fileID: 2049765710}
   - component: {fileID: 2049765709}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

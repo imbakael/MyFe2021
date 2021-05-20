@@ -31,13 +31,16 @@ public abstract class MapUnit : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Init(TeamType team, LogicTile tile) {
-        Team = team;
+    public void Init(Role role, LogicTile tile, int state) {
+        Role = role;
+        Team = role.Team;
         Tile = LastStandTile = tile;
         tile.UnitOnTile = this;
-        Role = 
-            team == TeamType.My ? new Role(TeamType.My, classId, 40, 10, 2, 8, 5, 40, 8) : 
-            new Role(TeamType.ENEMY, classId, 40, 8, 3, 3, 2, 20, 4);
+        if (state == (int)MapState.IDLE) {
+            SetIdle();
+        } else if (state == (int)MapState.GRAY) {
+            SetGray();
+        }
     }
 
     // 地图单位都可以被点击、移动、攻击、待机
@@ -100,6 +103,11 @@ public abstract class MapUnit : MonoBehaviour
         SetAnimation(0, 0);
     }
 
+    public void SetGray() {
+        state = MapState.GRAY;
+        SetAnimation(0, 0, false);
+    }
+
     public bool CannotOperate() => state == MapState.MOVING; // 移动中不可操作
     public bool IsActionOver() => state == MapState.GRAY; // 本单位行动结束
 
@@ -118,4 +126,5 @@ public abstract class MapUnit : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public int GetMapState() => (int)state;
 }
