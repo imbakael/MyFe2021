@@ -22,6 +22,10 @@ public class GamePanel : MonoBehaviour
         PickUpController.Instance.click += OnClick;
         TurnController.turnUp -= ChangeTurns;
         TurnController.turnUp += ChangeTurns;
+        TurnController.showSaveBtn -= ShowSaveBtn;
+        TurnController.showSaveBtn += ShowSaveBtn;
+        TurnController.hideSaveBtn -= HideSaveBtn;
+        TurnController.hideSaveBtn += HideSaveBtn;
         ChangeTurns();
         switchBattleBtn.onClick.AddListener(OnSwitchClick);
         saveBtn.onClick.AddListener(OnSave);
@@ -34,6 +38,14 @@ public class GamePanel : MonoBehaviour
 
     private void OnSave() {
         GameDataManager.Instance.SaveAll();
+    }
+
+    private void ShowSaveBtn() {
+        saveBtn.gameObject.SetActive(true);
+    }
+
+    private void HideSaveBtn() {
+        saveBtn.gameObject.SetActive(false);
     }
 
     private void OnClick(bool isClickMyUnit) {

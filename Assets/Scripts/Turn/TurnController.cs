@@ -8,15 +8,21 @@ using UnityEngine;
 public class TurnController : MonoBehaviour
 {
     public static event Action turnUp;
+    public static event Action showSaveBtn;
+    public static event Action hideSaveBtn;
     public static bool isMyTurn = true;
 
     private readonly List<TeamType> teams = new List<TeamType> { TeamType.ALLIANCE, TeamType.ENEMY, TeamType.NEUTRAL };
 
     private IEnumerator Start() {
         while (true) {
+            // 显示存档按钮
+            showSaveBtn?.Invoke();
             while (isMyTurn) {
                 yield return null;
             }
+            // 隐藏存档按钮
+            hideSaveBtn?.Invoke();
             yield return OtherTurn();
             turnUp?.Invoke();
         }
