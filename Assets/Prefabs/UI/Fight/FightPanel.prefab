@@ -180,7 +180,11 @@ MonoBehaviour:
   leftDmg: {fileID: 605535458671703825}
   leftCrit: {fileID: 3567344914975650400}
   leftWeapon: {fileID: 2756299220890934371}
-  rleftWeaponName: {fileID: 2187024184294828950}
+  leftWeaponName: {fileID: 2187024184294828950}
+  weapons:
+  - {fileID: 712035800519618848, guid: 64a5d4efe8dc3d54e9ca55af0850e554, type: 3}
+  - {fileID: -1879051247201540229, guid: cf21ef8170d28c64e960f109ccf31018, type: 3}
+  - {fileID: -5825250732961213246, guid: 4dedca95ac02b0e4a916761caaeff763, type: 3}
 --- !u!1 &923684022748360319
 GameObject:
   m_ObjectHideFlags: 0

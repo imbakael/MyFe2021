@@ -19,7 +19,9 @@ public class FightPanel : MonoBehaviour
     [SerializeField] private Text leftDmg = default;
     [SerializeField] private Text leftCrit = default;
     [SerializeField] private Image leftWeapon = default;
-    [SerializeField] private Text rleftWeaponName = default;
+    [SerializeField] private Text leftWeaponName = default;
+
+    [SerializeField] private Sprite[] weapons = default;
 
     private Role rightRole;
     private Role leftRole;
@@ -43,6 +45,26 @@ public class FightPanel : MonoBehaviour
         leftHit.text = "100";
         leftDmg.text = (leftRole.Attack - rightRole.Defence).ToString();
         leftCrit.text = GetCrit(leftRole.Crit - rightRole.CritAvoid).ToString();
+
+        rightWeapon.sprite = GetWeaponSprite(rightRole.ClassId);
+        leftWeapon.sprite = GetWeaponSprite(leftRole.ClassId);
+        rightWeaponName.text = GetWeaponName(rightRole.ClassId);
+        leftWeaponName.text = GetWeaponName(leftRole.ClassId);
+    }
+
+    private Sprite GetWeaponSprite(int classId) {
+        Dictionary<int, int> dic = new Dictionary<int, int> {
+            { 0, 0 }, { 1, 0 },{ 2, 2 },{ 3, 1 },{ 4, 1 },{ 10, 2 },{ 11, 1 },{ 12, 1 },{ 13, 1 },
+        };
+        return weapons[dic[classId]];
+    }
+
+    private string GetWeaponName(int classId) {
+        string[] names = new string[] { "铁剑", "铁枪", "铁斧" };
+        Dictionary<int, int> dic = new Dictionary<int, int> {
+            { 0, 0 }, { 1, 0 },{ 2, 2 },{ 3, 1 },{ 4, 1 },{ 10, 2 },{ 11, 1 },{ 12, 1 },{ 13, 1 },
+        };
+        return names[dic[classId]];
     }
 
     private int GetCrit(float factCrit) {
