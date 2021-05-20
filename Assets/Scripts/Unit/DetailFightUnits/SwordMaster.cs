@@ -19,6 +19,7 @@ public class SwordMaster : RealBattleUnit
     }
 
     protected override void Attack() {
+        base.Attack();
         CurData.HandleResult();
         StartCoroutine(Pause());
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 116418771874448502}
   - component: {fileID: 116418771874448499}
   - component: {fileID: 3051564669852126906}
+  - component: {fileID: 4049499523984387168}
   m_Layer: 0
   m_Name: Soldier_Map
   m_TagString: Untagged
@@ -138,6 +139,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultStateID: 2
   test_currentStateID: 0
+--- !u!114 &4049499523984387168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116418771874448503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77a9af7fc3e877438a9e0eb852284ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4301694188463922769
 PrefabInstance:
   m_ObjectHideFlags: 0

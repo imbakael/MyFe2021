@@ -20,7 +20,7 @@ public class BattleAtomicBehavior {
     }
 
     public void Handle() {
-        //Debug.Log(actionStr);
+        Debug.Log(actionStr);
         actionStr = actionStr.Remove(actionStr.Length - 1);
         string[] strArray = actionStr.Split('|');
         foreach (string item in strArray) {

@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapUnitAttr:
-    movePower: 5
+    movePower: 4
     attackRange: 1
-    moveSpeed: 3
+    moveSpeed: 2
   state: 0
   classId: 13
   viewRange: 10

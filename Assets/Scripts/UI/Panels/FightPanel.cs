@@ -26,6 +26,7 @@ public class FightPanel : MonoBehaviour
 
     // 右侧为我方or友军，左侧为敌人or中立，当同时出现敌人vs中立时，主动方在右侧，被动方在左侧
     public void Init(Role active, Role passive) {
+        AudioController.Instance.PlayBattle();
         rightRole = active.Team == TeamType.My ? active : passive;
         leftRole = active == rightRole ? passive : active;
 
@@ -51,6 +52,7 @@ public class FightPanel : MonoBehaviour
     }
 
     private void OnDestroy() {
+        AudioController.Instance.PlayBgm();
         rightRole.onDamge -= rightHealthBar.ChangeHp;
         leftRole.onDamge -= leftHealthBar.ChangeHp;
     }

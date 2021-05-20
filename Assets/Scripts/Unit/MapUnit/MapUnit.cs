@@ -63,7 +63,7 @@ public abstract class MapUnit : MonoBehaviour
                     SetAnimation(curDirection.x, curDirection.y);
                     previousDirection = curDirection;
                 }
-
+                AudioController.Instance.Play("LightFootSteps1");
                 while (Vector3.Distance(transform.position, nextPos) > 0.01f) {
                     transform.position = Vector3.MoveTowards(transform.position, nextPos, mapUnitAttr.moveSpeed * Time.deltaTime);
                     yield return null;
@@ -110,6 +110,9 @@ public abstract class MapUnit : MonoBehaviour
     }
 
     public void Dead() {
+        if (GamePanel.isMapBattleOpen) {
+            AudioController.Instance.Play("CombatDeath");
+        }
         Tile.UnitOnTile = null;
         LastStandTile.UnitOnTile = null;
         gameObject.SetActive(false);

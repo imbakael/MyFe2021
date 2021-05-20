@@ -35,10 +35,10 @@ public class Game : MonoBehaviour
             0, 1, 2, 3, 4
         });
 
-        //List<MapUnit> npcUnits = GameBoard.instance.GetTeam(TeamType.ENEMY);
-        //foreach (var item in npcUnits) {
-        //    ((NPCMapUnit)item).SetViewRange(20);
-        //}
+        List<MapUnit> npcUnits = GameBoard.instance.GetTeam(TeamType.ENEMY);
+        foreach (var item in npcUnits) {
+            ((NPCMapUnit)item).SetViewRange(20);
+        }
     }
 
     private void Update() {

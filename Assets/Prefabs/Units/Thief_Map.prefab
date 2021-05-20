@@ -101,7 +101,7 @@ MonoBehaviour:
   mapUnitAttr:
     movePower: 6
     attackRange: 1
-    moveSpeed: 8
+    moveSpeed: 6
   state: 0
   classId: 1
 --- !u!114 &5579069867964902261

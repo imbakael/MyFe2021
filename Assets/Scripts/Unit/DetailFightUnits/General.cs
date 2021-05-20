@@ -21,6 +21,7 @@ public class General : RealBattleUnit
     }
 
     protected override void Attack() {
+        AudioController.Instance.Play("FinalHit");
         CurData.HandleResult();
         //spearRender.gameObject.SetActive(true);
         StartCoroutine(Pause());

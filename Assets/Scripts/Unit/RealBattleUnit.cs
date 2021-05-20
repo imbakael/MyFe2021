@@ -24,7 +24,9 @@ public abstract class RealBattleUnit : MonoBehaviour
 
     public abstract void Die();
 
-    protected abstract void Attack(); // 动画event
+    protected virtual void Attack() {
+        AudioController.Instance.Play("AttackHit1");
+    }// 动画event
      
     protected abstract void AttackOver(); // 动画event
 

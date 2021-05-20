@@ -72,5 +72,8 @@ public class BattleHealthBar : MonoBehaviour
                 count--;
             }
         }
+        if (lastHp <= 0) {
+            AudioController.Instance.Play("CombatDeath");
+        }
     }
 }

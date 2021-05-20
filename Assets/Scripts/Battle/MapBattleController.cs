@@ -46,6 +46,7 @@ public class MapBattleController : Singleton<MapBattleController>
             Vector3 deltaPos = currentPassiveMapUnit.transform.position - originalPos;
             Vector3 nextPos = originalPos + 0.3f * deltaPos;
             yield return MoveTo(currentActiveMapUnit.transform, nextPos);
+            AudioController.Instance.Play("AttackHit1");
             turnData.HandleResult();
             yield return MoveTo(currentActiveMapUnit.transform, originalPos);
         }

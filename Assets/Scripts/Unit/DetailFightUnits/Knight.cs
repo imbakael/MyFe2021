@@ -23,6 +23,7 @@ public class Knight : RealBattleUnit
     }
 
     protected override void Attack() {
+        base.Attack();
         CurData.HandleResult();
         spearRender.gameObject.SetActive(true);
         StartCoroutine(Pause());

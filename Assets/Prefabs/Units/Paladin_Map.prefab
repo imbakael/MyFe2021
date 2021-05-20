@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapUnitAttr:
-    movePower: 7
+    movePower: 8
     attackRange: 1
-    moveSpeed: 7
+    moveSpeed: 8
   state: 0
   classId: 4
 --- !u!114 &6156362573265698039

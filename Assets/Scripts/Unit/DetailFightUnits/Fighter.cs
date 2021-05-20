@@ -21,6 +21,7 @@ public class Fighter : RealBattleUnit
     }
 
     protected override void Attack() {
+        base.Attack();
         CurData.HandleResult();
         axeRender.gameObject.SetActive(true);
         StartCoroutine(Pause());
