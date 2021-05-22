@@ -12,16 +12,6 @@ public class LevelScriptController : Singleton<LevelScriptController>
     private List<LevelScript> currentLevelScripts; // 每一关剧本由多个剧本子集构成
     private List<List<LevelScript>> allScripts; // 所有关卡剧本
 
-    //private void Start() {
-    //    currentScript = new LevelScript();
-    //}
-
-    //private void Update() {
-    //    if (Input.GetKeyDown(KeyCode.U)) {
-    //        StartScript();
-    //    }
-    //}
-
     public void StartScript() {
         currentScript = new LevelScript();
         StartCoroutine(HandleScript());
