@@ -10,14 +10,6 @@ public class WorldMapUnit : MonoBehaviour
 
     private void Awake() {
         animator = GetComponent<Animator>();
-        Vector2 one = new Vector2(1, 0.8f).normalized;
-        Vector2 two = new Vector2(1, 2f).normalized;
-        Vector2 three = new Vector2(-1, -2f).normalized;
-        Vector2 four = new Vector2(-1, -0.8f).normalized;
-
-        Debug.Log("angle = " + Vector2.Angle(Vector2.right, one) + ", " + Vector2.Angle(two, Vector2.right));
-        Debug.Log("angle = " + Vector2.Angle(Vector2.down, one) + ", " + Vector2.Angle(two, Vector2.down));
-
     }
 
     public void MoveTo(Vector2 target) {
