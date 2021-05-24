@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GamePanel : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class GamePanel : MonoBehaviour
         ChangeTurns();
         switchBattleBtn.onClick.AddListener(OnSwitchClick);
         saveBtn.onClick.AddListener(OnSave);
+        standbyBtn.transform.DOScale(Vector3.one * 1.5f, 2f).SetLoops(-1);
     }
 
     private void OnSwitchClick() {

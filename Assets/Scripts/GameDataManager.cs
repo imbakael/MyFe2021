@@ -21,20 +21,20 @@ public class GameDataManager : Singleton<GameDataManager>
             Debug.Log("File Exists" + json);
         } else {
             List<MapUnitData> mapUnitData = new List<MapUnitData> {
-                new MapUnitData(TeamType.ENEMY, 10, 10, 5, 0, new Role(TeamType.ENEMY, 10, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 10, 13, 3, 0, new Role(TeamType.ENEMY, 10, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 11, 15, 1, 0, new Role(TeamType.ENEMY, 11, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 11, 10, 0, 0, new Role(TeamType.ENEMY, 11, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 12, 7, 3, 0, new Role(TeamType.ENEMY, 12, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 12, 15, 7, 0, new Role(TeamType.ENEMY, 12, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 12, 16, 4, 0, new Role(TeamType.ENEMY, 12, 40, 8, 3, 3, 2, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 13, 11, 9, 0, new Role(TeamType.ENEMY, 13, 40, 8, 3, 3, 2, 20, 4)),
-
-                new MapUnitData(TeamType.My, 0, 0, 8, 0, new Role(TeamType.My, 0, 40, 10, 2, 8, 5, 40, 8)),
-                new MapUnitData(TeamType.My, 1, 1, 9, 0, new Role(TeamType.My, 1, 40, 10, 2, 8, 5, 40, 8)),
-                new MapUnitData(TeamType.My, 2, 1, 7, 0, new Role(TeamType.My, 2, 40, 10, 2, 8, 5, 40, 8)),
-                new MapUnitData(TeamType.My, 3, 2, 8, 0, new Role(TeamType.My, 3, 40, 10, 2, 8, 5, 40, 8)),
-                new MapUnitData(TeamType.My, 4, 0, 6, 0, new Role(TeamType.My, 4, 40, 10, 2, 8, 5, 40, 8)),
+                //                                                                         hp/str/def/ski/luck/d/spd 
+                new MapUnitData(TeamType.ENEMY, 10, 10, 5, 0, new Role(TeamType.ENEMY, 10, 40, 8, 4, 5, 2, 20, 4)),
+                new MapUnitData(TeamType.ENEMY, 10, 13, 3, 0, new Role(TeamType.ENEMY, 10, 40, 8, 4, 5, 2, 20, 4)),
+                new MapUnitData(TeamType.ENEMY, 11, 15, 1, 0, new Role(TeamType.ENEMY, 11, 44, 9, 7, 4, 3, 20, 4)),
+                new MapUnitData(TeamType.ENEMY, 11, 10, 0, 0, new Role(TeamType.ENEMY, 11, 44, 9, 7, 4, 3, 20, 4)),
+                new MapUnitData(TeamType.ENEMY, 12, 7, 3, 0, new Role(TeamType.ENEMY, 12, 33, 7, 4, 6, 4, 40, 6)),
+                new MapUnitData(TeamType.ENEMY, 12, 15, 7, 0, new Role(TeamType.ENEMY, 12, 33, 7, 4, 6, 4, 40, 6)),
+                new MapUnitData(TeamType.ENEMY, 12, 16, 4, 0, new Role(TeamType.ENEMY, 12, 33, 7, 4, 6, 4, 40, 6)),
+                new MapUnitData(TeamType.ENEMY, 13, 11, 9, 0, new Role(TeamType.ENEMY, 13, 60, 14, 8, 8, 5, 20, 5)),
+                new MapUnitData(TeamType.My, 0, 0, 8, 0, new Role(TeamType.My, 0, 35, 10, 4, 13, 7, 40, 11)),
+                new MapUnitData(TeamType.My, 1, 1, 9, 0, new Role(TeamType.My, 1, 30, 7, 2, 8, 5, 40, 10)),
+                new MapUnitData(TeamType.My, 2, 1, 7, 0, new Role(TeamType.My, 2, 42, 10, 5, 4, 4, 40, 4)),
+                new MapUnitData(TeamType.My, 3, 2, 8, 0, new Role(TeamType.My, 3, 33, 9, 4, 6, 4, 40, 6)),
+                new MapUnitData(TeamType.My, 4, 0, 6, 0, new Role(TeamType.My, 4, 45, 12, 7, 9, 8, 40, 7)),
             };
             CreateMapUnits(mapUnitData);
             //SaveAll(new AllSaveData(mapUnitData));

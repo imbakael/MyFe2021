@@ -47,7 +47,7 @@ public class PickUpController : Singleton<PickUpController>
         } else {
             UIManager.Instance.DestroyPanel<UnitSelectedPanel>();
         }
-        click?.Invoke(CurMapUnit != null && CurMapUnit.Team == TeamType.My);
+        click?.Invoke(CurMapUnit != null && CurMapUnit.Team == TeamType.My && CurMapUnit.GetMapState() != 3);
     }
 
     // 待机

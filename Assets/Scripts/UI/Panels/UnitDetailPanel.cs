@@ -53,6 +53,9 @@ public class UnitDetailPanel : MonoBehaviour
         spd.text = role.Spd.ToString();
         luck.text = role.Luck.ToString();
         move.text = unit.GetMovePower.ToString();
+        if (role.ClassId == 0) {
+            transform.FindChildByName("Sword").gameObject.SetActive(true);
+        }
     }
 
     private Sprite GetHeadSprite(int classId) {

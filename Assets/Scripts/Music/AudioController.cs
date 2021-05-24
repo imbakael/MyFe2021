@@ -15,11 +15,13 @@ public class AudioController : Singleton<AudioController>
 
     public void PlayBgm() {
         audioSource.Stop();
-        audioSource.PlayOneShot(bgm);
+        audioSource.clip = bgm;
+        audioSource.Play();
     }
 
     public void PlayBattle() {
         audioSource.Stop();
-        audioSource.PlayOneShot(battle);
+        audioSource.clip = battle;
+        audioSource.Play();
     }
 }
