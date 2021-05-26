@@ -30,7 +30,7 @@ public class PickUpController : Singleton<PickUpController>
     private bool CannotOperate() => CurMapUnit != null && CurMapUnit.CannotOperate();
     private bool CanOperate() => CurMapUnit != null && !CurMapUnit.CannotOperate();
 
-    private LogicTile GetTile() {
+    public LogicTile GetTile() {
         Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int worldPoint = new Vector3Int(Mathf.FloorToInt(point.x), Mathf.FloorToInt(point.y), 0);
         return GameBoard.instance.GetLogicTile(worldPoint);

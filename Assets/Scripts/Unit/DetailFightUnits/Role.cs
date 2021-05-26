@@ -12,7 +12,7 @@ public class Role {
     // 基本信息
     public TeamType Team;
     public string Name;
-    // 职业id，我方 - 0：剑圣，1：盗贼，2：战士，3：枪兵（我方），4：圣骑士
+    // 职业id，我方 - 0：剑圣，1：盗贼，2：战士，3：枪兵（我方），4：圣骑士， 5：魔法师
     // 敌人 - 10：山贼，11：重甲，12：枪兵，13：将军
     public int ClassId; 
     public string ClassName;

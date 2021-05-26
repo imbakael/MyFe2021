@@ -13,6 +13,7 @@ public class LogicTile
     public Vector3Int CellPos { get; set; }
     public MapUnit UnitOnTile { get; set; }
     public bool CanWalk { get; set; } = true;
+    public bool HasObstacle { get; set; } = false; // 是否有障碍物，如冰墙等
     public int LeftAttack { get; set; } // 走到此tile后剩余的攻击射程
     // AStar
     public int F { get; set; }
@@ -21,7 +22,7 @@ public class LogicTile
     public LogicTile Parent { get; set; }
 
     public int MoveCost { get; private set; } = 1; // 经过此Tile所消耗的移动力
-    private LogicTile north, east, south, west;
+    public LogicTile north, east, south, west;
     private int leftMovePower; // 走到此Tile后剩余的移动力
     private int distance;
     private bool isEnemyOn;
@@ -92,7 +93,8 @@ public class LogicTile
     public LogicTile GrowWest() => GrowPathTo(west);
 
     private LogicTile GrowPathTo(LogicTile neighbor) {
-        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk || leftMovePower < neighbor.MoveCost || neighbor.isEnemyOn) {
+        if (!HasPath || neighbor == null || neighbor.HasPath || !neighbor.CanWalk 
+            || leftMovePower < neighbor.MoveCost || neighbor.isEnemyOn || neighbor.HasObstacle) {
             return null;
         }
         neighbor.leftMovePower = leftMovePower - neighbor.MoveCost;

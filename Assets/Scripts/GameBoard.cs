@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -82,6 +83,14 @@ public partial class GameBoard : MonoBehaviour {
 
     public LogicTile GetLogicTile(Vector3 worldPos) => worldTiles.TryGetValue(worldPos, out LogicTile tile) ? tile : null;
 
+    public LogicTile GetLogicTile(int x, int y) {
+        if (x < 0 || y < 0) {
+            return null;
+        }
+        int index = walkMap.size.x * y + x;
+        return index >= 0 && index < allLogicTiles.Length ? allLogicTiles[index] : null;
+    }
+
     public List<LogicTile> GetMoveBoundTiles() => LogicTile.GetAllBoundTiles(movementTiles);
 
     public List<LogicTile> GetMovementTiles() => MyTools.Clone(movementTiles);
@@ -133,13 +142,26 @@ public partial class GameBoard : MonoBehaviour {
         }
     }
 
-    private void CreateUITile(List<LogicTile> tiles, UITileType type) {
+    public void CreateUITile(List<LogicTile> tiles, UITileType type) {
         for (int i = 0; i < tiles.Count; i++) {
-            GameObject tile = Instantiate(uiTilePrefabs[(int)type]);
-            tile.transform.SetParent(tileUIContainer);
-            tile.transform.position = GetWorldPos(tiles[i]);
-            uiTiles.Add(tile);
+            CreateOneUITile(tiles[i], type);
         }
+    }
+
+    public void CreateUITile(int[] position, UITileType type) {
+        for (int i = 0; i < position.Length; i += 2) {
+            LogicTile tile = GetLogicTile(position[i], position[i + 1]);
+            if (tile != null) {
+                CreateOneUITile(tile, type);
+            }
+        }
+    }
+
+    private void CreateOneUITile(LogicTile target, UITileType type) {
+        GameObject tile = Instantiate(uiTilePrefabs[(int)type]);
+        tile.transform.SetParent(tileUIContainer);
+        tile.transform.position = GetWorldPos(target);
+        uiTiles.Add(tile);
     }
 
     private void ShowAttackTiles(LogicTile start, int attackRange) {

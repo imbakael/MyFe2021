@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 2a347b7c785f4874cab71902c018bff5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8610688284025667922
+    second: ice_spell_0
+  - first:
+      213: -4428784738426543201
+    second: ice_spell_1
+  - first:
+      213: 3160503472142074428
+    second: ice_spell_2
+  - first:
+      213: 6169007813249163621
+    second: ice_spell_3
+  - first:
+      213: 8455694031811182159
+    second: ice_spell_4
+  - first:
+      213: -8193036239445761471
+    second: ice_spell_5
+  - first:
+      213: -60459635303961529
+    second: ice_spell_6
+  - first:
+      213: 4821846818384865831
+    second: ice_spell_7
+  - first:
+      213: -6934143207160381791
+    second: ice_spell_8
+  - first:
+      213: -10860552595254465
+    second: ice_spell_9
+  - first:
+      213: 5594371255777433299
+    second: ice_spell_10
+  - first:
+      213: 7354706380036032223
+    second: ice_spell_11
+  - first:
+      213: 2105837510558409434
+    second: ice_spell_12
+  - first:
+      213: 7009442068378784410
+    second: ice_spell_13
+  - first:
+      213: -7818898959242497158
+    second: ice_spell_14
+  - first:
+      213: 9140911436243912665
+    second: ice_spell_15
+  - first:
+      213: 2609497212869318045
+    second: ice_spell_16
+  - first:
+      213: 117995149027361097
+    second: ice_spell_17
+  - first:
+      213: -5439108623692552695
+    second: ice_spell_18
+  - first:
+      213: 1409802896811392079
+    second: ice_spell_19
+  - first:
+      213: 6534068800672079454
+    second: ice_spell_20
+  - first:
+      213: -8615088048213055355
+    second: ice_spell_21
+  - first:
+      213: -45760160984732946
+    second: ice_spell_22
+  - first:
+      213: 7504431423353497910
+    second: ice_spell_23
+  - first:
+      213: 2043743052793316242
+    second: ice_spell_24
+  - first:
+      213: 8270820118662822556
+    second: ice_spell_25
+  - first:
+      213: 3862346979487159739
+    second: ice_spell_26
+  - first:
+      213: 2499076193852043398
+    second: ice_spell_27
+  - first:
+      213: -4464718728058502765
+    second: ice_spell_28
+  - first:
+      213: 6519267258683687650
+    second: ice_spell_29
+  - first:
+      213: -8740597611964163008
+    second: ice_spell_30
+  - first:
+      213: 6498668795933411745
+    second: ice_spell_31
+  - first:
+      213: 1346071425877915029
+    second: ice_spell_32
+  - first:
+      213: 8129928577811501641
+    second: ice_spell_33
+  - first:
+      213: -3221947058681361826
+    second: ice_spell_34
+  - first:
+      213: -8645707849904978700
+    second: ice_spell_35
+  - first:
+      213: 8160808023891316873
+    second: ice_spell_36
+  - first:
+      213: 3403141964975986900
+    second: ice_spell_37
+  - first:
+      213: -2233507045358037629
+    second: ice_spell_38
+  - first:
+      213: -7440127802348459345
+    second: ice_spell_39
+  - first:
+      213: -8476590570608923617
+    second: ice_spell_40
+  - first:
+      213: 2787169187185118342
+    second: ice_spell_41
+  - first:
+      213: 8781746066119705913
+    second: ice_spell_42
+  - first:
+      213: -5194561697851199857
+    second: ice_spell_43
+  - first:
+      213: -171830964065094644
+    second: ice_spell_44
+  - first:
+      213: -6587727268141067230
+    second: ice_spell_45
+  - first:
+      213: -1478483693099911250
+    second: ice_spell_46
+  - first:
+      213: -4285675036469454125
+    second: ice_spell_47
+  - first:
+      213: 4170056869281434152
+    second: ice_spell_48
+  - first:
+      213: 5465350117060914628
+    second: ice_spell_49
+  - first:
+      213: -8386123350414805174
+    second: ice_spell_50
+  - first:
+      213: -3257206417911962590
+    second: ice_spell_51
+  - first:
+      213: -8688808104793243557
+    second: ice_spell_52
+  - first:
+      213: 5174455749352115075
+    second: ice_spell_53
+  - first:
+      213: -4950962869760696306
+    second: ice_spell_54
+  - first:
+      213: 1367509659988977782
+    second: ice_spell_55
+  - first:
+      213: 7920968849195220464
+    second: ice_spell_56
+  - first:
+      213: -4636066888341677985
+    second: ice_spell_57
+  - first:
+      213: 1626681860589310006
+    second: ice_spell_58
+  - first:
+      213: -3462677597701425358
+    second: ice_spell_59
+  - first:
+      213: -8366739444379421764
+    second: ice_spell_60
+  - first:
+      213: 5811812218704385169
+    second: ice_spell_61
+  - first:
+      213: 179745214826643598
+    second: ice_spell_62
+  - first:
+      213: -360652796822198786
+    second: ice_spell_63
+  - first:
+      213: 2992247895629581274
+    second: ice_spell_64
+  - first:
+      213: -3128888665850420014
+    second: ice_spell_65
+  - first:
+      213: -9037637443541855624
+    second: ice_spell_66
+  - first:
+      213: -6541845422850354316
+    second: ice_spell_67
+  - first:
+      213: -4436797784800953771
+    second: ice_spell_68
+  - first:
+      213: 4992533239584428300
+    second: ice_spell_69
+  - first:
+      213: 2982165226914816371
+    second: ice_spell_70
+  - first:
+      213: -2509525969945234992
+    second: ice_spell_71
+  - first:
+      213: -7257582293587907471
+    second: ice_spell_72
+  - first:
+      213: -6407604352416482674
+    second: ice_spell_73
+  - first:
+      213: 948288574467978213
+    second: ice_spell_74
+  - first:
+      213: -3867811555846032313
+    second: ice_spell_75
+  - first:
+      213: -7473680446992650390
+    second: ice_spell_76
+  - first:
+      213: -5544485010456104151
+    second: ice_spell_77
+  - first:
+      213: -6017344970297813358
+    second: ice_spell_78
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ice_spell_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 581
+        width: 38
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251c7f87f5f4f7770800000000000000
+      internalID: 8610688284025667922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 580
+        width: 60
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f932a6fbebbc982c0800000000000000
+      internalID: -4428784738426543201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 579
+        width: 72
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32ca60b92d5cdb20800000000000000
+      internalID: 3160503472142074428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_3
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 579
+        width: 71
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561635ddbe7bc9550800000000000000
+      internalID: 6169007813249163621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_4
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 579
+        width: 72
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4efe77fbe8a85570800000000000000
+      internalID: 8455694031811182159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_5
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 433
+        width: 72
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142eee3e2fc7c4e80800000000000000
+      internalID: -8193036239445761471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 433
+        width: 72
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c25723844392ff0800000000000000
+      internalID: -60459635303961529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_7
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 433
+        width: 72
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a6d235224aae240800000000000000
+      internalID: 4821846818384865831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_8
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 433
+        width: 71
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae7483ed79f4cf90800000000000000
+      internalID: -6934143207160381791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_9
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 433
+        width: 72
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33de7c826a69dff0800000000000000
+      internalID: -10860552595254465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_10
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 287
+        width: 71
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d61542540333ad40800000000000000
+      internalID: 5594371255777433299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_11
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 287
+        width: 71
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6c8595c7a211660800000000000000
+      internalID: 7354706380036032223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_12
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 287
+        width: 75
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2e6830f00793d10800000000000000
+      internalID: 2105837510558409434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_13
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 287
+        width: 74
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92956f6c6a864160800000000000000
+      internalID: 7009442068378784410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_14
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 287
+        width: 80
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73fda7a2d0bd7390800000000000000
+      internalID: -7818898959242497158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_15
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 142
+        width: 98
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7cf98458a0bde70800000000000000
+      internalID: 9140911436243912665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_16
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 143
+        width: 121
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95927fa3ebc63420800000000000000
+      internalID: 2609497212869318045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 143
+        width: 133
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941cefe76f333a100800000000000000
+      internalID: 117995149027361097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_18
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 143
+        width: 142
+        height: 139
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906aa0e36876484b0800000000000000
+      internalID: -5439108623692552695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_19
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 144
+        width: 150
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c72c3e340a09310800000000000000
+      internalID: 1409802896811392079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_spell_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 6
+        width: 138
+        height: 130
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e950a84fcadaa50800000000000000
+      internalID: 6534068800672079454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

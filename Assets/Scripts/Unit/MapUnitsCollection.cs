@@ -45,16 +45,8 @@ public class MapUnitsCollection
         }
     }
 
-    public void AllNextTurn() {
-        foreach (var item in collection) {
-            foreach (MapUnit mapUnit in item.Value) {
-                mapUnit.SetIdle();
-            }
-        }
-    }
-
     public List<MapUnit> GetAllOtherUnits(TeamType ignoreTeam) {
-        List<MapUnit> result = new List<MapUnit>();
+        var result = new List<MapUnit>();
         foreach (var item in collection) {
             if (item.Key != ignoreTeam) {
                 result.AddRange(item.Value);

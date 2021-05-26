@@ -13,17 +13,13 @@ public partial class GameBoard
 
     public List<MapUnit> GetTeam(TeamType team) => mapUnitsCollection.GetTeam(team);
 
-    public void AllNextTurn() => mapUnitsCollection.AllNextTurn();
-
     public void NextTurn(TeamType teamType) => mapUnitsCollection.NextTurn(teamType);
 
     public void CreateMapUnits(MapUnitData data) {
         if (mapUnitsCollection == null) {
             mapUnitsCollection = new MapUnitsCollection();
         }
-        Vector2Int cellPos = new Vector2Int(data.x, data.y);
-        int index = walkMap.size.x * cellPos.y + cellPos.x;
-        LogicTile tile = allLogicTiles[index];
+        LogicTile tile = GetLogicTile(data.x, data.y);
         MapUnit prefab = GetMapUnitPrefab(data.team, data.classId);
         MapUnit unit = Instantiate(prefab);
         unit.Init(data.role, tile, data.state);

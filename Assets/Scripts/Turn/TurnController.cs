@@ -7,7 +7,7 @@ using UnityEngine;
 // 回合控制器, 优先行动顺序：我方 -> 友军 -> 敌人 -> 中立
 public class TurnController : MonoBehaviour
 {
-    public static event Action turnUp;
+    public static event Action turnCountUp;
     public static event Action showSaveBtn;
     public static event Action hideSaveBtn;
     public static bool isMyTurn = true;
@@ -24,7 +24,7 @@ public class TurnController : MonoBehaviour
             // 隐藏存档按钮
             hideSaveBtn?.Invoke();
             yield return OtherTurn();
-            turnUp?.Invoke();
+            turnCountUp?.Invoke();
         }
     }
 
