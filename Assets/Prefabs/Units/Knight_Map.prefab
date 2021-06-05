@@ -105,7 +105,7 @@ MonoBehaviour:
     moveSpeed: 2
   state: 0
   classId: 11
-  viewRange: 10
+  viewRange: 15
 --- !u!95 &8881778355834079646
 Animator:
   serializedVersion: 3

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapUnitAttr:
-    movePower: 6
+    movePower: 7
     attackRange: 1
     moveSpeed: 6
   state: 0

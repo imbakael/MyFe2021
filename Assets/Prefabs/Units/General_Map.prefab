@@ -105,7 +105,7 @@ MonoBehaviour:
     moveSpeed: 2
   state: 0
   classId: 13
-  viewRange: 10
+  viewRange: 20
 --- !u!114 &9018858734609165078
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,8 +11,11 @@ public class PickUpController : Singleton<PickUpController>
     public event Action<bool> click;
 
     private void Update() {
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
         if (Input.GetMouseButtonUp(0)) {
-            if (EventSystem.current.IsPointerOverGameObject() || CannotOperate()) {
+            if (CannotOperate()) {
                 return;
             }
             LogicTile tile = GetTile();
@@ -20,10 +23,6 @@ public class PickUpController : Singleton<PickUpController>
                 return;
             }
             HandleLastAndCurrentMapUnit(tile);
-        }
-
-        if (Input.GetKeyDown(KeyCode.N)) {
-            GameBoard.instance.NextTurn(TeamType.My);
         }
     }
 

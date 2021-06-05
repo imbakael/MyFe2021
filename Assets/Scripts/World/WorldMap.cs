@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WorldMap : MonoBehaviour
 {
     [SerializeField] private WorldMapUnit player = default;
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, Vector2.down);
             if (hit.collider != null) {
