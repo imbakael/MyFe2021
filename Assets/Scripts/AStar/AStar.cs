@@ -65,10 +65,9 @@ public class AStar
 
     private static List<LogicTile> GetPath(LogicTile n) {
         var path = new List<LogicTile> { n };
-        LogicTile p = n.Parent;
-        while (p != null) {
+        LogicTile p = n;
+        while ((p = p.Parent) != null) {
             path.Add(p);
-            p = p.Parent;
         }
         path.Reverse();
         return path;

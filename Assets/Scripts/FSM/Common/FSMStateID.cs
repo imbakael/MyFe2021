@@ -8,4 +8,6 @@ public enum FSMStateID {
     Attack, // 攻击
     Dead, // 死亡
     Standby // 待机
+            // 逃跑
+            // 优先攻击hp最低的
 }

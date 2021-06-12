@@ -30,7 +30,7 @@ public abstract class MapUnit : MonoBehaviour
 
     private void Awake() {
         board = GameBoard.instance;
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void Init(Role role, LogicTile tile, int state) {

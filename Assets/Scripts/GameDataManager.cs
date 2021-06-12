@@ -26,10 +26,11 @@ public class GameDataManager : Singleton<GameDataManager>
                 new MapUnitData(TeamType.ENEMY, 10, 13, 3, 0, new Role(TeamType.ENEMY, 10, 40, 8, 3, 5, 2, 20, 4)),
                 new MapUnitData(TeamType.ENEMY, 11, 15, 1, 0, new Role(TeamType.ENEMY, 11, 44, 9, 5, 4, 3, 20, 4)),
                 new MapUnitData(TeamType.ENEMY, 11, 10, 0, 0, new Role(TeamType.ENEMY, 11, 44, 9, 5, 4, 3, 20, 4)),
-                new MapUnitData(TeamType.ENEMY, 12, 9, 4, 0, new Role(TeamType.ENEMY, 12, 33, 7, 3, 6, 4, 40, 6)),
+                new MapUnitData(TeamType.ENEMY, 12, 11, 4, 0, new Role(TeamType.ENEMY, 12, 33, 7, 3, 6, 4, 40, 6)),
                 new MapUnitData(TeamType.ENEMY, 12, 15, 7, 0, new Role(TeamType.ENEMY, 12, 33, 7, 3, 6, 4, 40, 6)),
                 new MapUnitData(TeamType.ENEMY, 12, 16, 4, 0, new Role(TeamType.ENEMY, 12, 33, 7, 3, 6, 4, 40, 6)),
                 new MapUnitData(TeamType.ENEMY, 13, 11, 9, 0, new Role(TeamType.ENEMY, 13, 60, 14, 6, 8, 5, 20, 5)),
+
                 new MapUnitData(TeamType.My, 0, 0, 8, 0, new Role(TeamType.My, 0, 35, 10, 4, 13, 7, 40, 11)),
                 new MapUnitData(TeamType.My, 1, 1, 9, 0, new Role(TeamType.My, 1, 30, 9, 3, 8, 5, 40, 10)),
                 new MapUnitData(TeamType.My, 2, 1, 7, 0, new Role(TeamType.My, 2, 42, 10, 5, 4, 4, 40, 4)),
@@ -38,7 +39,7 @@ public class GameDataManager : Singleton<GameDataManager>
             };
             CreateMapUnits(mapUnitData);
             //SaveAll(new AllSaveData(mapUnitData));
-            LevelScriptController.Instance.StartScript();
+            //LevelScriptController.Instance.StartScript();
         }
     }
 
@@ -54,7 +55,7 @@ public class GameDataManager : Singleton<GameDataManager>
         List<MapUnit> enemy = GameBoard.instance.GetTeam(TeamType.ENEMY);
         mapUnitData.AddRange(GetOneTeamData(my));
         mapUnitData.AddRange(GetOneTeamData(enemy));
-        AllSaveData data = new AllSaveData(mapUnitData);
+        var data = new AllSaveData(mapUnitData);
         SaveAll(data);
     }
 
