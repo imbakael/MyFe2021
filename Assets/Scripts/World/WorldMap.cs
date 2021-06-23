@@ -23,7 +23,6 @@ public class WorldMap : MonoBehaviour
                 }
             }
             Debug.DrawRay(ray.origin, ray.direction, Color.green, 0.5f);
-
         }
     }
 

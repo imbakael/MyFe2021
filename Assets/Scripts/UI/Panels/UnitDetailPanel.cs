@@ -44,14 +44,14 @@ public class UnitDetailPanel : MonoBehaviour
         lv.text = role.Lv.ToString();
         exp.text = role.Exp.ToString();
         hp.text = role.Hp + "/" + role.MaxHp;
-        str.text = role.Str.ToString();
-        mag.text = role.Mag.ToString();
-        def.text = role.Def.ToString();
-        res.text = role.Res.ToString();
-        ski.text = role.Ski.ToString();
-        con.text = role.Con.ToString();
-        spd.text = role.Spd.ToString();
-        luck.text = role.Luck.ToString();
+        str.text = role.baseAbility.str.ToString();
+        mag.text = role.baseAbility.mag.ToString();
+        def.text = role.baseAbility.def.ToString();
+        res.text = role.baseAbility.res.ToString();
+        ski.text = role.baseAbility.ski.ToString();
+        con.text = role.baseAbility.con.ToString();
+        spd.text = role.baseAbility.spd.ToString();
+        luck.text = role.baseAbility.luck.ToString();
         move.text = unit.GetMovePower.ToString();
         if (role.ClassId == 0) {
             transform.FindChildByName("Sword").gameObject.SetActive(true);

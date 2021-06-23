@@ -33,6 +33,6 @@ public class BattleUnit {
         CritAvoid = role.CritAvoid;
         CritTimes = role.CritTimes;
         Durability = role.Durability;
-        Speed = role.Spd;
+        Speed = role.Speed;
     }
 }

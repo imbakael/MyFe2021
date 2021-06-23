@@ -34,13 +34,13 @@ public class LevelUpPanel : MonoBehaviour
         className.text = role.ClassName;
         level.text = role.Lv.ToString();
         hp.text = role.MaxHp.ToString();
-        str.text = role.Str.ToString();
-        ski.text = role.Ski.ToString();
-        spd.text = role.Spd.ToString();
-        luck.text = role.Luck.ToString();
-        def.text = role.Def.ToString();
-        magicDef.text = role.Res.ToString();
-        con.text = role.Con.ToString();
+        str.text = role.baseAbility.str.ToString();
+        ski.text = role.baseAbility.ski.ToString();
+        spd.text = role.baseAbility.spd.ToString();
+        luck.text = role.baseAbility.luck.ToString();
+        def.text = role.baseAbility.def.ToString();
+        magicDef.text = role.baseAbility.res.ToString();
+        con.text = role.baseAbility.con.ToString();
     }
 
     public void LevelUp(string value) {

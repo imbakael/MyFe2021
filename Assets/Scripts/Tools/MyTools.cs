@@ -1,5 +1,9 @@
-﻿using System.Collections;
+﻿using LitJson;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public static class MyTools
@@ -39,15 +43,31 @@ public static class MyTools
         return null;
     }
 
-    public static Vector3 SetX(this Vector3 vector, float x) {
-        return new Vector3(x, vector.y, vector.z);
+    public static Dictionary<string, float> GetPropertyDic(string s, string key) {
+        JsonData data = JsonMapper.ToObject(s);
+        string value = data[key].ToString();
+        Debug.LogError("value = " + value);
+        Dictionary<string, float> result = new Dictionary<string, float>();
+        if (value != null) {
+            string[] array = value.Split('|');
+            for (int i = 0; i < array.Length; i++) {
+                string item = array[i];
+                string[] inside = item.Split('_');
+                string k = inside[0];
+                string v = inside[1];
+                result[k] = Convert.ToSingle(v);
+            }
+        }
+        return result;
     }
 
-    public static Vector3 SetY(this Vector3 vector, float y) {
-        return new Vector3(vector.x, y, vector.z);
+    public static void ChangeFieldValue(object src, string name, float change) {
+        float propertyValue = GetFieldValue<float>(src, name);
+        src.GetType().GetField(name).SetValue(src, propertyValue + change);
     }
 
-    public static Vector3 SetZ(this Vector3 vector, float z) {
-        return new Vector3(vector.x, vector.y, z);
+    public static T GetFieldValue<T>(object src, string propName) {
+        return (T)src.GetType().GetField(propName).GetValue(src);
     }
+
 }
